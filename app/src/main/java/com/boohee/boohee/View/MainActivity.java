@@ -25,29 +25,30 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
     int currentfragmentIndex = 0;
+    int lastChecked =0;
     //中间添加
     @BindView(R.id.Main_AddImg)
-    private ImageView mainAddImg;
+    public ImageView mainAddImg;
     //减肥
     @BindView(R.id.JianFei_Img)
-    private ImageView reduceweightImage;
+    public ImageView reduceweightImage;
     @BindView(R.id.JianFei_Text)
-    private TextView reduceweightText;
+    public TextView reduceweightText;
     //伙伴
     @BindView(R.id.HuoBan_Img)
-    private ImageView  partnerImage;
+    public ImageView  partnerImage;
     @BindView(R.id.HuoBan_Text)
-    private TextView  partnerText;
+    public TextView  partnerText;
     //商店
     @BindView(R.id.Shop_Img)
-    private ImageView shopImage;
+    public ImageView shopImage;
     @BindView(R.id.Shop_Text)
-    private TextView shopText;
+    public TextView shopText;
     //我
     @BindView(R.id.Me_Img)
-    private ImageView meImage;
+    public ImageView meImage;
     @BindView(R.id.Me_Text)
-    private TextView meText;
+    public TextView meText;
     private FragmentManager manager;
     //存放fragment的集合
     private List<Fragment> fragmentList;
@@ -128,20 +129,26 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.JianFei_Img:{
-                tabFragment(0);
-                    imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
-                    imageViewList.get(0).setBackgroundResource(R.mipmap.a83);
-                    textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
-                    textViewList.get(0).setTextColor(Color.rgb(41,165,82));
+                if(lastChecked !=0) {
+                    tabFragment(0);
+                    imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
+                    imageViewList.get(0).setImageResource(R.mipmap.a83);
+                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
+                    textViewList.get(0).setTextColor(Color.rgb(41, 165, 82));
+                    lastChecked =0;
+                }
 
             }
                 break;
             case R.id.HuoBan_Img:
-                tabFragment(1);
-                    imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
-                    imageViewList.get(1).setBackgroundResource(R.mipmap.a81);
-                    textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
-                    textViewList.get(1).setTextColor(Color.rgb(41,165,82));
+                if(lastChecked !=1) {
+                    tabFragment(1);
+                    imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
+                    imageViewList.get(1).setImageResource(R.mipmap.a81);
+                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
+                    textViewList.get(1).setTextColor(Color.rgb(41, 165, 82));
+                    lastChecked =1;
+                }
                 break;
             case R.id.Main_AddImg:
 //                tabFragment(2);
@@ -151,18 +158,26 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 //                }
                 break;
             case R.id.Shop_Img:
-                tabFragment(2);
-                    imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
-                    imageViewList.get(2).setBackgroundResource(R.mipmap.a87);
-                    textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
-                    textViewList.get(2).setTextColor(Color.rgb(41,165,82));
+                if(lastChecked !=2) {
+                    tabFragment(2);
+                    imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
+                    imageViewList.get(2).setImageResource(R.mipmap.a87);
+                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
+                    textViewList.get(2).setTextColor(Color.rgb(41, 165, 82));
+
+                    lastChecked =2;
+                }
                 break;
             case R.id.Me_Img:
-                tabFragment(3);
-                    imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
-                    imageViewList.get(3).setBackgroundResource(R.mipmap.a85);
-                    textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
-                    textViewList.get(3).setTextColor(Color.rgb(41,165,82));
+                if(lastChecked !=3) {
+                    tabFragment(3);
+                    imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
+                    imageViewList.get(3).setImageResource(R.mipmap.a85);
+                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
+                    textViewList.get(3).setTextColor(Color.rgb(41, 165, 82));
+
+                    lastChecked =3;
+                }
                 break;
         }
     }
