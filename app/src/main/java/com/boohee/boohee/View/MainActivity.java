@@ -24,30 +24,30 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
-    int currentfragmentIndex = 0;
     //中间添加
     @BindView(R.id.Main_AddImg)
-    private ImageView mainAddImg;
+    public ImageView mainAddImg;
     //减肥
     @BindView(R.id.JianFei_Img)
-    private ImageView reduceweightImage;
+    public ImageView reduceweightImage;
     @BindView(R.id.JianFei_Text)
-    private TextView reduceweightText;
+    public TextView reduceweightText;
     //伙伴
     @BindView(R.id.HuoBan_Img)
-    private ImageView  partnerImage;
+    public ImageView partnerImage;
     @BindView(R.id.HuoBan_Text)
-    private TextView  partnerText;
+    public TextView partnerText;
     //商店
     @BindView(R.id.Shop_Img)
-    private ImageView shopImage;
+    public ImageView shopImage;
     @BindView(R.id.Shop_Text)
-    private TextView shopText;
+    public TextView shopText;
     //我
     @BindView(R.id.Me_Img)
-    private ImageView meImage;
+    public ImageView meImage;
     @BindView(R.id.Me_Text)
-    private TextView meText;
+    public TextView meText;
+    int currentfragmentIndex = 0;
     private FragmentManager manager;
     //存放fragment的集合
     private List<Fragment> fragmentList;
