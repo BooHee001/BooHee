@@ -135,23 +135,19 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         switch (view.getId()){
             case R.id.JianFei_Img:{
                 tabFragment(0);
-                if (currentfragmentIndex != 0) {
                     imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
                     imageViewList.get(0).setBackgroundResource(R.mipmap.a83);
                     textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
                     textViewList.get(0).setTextColor(Color.rgb(41,165,82));
-                }
 
             }
                 break;
             case R.id.HuoBan_Img:
                 tabFragment(1);
-                if (currentfragmentIndex != 1) {
                     imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
                     imageViewList.get(1).setBackgroundResource(R.mipmap.a81);
                     textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
                     textViewList.get(1).setTextColor(Color.rgb(41,165,82));
-                }
                 break;
             case R.id.Main_AddImg:
 //                tabFragment(2);
@@ -162,21 +158,17 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 break;
             case R.id.Shop_Img:
                 tabFragment(2);
-                if (currentfragmentIndex !=2) {
                     imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
                     imageViewList.get(2).setBackgroundResource(R.mipmap.a87);
                     textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
                     textViewList.get(2).setTextColor(Color.rgb(41,165,82));
-                }
                 break;
             case R.id.Me_Img:
                 tabFragment(3);
-                if (currentfragmentIndex != 3) {
                     imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
                     imageViewList.get(3).setBackgroundResource(R.mipmap.a85);
                     textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
                     textViewList.get(3).setTextColor(Color.rgb(41,165,82));
-                }
                 break;
         }
     }
