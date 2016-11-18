@@ -1,22 +1,20 @@
 package com.boohee.boohee.View;
 
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.boohee.boohee.R;
 import com.boohee.boohee.fragment.LoseWeightFragment;
 import com.boohee.boohee.fragment.MeFragment;
-import com.boohee.boohee.fragment.MenuFragment;
 import com.boohee.boohee.fragment.PartnerFragment;
 import com.boohee.boohee.fragment.ShopFragment;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +24,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
+    int currentfragmentIndex = 0;
     //中间添加
     @BindView(R.id.Main_AddImg)
     private ImageView mainAddImg;
@@ -34,25 +33,21 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     private ImageView reduceweightImage;
     @BindView(R.id.JianFei_Text)
     private TextView reduceweightText;
-
     //伙伴
     @BindView(R.id.HuoBan_Img)
     private ImageView  partnerImage;
     @BindView(R.id.HuoBan_Text)
     private TextView  partnerText;
-
     //商店
     @BindView(R.id.Shop_Img)
     private ImageView shopImage;
     @BindView(R.id.Shop_Text)
     private TextView shopText;
-
     //我
     @BindView(R.id.Me_Img)
     private ImageView meImage;
     @BindView(R.id.Me_Text)
     private TextView meText;
-
     private FragmentManager manager;
     //存放fragment的集合
     private List<Fragment> fragmentList;
@@ -64,7 +59,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     private List<Integer> imageList;
     private FragmentTransaction transaction;
 
-    int currentfragmentIndex =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

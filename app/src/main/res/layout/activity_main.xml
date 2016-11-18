@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.boohee.boohee.MainActivity">
+    tools:context="com.boohee.boohee.View.MainActivity">
 
 
     <LinearLayout
@@ -71,8 +71,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginBottom="3dp"
-            android:layout_marginTop="3dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
             android:layout_weight="1"
             android:src="@mipmap/a4l" />
 
@@ -136,7 +136,7 @@
         android:layout_alignTop="@id/Main_Layout"
         android:background="#999" />
 
-    <View
+    <GridLayout
         android:id="@+id/Main_View"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
