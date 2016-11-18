@@ -23,6 +23,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/loseWeightLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -49,6 +50,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/PartnerLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -85,6 +87,7 @@
             android:src="@mipmap/a4l" />
 
         <LinearLayout
+            android:id="@+id/ShopLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -111,6 +114,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/MeLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -140,7 +144,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
         android:layout_alignTop="@id/Main_Layout"
         android:background="#999" />
 

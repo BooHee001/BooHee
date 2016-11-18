@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.boohee.boohee.R;
@@ -26,14 +27,22 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
     int currentfragmentIndex = 0;
     int lastChecked =0;
+    @BindView(R.id.loseWeightLayout)
+    public LinearLayout loseweightLayout;
+    @BindView(R.id.MeLayout)
+    public LinearLayout meLayout;
+    @BindView(R.id.PartnerLayout)
+    public LinearLayout partnerLayout;
+    @BindView(R.id.ShopLayout)
+    public LinearLayout shopLayout;
     //中间添加
     @BindView(R.id.Main_AddImg)
     public ImageView mainAddImg;
     //减肥
     @BindView(R.id.JianFei_Img)
-    public ImageView reduceweightImage;
+    public ImageView loseweightImage;
     @BindView(R.id.JianFei_Text)
-    public TextView reduceweightText;
+    public TextView loseweightText;
     //伙伴
     @BindView(R.id.HuoBan_Img)
     public ImageView  partnerImage;
@@ -67,15 +76,17 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         ButterKnife.bind(this);
         initView();
         setListener();
+        transaction.add(R.id.Main_View,fragmentList.get(0));
+        transaction.commit();
     }
 
     //给主页下面四个图片设置点击监听事件
     private void setListener() {
         mainAddImg.setOnClickListener(this);
-        reduceweightImage.setOnClickListener(this);
-        partnerImage.setOnClickListener(this);
-        shopImage.setOnClickListener(this);
-        meImage.setOnClickListener(this);
+        loseweightLayout.setOnClickListener(this);
+        partnerLayout.setOnClickListener(this);
+        shopLayout.setOnClickListener(this);
+        meLayout.setOnClickListener(this);
 
     }
 
@@ -99,6 +110,10 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
 
     private void initView() {
+
+        manager=getSupportFragmentManager();
+        transaction=manager.beginTransaction();
+
         fragmentList = new ArrayList<>();
         fragmentList.add(new LoseWeightFragment());
         fragmentList.add(new PartnerFragment());
@@ -106,7 +121,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         fragmentList.add(new MeFragment());
 
         imageViewList = new ArrayList<>();
-        imageViewList.add(reduceweightImage);
+        imageViewList.add(loseweightImage);
         imageViewList.add(partnerImage);
         imageViewList.add(shopImage);
         imageViewList.add(meImage);
@@ -118,7 +133,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         imageList.add(R.mipmap.a84);
 
         textViewList = new ArrayList<>();
-        textViewList.add(reduceweightText);
+        textViewList.add(loseweightText);
         textViewList.add(partnerText);
         textViewList.add(shopText);
         textViewList.add(meText);
@@ -128,7 +143,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.JianFei_Img:{
+            case R.id.loseWeightLayout:{
                 if(lastChecked !=0) {
                     tabFragment(0);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
@@ -140,7 +155,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
             }
                 break;
-            case R.id.HuoBan_Img:
+            case R.id.PartnerLayout:
                 if(lastChecked !=1) {
                     tabFragment(1);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
@@ -157,7 +172,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 //                    imageViewList.get(0).setBackgroundResource(R.mipmap.a4l);
 //                }
                 break;
-            case R.id.Shop_Img:
+            case R.id.ShopLayout:
                 if(lastChecked !=2) {
                     tabFragment(2);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
@@ -168,7 +183,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                     lastChecked =2;
                 }
                 break;
-            case R.id.Me_Img:
+            case R.id.MeLayout:
                 if(lastChecked !=3) {
                     tabFragment(3);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
