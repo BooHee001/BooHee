@@ -22,33 +22,32 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
     int currentfragmentIndex = 0;
-    int lastChecked=0;
     //中间添加
     @BindView(R.id.Main_AddImg)
-    public ImageView mainAddImg;
+    private ImageView mainAddImg;
     //减肥
     @BindView(R.id.JianFei_Img)
-    public ImageView reduceweightImage;
+    private ImageView reduceweightImage;
     @BindView(R.id.JianFei_Text)
-    public TextView reduceweightText;
+    private TextView reduceweightText;
     //伙伴
     @BindView(R.id.HuoBan_Img)
-    public ImageView partnerImage;
+    private ImageView  partnerImage;
     @BindView(R.id.HuoBan_Text)
-    public TextView partnerText;
+    private TextView  partnerText;
     //商店
     @BindView(R.id.Shop_Img)
-    public ImageView shopImage;
+    private ImageView shopImage;
     @BindView(R.id.Shop_Text)
-    public TextView shopText;
+    private TextView shopText;
     //我
     @BindView(R.id.Me_Img)
-    public ImageView meImage;
+    private ImageView meImage;
     @BindView(R.id.Me_Text)
-    public TextView meText;
+    private TextView meText;
     private FragmentManager manager;
     //存放fragment的集合
     private List<Fragment> fragmentList;
@@ -79,21 +78,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void tabFragment(int fragmentIndex) {
-        if (currentfragmentIndex != fragmentIndex) {
-            manager = getSupportFragmentManager();
-            transaction = manager.beginTransaction();
+    public void tabFragment(int fragmentIndex){
+        if(currentfragmentIndex!=fragmentIndex){
+            manager=getSupportFragmentManager();
+            transaction=manager.beginTransaction();
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
-            Fragment formFragment = fragmentList.get(currentfragmentIndex);
-            Fragment toFragment = fragmentList.get(fragmentIndex);
-            if (!toFragment.isAdded()) {
-                transaction.hide(formFragment).add(R.id.Main_View, toFragment);
-            } else {
+            Fragment formFragment=fragmentList.get(currentfragmentIndex);
+            Fragment toFragment=fragmentList.get(fragmentIndex);
+            if(!toFragment.isAdded()){
+                transaction.hide(formFragment).add(R.id.Main_View,toFragment);
+            }else{
                 transaction.hide(formFragment).show(toFragment);
             }
 //                transaction.addToBackStack(null);
             transaction.commit();
-            currentfragmentIndex = fragmentIndex;
+            currentfragmentIndex=fragmentIndex;
         }
     }
 
@@ -127,27 +126,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.JianFei_Img:
-                if(lastChecked !=0) {
-                    tabFragment(0);
-                    imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
-                    imageViewList.get(0).setImageResource(R.mipmap.a83);
-                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
-                    textViewList.get(0).setTextColor(Color.rgb(41, 165, 82));
-                    lastChecked =0;
-                }
-            break;
-            case R.id.HuoBan_Img:
-                if(lastChecked !=1) {
-                    tabFragment(1);
-                    imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
-                    imageViewList.get(1).setImageResource(R.mipmap.a81);
-                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
-                    textViewList.get(1).setTextColor(Color.rgb(41, 165, 82));
+        switch (view.getId()){
+            case R.id.JianFei_Img:{
+                tabFragment(0);
+                    imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
+                    imageViewList.get(0).setBackgroundResource(R.mipmap.a83);
+                    textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
+                    textViewList.get(0).setTextColor(Color.rgb(41,165,82));
 
-                    lastChecked = 1;
-                }
+            }
+                break;
+            case R.id.HuoBan_Img:
+                tabFragment(1);
+                    imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
+                    imageViewList.get(1).setBackgroundResource(R.mipmap.a81);
+                    textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
+                    textViewList.get(1).setTextColor(Color.rgb(41,165,82));
                 break;
             case R.id.Main_AddImg:
 //                tabFragment(2);
@@ -157,26 +151,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                }
                 break;
             case R.id.Shop_Img:
-                if(lastChecked !=2) {
-                    tabFragment(2);
-                    imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
-                    imageViewList.get(2).setImageResource(R.mipmap.a87);
-                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
-                    textViewList.get(2).setTextColor(Color.rgb(41, 165, 82));
-
-                    lastChecked = 2;
-                }
+                tabFragment(2);
+                    imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
+                    imageViewList.get(2).setBackgroundResource(R.mipmap.a87);
+                    textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
+                    textViewList.get(2).setTextColor(Color.rgb(41,165,82));
                 break;
             case R.id.Me_Img:
-                if(lastChecked !=3) {
-                    tabFragment(3);
-                    imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
-                    imageViewList.get(3).setImageResource(R.mipmap.a85);
-                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
-                    textViewList.get(3).setTextColor(Color.rgb(41, 165, 82));
-
-                    lastChecked = 3;
-                }
+                tabFragment(3);
+                    imageViewList.get(currentfragmentIndex).setBackgroundResource(imageList.get(currentfragmentIndex));
+                    imageViewList.get(3).setBackgroundResource(R.mipmap.a85);
+                    textViewList.get(currentfragmentIndex).setTextColor(Color.rgb(9,9,9));
+                    textViewList.get(3).setTextColor(Color.rgb(41,165,82));
                 break;
         }
     }
