@@ -11,46 +11,46 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.boohee.boohee.R;
 import com.boohee.boohee.fragment.LoseWeightFragment;
 import com.boohee.boohee.fragment.MeFragment;
 import com.boohee.boohee.fragment.MenuFragment;
 import com.boohee.boohee.fragment.PartnerFragment;
 import com.boohee.boohee.fragment.ShopFragment;
 
-import org.xutils.view.annotation.ViewInject;
-import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
     //中间添加
-    @ViewInject(R.id.Main_AddImg)
+    @BindView(R.id.Main_AddImg)
     private ImageView mainAddImg;
     //减肥
-    @ViewInject(R.id.JianFei_Img)
+    @BindView(R.id.JianFei_Img)
     private ImageView reduceweightImage;
-    @ViewInject(R.id.JianFei_Text)
+    @BindView(R.id.JianFei_Text)
     private TextView reduceweightText;
 
     //伙伴
-    @ViewInject(R.id.HuoBan_Img)
+    @BindView(R.id.HuoBan_Img)
     private ImageView  partnerImage;
-    @ViewInject(R.id.HuoBan_Text)
+    @BindView(R.id.HuoBan_Text)
     private TextView  partnerText;
 
     //商店
-    @ViewInject(R.id.Shop_Img)
+    @BindView(R.id.Shop_Img)
     private ImageView shopImage;
-    @ViewInject(R.id.Shop_Text)
+    @BindView(R.id.Shop_Text)
     private TextView shopText;
 
     //我
-    @ViewInject(R.id.Me_Img)
+    @BindView(R.id.Me_Img)
     private ImageView meImage;
-    @ViewInject(R.id.Me_Text)
+    @BindView(R.id.Me_Text)
     private TextView meText;
 
     private FragmentManager manager;
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        x.view().inject(this);
+        ButterKnife.bind(this);
         initView();
         setListener();
     }
