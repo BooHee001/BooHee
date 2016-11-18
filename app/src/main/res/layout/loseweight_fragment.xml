@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_xietiao"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/ctll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|exitUntilCollapsed|snap|enterAlways"
+            >
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:layout_collapseMode="none">
+
+            </android.support.v7.widget.Toolbar>
+
+            <ImageView
+                android:id="@+id/simg"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="150dp"
+                android:src="@drawable/a8p"
+                app:layout_collapseMode="pin"
+                app:layout_collapseParallaxMultiplier="0.7"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:behavior_overlapTop="30dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                app:cardElevation="8dp"
+                app:contentPadding="5dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/tb_zs1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:civ_border_overlay="true"
+                        android:src="@drawable/a8p"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/tb_zs1"
+                        android:layout_centerVertical="true"
+                        android:text="钻石打卡" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:text="打卡"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                app:cardElevation="8dp"
+                app:contentPadding="5dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/tb_zs2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:civ_border_overlay="true"
+                        android:src="@drawable/a8s"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/tb_zs2"
+                        android:layout_centerVertical="true"
+                        android:text="钻石打卡" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:text="打卡"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:background="#fff"
+                app:cardElevation="8dp"
+                app:contentPadding="5dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/tb_zs4"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:civ_border_overlay="true"
+                        android:src="@drawable/a8s"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/tb_zs4"
+                        android:layout_centerVertical="true"
+                        android:text="钻石打卡" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:text="打卡"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                app:cardElevation="8dp"
+                app:contentPadding="5dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/tb_zs"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:civ_border_overlay="true"
+                        android:src="@drawable/a8s"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/tb_zs"
+                        android:layout_centerVertical="true"
+                        android:text="钻石打卡" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:text="打卡"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
