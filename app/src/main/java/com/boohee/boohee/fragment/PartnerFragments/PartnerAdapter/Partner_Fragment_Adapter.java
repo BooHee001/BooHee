@@ -1,4 +1,4 @@
-package com.boohee.boohee.PartnerFragments.PartnerAdapter;
+package com.boohee.boohee.fragment.PartnerFragments.PartnerAdapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

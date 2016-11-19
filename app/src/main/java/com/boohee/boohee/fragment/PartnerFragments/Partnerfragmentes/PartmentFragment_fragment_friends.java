@@ -1,5 +1,4 @@
-package com.boohee.boohee.PartnerFragments.Partnerfragmentes;
-
+package com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,20 +12,20 @@ import android.widget.TextView;
  * Created by PF on 2016/11/18.
  */
 
-public class PartnerFragment_fragment_sift extends Fragment{
+public class PartmentFragment_fragment_friends extends Fragment{
 
-    public PartnerFragment_fragment_sift(){}
+    public PartmentFragment_fragment_friends(){}
 
     private int index;
 
-    public static PartnerFragment_fragment_sift getInstance(int index){
-        PartnerFragment_fragment_sift fragment_sift = new PartnerFragment_fragment_sift();
+    public static PartmentFragment_fragment_friends getInstance(int index){
+        PartmentFragment_fragment_friends fragment_friends = new PartmentFragment_fragment_friends();
 
         Bundle bundle = new Bundle();
         bundle.putInt("index",index);
-        fragment_sift.setArguments(bundle);
+        fragment_friends.setArguments(bundle);
 
-        return fragment_sift;
+        return fragment_friends;
     }
 
 
@@ -36,9 +35,10 @@ public class PartnerFragment_fragment_sift extends Fragment{
 
         TextView txt = new TextView(getActivity());
 
-        txt.setText("精选"+getArguments().getInt("index"));
+        txt.setText("朋友圈"+getArguments().getInt("index"));
 
 
         return txt;
     }
+
 }
