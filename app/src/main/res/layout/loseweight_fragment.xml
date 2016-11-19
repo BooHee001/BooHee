@@ -5,39 +5,12 @@
     android:id="@+id/activity_xietiao"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="240dp">
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/ctll"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|exitUntilCollapsed|snap|enterAlways"
-            >
 
-            <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:layout_collapseMode="none">
-
-            </android.support.v7.widget.Toolbar>
-
-            <ImageView
-                android:id="@+id/simg"
-                android:layout_width="match_parent"
-                android:layout_gravity="center"
-                android:layout_height="150dp"
-                android:src="@drawable/a8p"
-                app:layout_collapseMode="pin"
-                app:layout_collapseParallaxMultiplier="0.7"/>
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
-        app:behavior_overlapTop="30dp"
+        app:behavior_overlapTop="12dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
         >
@@ -192,4 +165,37 @@
 
 
     </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="wrap_content"
+        android:background="#95949a"
+        app:expanded="true"
+        app:elevation="@dimen/cardview_compat_inset_shadow"
+        android:layout_height="240dp">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/ctll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|snap"
+            >
+
+            <!--<android.support.v7.widget.Toolbar-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="30dp"-->
+                <!--app:layout_collapseMode="parallax">-->
+
+            <!--</android.support.v7.widget.Toolbar>-->
+
+            <ImageView
+                android:id="@+id/simg"
+                android:layout_width="match_parent"
+
+                android:layout_height="230dp"
+                android:src="@drawable/a8p"
+                app:layout_collapseMode="pin"
+                app:layout_collapseParallaxMultiplier="0.7"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
 </android.support.design.widget.CoordinatorLayout>
