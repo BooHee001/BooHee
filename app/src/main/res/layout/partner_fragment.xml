@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <RelativeLayout
+            android:id="@+id/seek"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="onclick"
+            android:layout_alignParentLeft="true"
+            >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/a55"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/partner_Tablayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:tabIndicatorColor="#69b076"
+            app:tabSelectedTextColor="#69b076"
+            app:tabTextColor="#000000"
+            />
+
+        <RelativeLayout
+            android:id="@+id/message"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="onclick"
+            android:layout_alignParentRight="true"
+            >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/a52"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                />
+
+            <ImageView
+                android:id="@+id/message_size"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/sq"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="#e5e4e6"
+            android:layout_alignParentBottom="true"
+            />
+
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/partner_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

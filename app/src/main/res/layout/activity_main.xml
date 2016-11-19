@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignTop="@+id/Main_Layout" />
+        android:layout_alignTop="@+id/Main_Layout"
+        android:layout_marginBottom="50dp"/>
     <LinearLayout
         android:id="@+id/Main_Layout"
         android:layout_width="match_parent"
