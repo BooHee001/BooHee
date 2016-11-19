@@ -1,17 +1,22 @@
 package com.boohee.boohee.View;
 
+import android.animation.ObjectAnimator;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.boohee.boohee.R;
+import com.boohee.boohee.adapter.PhotoAdapter;
 import com.boohee.boohee.fragment.LoseWeightFragment;
 import com.boohee.boohee.fragment.MeFragment;
 import com.boohee.boohee.fragment.PartnerFragment;
@@ -23,7 +28,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity  implements View.OnClickListener,HomePhoto{
 
     int currentfragmentIndex = 0;
     int lastChecked =0;
@@ -68,6 +73,12 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     //用来存放TextView组件的集合
     private List<Integer> imageList;
     private FragmentTransaction transaction;
+    //首页下滑的ViewPager；需要覆盖全屏，所以放在MainActivity中操作；
+    @BindView(R.id.home_showPhoto)
+    public ViewPager home_showPhoto;
+    private PhotoAdapter adapter=null;
+    private int hight=0;
+    private List<View> photoList=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +89,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         setListener();
         transaction.add(R.id.Main_View,fragmentList.get(0));
         transaction.commit();
+        hight=getWindowManager().getDefaultDisplay().getHeight();
     }
 
     //给主页下面四个图片设置点击监听事件
@@ -87,6 +99,32 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         partnerLayout.setOnClickListener(this);
         shopLayout.setOnClickListener(this);
         meLayout.setOnClickListener(this);
+        home_showPhoto.setOnTouchListener(new View.OnTouchListener() {
+            public float y=0;
+            public float x=0;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        x = v.getX();
+                        y = v.getY();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        Log.d("滑动","滑动");
+                        float newX = v.getX();
+                        float newY = v.getY();
+                        if ((Math.abs(newX-x)<10) && (Math.abs(newY-y)>15)) {
+                            setAnim();
+                        }
+
+                        break;
+                }
+                return false;
+            }
+        });
+//        new Home_Presenter_impl(this).getData();
+
 
     }
 
@@ -137,6 +175,10 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         textViewList.add(partnerText);
         textViewList.add(shopText);
         textViewList.add(meText);
+
+        photoList=new ArrayList<>();
+        adapter=new PhotoAdapter(photoList,this);
+        home_showPhoto.setAdapter(adapter);
 
     }
 
@@ -194,6 +236,23 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                     lastChecked =3;
                 }
                 break;
+//            case R.id.home_showPhoto:
+//                setAnim();
+//                break;
         }
+    }
+
+
+    @Override
+    public void loadData() {
+//        photoList.addAll();
+        adapter.notifyDataSetChanged();
+    }
+
+
+    private void setAnim() {
+        ObjectAnimator animator=ObjectAnimator.ofFloat(home_showPhoto,"translationY",0,-hight);
+        animator.setDuration(500);
+        animator.start();
     }
 }

@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.boohee.boohee.PartnerFragments.PartnerAdapter.Partner_Fragment_Adapter;
-import com.boohee.boohee.PartnerFragments.Partnerfragmentes.PartmentFragment_fragment_friends;
-import com.boohee.boohee.PartnerFragments.Partnerfragmentes.PartnerFragment_fragment_sift;
+import com.boohee.boohee.fragment.PartnerFragments.PartnerAdapter.Partner_Fragment_Adapter;
+import com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes.PartmentFragment_fragment_friends;
+import com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes.PartnerFragment_fragment_sift;
 import com.boohee.boohee.R;
 
 import java.util.ArrayList;
