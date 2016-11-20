@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="160dp"
+        android:layout_height="230dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <ImageView
+                android:id="@+id/shop_Grid_Img"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:src="@mipmap/aa3" />
+
+            <TextView
+                android:id="@+id/shop_Grid_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shop_Grid_Img"
+                android:layout_marginLeft="5dp"
+                android:ellipsize="end"
+                android:lines="2"
+                android:maxLines="2"
+                android:text="@string/app_name"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/qian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shop_Grid_Title"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="¥"
+                android:textColor="#D41313"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/Base_Price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shop_Grid_Title"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/qian"
+                android:text="0.0"
+                android:textColor="#D41313"
+                android:textSize="15dp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
