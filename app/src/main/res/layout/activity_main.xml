@@ -148,6 +148,12 @@
         android:layout_height="1px"
         android:layout_alignTop="@id/Main_Layout"
         android:background="#999" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_showPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0f0">
 
+    </android.support.v4.view.ViewPager>
 
 </RelativeLayout>
