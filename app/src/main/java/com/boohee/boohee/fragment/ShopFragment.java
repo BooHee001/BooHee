@@ -9,18 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.boohee.boohee.R;
+
 /**
  * Created by Dizner on 2016/11/18.
  */
 
 public class ShopFragment extends Fragment {
+    View view;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TextView view=new TextView(getContext());
-        view.setText("商店");
-        view.setTextColor(Color.YELLOW);
-        view.setTextSize(20);
+       if(view ==null) {
+           view = inflater.inflate(R.layout.shop_fragment, container, false);
+       }
         return view;
     }
 }
