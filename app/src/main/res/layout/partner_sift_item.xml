@@ -23,6 +23,7 @@
                 android:background="@drawable/mw_qqact"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="15dp"
+                android:onClick="onclick"
                 />
 
             <TextView
@@ -90,9 +91,11 @@
             android:orientation="horizontal">
 
             <RelativeLayout
+                android:id="@+id/item_jewel"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:onClick="onclick">
 
                 <ImageView
                     android:id="@+id/partner_sift_support"
@@ -119,9 +122,11 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/item_comment"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:onClick="onclick">
 
                 <ImageView
                     android:id="@+id/partner_sift_comment"
@@ -147,9 +152,11 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/item_anymore"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:onClick="onclick">
 
                 <ImageView
                     android:id="@+id/partner_sift_more"
@@ -167,11 +174,6 @@
 
 
         </LinearLayout>
-
-
-
-
-
 
 
     </LinearLayout>
