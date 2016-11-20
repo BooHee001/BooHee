@@ -77,6 +77,97 @@
 
         </GridLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="#e5e4e6"
+            android:layout_alignParentBottom="true"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/partner_sift_support"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/a3o"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="40dp"
+                    />
+
+                <TextView
+                    android:id="@+id/partner_sift_support_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="15sp"
+                    android:textColor="#7d7d7d"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="70dp"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/partner_sift_comment"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/a3j"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="40dp"
+                    />
+
+                <TextView
+                    android:id="@+id/partner_sift_comment_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="15sp"
+                    android:textColor="#7d7d7d"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="70dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/partner_sift_more"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/abh"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+
+                    />
+
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
 
 
 
