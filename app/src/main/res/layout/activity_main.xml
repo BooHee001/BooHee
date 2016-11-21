@@ -145,7 +145,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="1px"
+        android:layout_height="1.5px"
         android:layout_alignTop="@id/Main_Layout"
         android:background="#999" />
     <android.support.v4.view.ViewPager
