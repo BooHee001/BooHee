@@ -8,6 +8,10 @@
     tools:context="com.boohee.boohee.View.MainActivity">
 
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_showPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
     <GridLayout
         android:id="@+id/Main_View"
         android:layout_width="match_parent"
