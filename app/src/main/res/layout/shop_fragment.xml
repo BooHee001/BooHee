@@ -6,7 +6,6 @@
     android:orientation="vertical">
 
 
-
     <RelativeLayout
         android:id="@+id/Shop_TooBar"
         android:layout_width="match_parent"
@@ -16,17 +15,15 @@
             android:id="@+id/Shop_Search"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:onClick="onclick"
             android:layout_alignParentLeft="true"
-            >
+            android:onClick="onclick">
 
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@drawable/a55"
-                android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                />
+                android:layout_centerVertical="true"
+                android:background="@drawable/a55" />
 
         </RelativeLayout>
 
@@ -38,53 +35,49 @@
             android:layout_centerVertical="true"
             android:text="商店"
             android:textColor="#000000"
-            android:textSize="15sp"
-            />
+            android:textSize="15sp" />
 
         <RelativeLayout
             android:id="@+id/Shop_Message"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:onClick="onclick"
             android:layout_alignParentRight="true"
-            >
+            android:onClick="onclick">
 
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@drawable/a52"
-                android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                />
+                android:layout_centerVertical="true"
+                android:background="@drawable/a52" />
 
             <com.boohee.boohee.Utils.Shop_Utils.BadgeView
                 android:id="@+id/Shop_Badge"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="9dp"
                 android:layout_marginTop="9dp"
                 android:gravity="center"
-                android:textSize="12sp"
+                android:maxLines="4"
                 android:text="1"
-               />
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.2dp"
-            android:background="#e5e4e6"
             android:layout_alignParentBottom="true"
-            />
+            android:background="#e5e4e6" />
 
     </RelativeLayout>
+
     <ListView
         android:id="@+id/Shop_ListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/Shop_TooBar"
-        />
+        android:layout_below="@id/Shop_TooBar" />
 
 </RelativeLayout>
