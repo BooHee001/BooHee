@@ -28,10 +28,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener,HomePhoto{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, HomePhoto {
 
     int currentfragmentIndex = 0;
-    int lastChecked =0;
+    int lastChecked = 0;
     @BindView(R.id.loseWeightLayout)
     public LinearLayout loseweightLayout;
     @BindView(R.id.MeLayout)
@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public TextView loseweightText;
     //伙伴
     @BindView(R.id.HuoBan_Img)
-    public ImageView  partnerImage;
+    public ImageView partnerImage;
     @BindView(R.id.HuoBan_Text)
-    public TextView  partnerText;
+    public TextView partnerText;
     //商店
     @BindView(R.id.Shop_Img)
     public ImageView shopImage;
@@ -76,20 +76,24 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     //首页下滑的ViewPager；需要覆盖全屏，所以放在MainActivity中操作；
     @BindView(R.id.home_showPhoto)
     public ViewPager home_showPhoto;
-    private PhotoAdapter adapter=null;
-    private int hight=0;
-    private List<View> photoList=null;
+    private PhotoAdapter adapter = null;
+    private int hight = 0;
+    private List<View> photoList = null;
+    private float lastY = 0;
+    private float lastX = 0;
+    private static boolean isUp = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        hight = getWindowManager().getDefaultDisplay().getHeight();
         ButterKnife.bind(this);
         initView();
+
         setListener();
-        transaction.add(R.id.Main_View,fragmentList.get(0));
+        transaction.add(R.id.Main_View, fragmentList.get(0));
         transaction.commit();
-        hight=getWindowManager().getDefaultDisplay().getHeight();
     }
 
     //给主页下面四个图片设置点击监听事件
@@ -99,58 +103,32 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         partnerLayout.setOnClickListener(this);
         shopLayout.setOnClickListener(this);
         meLayout.setOnClickListener(this);
-        home_showPhoto.setOnTouchListener(new View.OnTouchListener() {
-            public float y=0;
-            public float x=0;
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        x = v.getX();
-                        y = v.getY();
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        Log.d("滑动","滑动");
-                        float newX = v.getX();
-                        float newY = v.getY();
-                        if ((Math.abs(newX-x)<10) && (Math.abs(newY-y)>15)) {
-                            setAnim();
-                        }
-
-                        break;
-                }
-                return false;
-            }
-        });
-//        new Home_Presenter_impl(this).getData();
-
 
     }
 
-    public void tabFragment(int fragmentIndex){
-        if(currentfragmentIndex!=fragmentIndex){
-            manager=getSupportFragmentManager();
-            transaction=manager.beginTransaction();
+    public void tabFragment(int fragmentIndex) {
+        if (currentfragmentIndex != fragmentIndex) {
+            manager = getSupportFragmentManager();
+            transaction = manager.beginTransaction();
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
-            Fragment formFragment=fragmentList.get(currentfragmentIndex);
-            Fragment toFragment=fragmentList.get(fragmentIndex);
-            if(!toFragment.isAdded()){
-                transaction.hide(formFragment).add(R.id.Main_View,toFragment);
-            }else{
+            Fragment formFragment = fragmentList.get(currentfragmentIndex);
+            Fragment toFragment = fragmentList.get(fragmentIndex);
+            if (!toFragment.isAdded()) {
+                transaction.hide(formFragment).add(R.id.Main_View, toFragment);
+            } else {
                 transaction.hide(formFragment).show(toFragment);
             }
 //                transaction.addToBackStack(null);
             transaction.commit();
-            currentfragmentIndex=fragmentIndex;
+            currentfragmentIndex = fragmentIndex;
         }
     }
 
 
     private void initView() {
 
-        manager=getSupportFragmentManager();
-        transaction=manager.beginTransaction();
+        manager = getSupportFragmentManager();
+        transaction = manager.beginTransaction();
 
         fragmentList = new ArrayList<>();
         fragmentList.add(new LoseWeightFragment());
@@ -176,35 +154,96 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         textViewList.add(shopText);
         textViewList.add(meText);
 
-        photoList=new ArrayList<>();
-        adapter=new PhotoAdapter(photoList,this);
+        photoList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            ImageView iv = new ImageView(this);
+            iv.setImageResource(R.drawable.a3d);
+            iv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    setAnim();
+                }
+            });
+            iv.setOnTouchListener(new View.OnTouchListener() {
+                float oldX = 0;
+                float oldY = 0;
+
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    final int action = event.getAction();
+                    float x = event.getX();
+                    float y = event.getY();
+//                    LogUtils.out("ListView滑动","滑动"+event.getY());
+                    switch (action) {
+                        case MotionEvent.ACTION_DOWN:
+                            Log.d("测试","手指按下"+isUp);
+                            lastY = y;
+                            lastX = x;
+                            return false;
+                        case MotionEvent.ACTION_MOVE:
+                            float dY = Math.abs(y - lastY);
+                            float dX = Math.abs(x - lastX);
+                            //Y大于lastY说明当前Y值大于按下时的Y值，即向下滑动的动作
+                            boolean down = y > lastY ? true : false;
+                            lastY = y;
+                            lastX = x;
+                            if((dX < 5 && dY >5)&&!down){
+                                isUp=true;
+                                Log.d("测试","手指滑动向上"+isUp);
+                            }
+                            if((dX < 5 && dY >5)&&down){
+                                isUp=false;
+                                Log.d("测试","手指滑动向下"+isUp);
+                            }
+
+
+//                            if (isUp) {
+//                                setAnim();
+//                            }
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            Log.d("测试23","手指抬起"+isUp);
+                            if (isUp) {
+                                setAnim(300);
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    return true;
+                }
+            });
+            photoList.add(iv);
+        }
+        adapter = new PhotoAdapter(photoList, this);
         home_showPhoto.setAdapter(adapter);
+        setAnim(1);
 
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.loseWeightLayout:{
-                if(lastChecked !=0) {
+        switch (view.getId()) {
+            case R.id.loseWeightLayout: {
+                if (lastChecked != 0) {
                     tabFragment(0);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
                     imageViewList.get(0).setImageResource(R.mipmap.a83);
                     textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
                     textViewList.get(0).setTextColor(Color.rgb(41, 165, 82));
-                    lastChecked =0;
+                    lastChecked = 0;
                 }
 
             }
-                break;
+            break;
             case R.id.PartnerLayout:
-                if(lastChecked !=1) {
+                if (lastChecked != 1) {
                     tabFragment(1);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
                     imageViewList.get(1).setImageResource(R.mipmap.a81);
                     textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
                     textViewList.get(1).setTextColor(Color.rgb(41, 165, 82));
-                    lastChecked =1;
+                    lastChecked = 1;
                 }
                 break;
             case R.id.Main_AddImg:
@@ -215,25 +254,25 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 //                }
                 break;
             case R.id.ShopLayout:
-                if(lastChecked !=2) {
+                if (lastChecked != 2) {
                     tabFragment(2);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
                     imageViewList.get(2).setImageResource(R.mipmap.a87);
                     textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
                     textViewList.get(2).setTextColor(Color.rgb(41, 165, 82));
 
-                    lastChecked =2;
+                    lastChecked = 2;
                 }
                 break;
             case R.id.MeLayout:
-                if(lastChecked !=3) {
+                if (lastChecked != 3) {
                     tabFragment(3);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
                     imageViewList.get(3).setImageResource(R.mipmap.a85);
                     textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
                     textViewList.get(3).setTextColor(Color.rgb(41, 165, 82));
 
-                    lastChecked =3;
+                    lastChecked = 3;
                 }
                 break;
 //            case R.id.home_showPhoto:
@@ -250,9 +289,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     }
 
 
-    private void setAnim() {
-        ObjectAnimator animator=ObjectAnimator.ofFloat(home_showPhoto,"translationY",0,-hight);
-        animator.setDuration(500);
+    private void setAnim(int duration) {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(home_showPhoto, "translationY", 0, -hight);
+        animator.setDuration(duration);
         animator.start();
     }
 }
