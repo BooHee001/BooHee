@@ -152,6 +152,7 @@
         android:id="@+id/home_showPhoto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:background="#0f0">
 
     </android.support.v4.view.ViewPager>
