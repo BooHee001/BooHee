@@ -59,7 +59,7 @@ public class Shop_Goods_Adapter extends BaseAdapter {
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
         final ImageView iv = (ImageView) LayoutInflater.from(context).inflate(R.layout.shop_listview_itemimageview, parent, false);
-        if (position < 2) {
+        if (position ==0) {
             if (shop_goods.getDatas().get(position).getList().size() > 0) {
                 Shop_Goods.DatasBean.ListBean listBean = shop_goods.getDatas().get(position).getList().get(0);
                 String default_photo_url = listBean.getDefault_photo_url();
@@ -76,11 +76,11 @@ public class Shop_Goods_Adapter extends BaseAdapter {
                                 intent.setClass(context, Shop_Details_Activity.class);
                                 context.startActivity(intent);
                             }
-                            if(position ==2){
+                            if (position == 2) {
                                 Shop_Goods.DatasBean.ListBean listBean = shop_goods.getDatas().get(position).getList().get(0);
                                 intent.setClass(context, Shop_GridView_Activity.class);
-                                intent.putExtra("exhibit",listBean.getExhibit());
-                                intent.putExtra("exhibit_type",listBean.getExhibit_type());
+                                intent.putExtra("exhibit", listBean.getExhibit());
+                                intent.putExtra("exhibit_type", listBean.getExhibit_type());
                                 context.startActivity(intent);
                             }
                         }
@@ -93,40 +93,47 @@ public class Shop_Goods_Adapter extends BaseAdapter {
 
             }
             return iv;
-        } else if (position < 10) {
-            if (getItemViewType(position) == 0) {
-                String default_photo_url = shop_goods.getDatas().get(position).getList().get(0).getDefault_photo_url();
-                if (default_photo_url != null) {
-                    Glide.with(context)
-                            .load(default_photo_url)
-                            .into(iv);
-                }
-                //条目点击事件
-                iv.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Shop_Goods.DatasBean.ListBean listBean = shop_goods.getDatas().get(position).getList().get(0);
-                        intent.setClass(context, Shop_GridView_Activity.class);
-                        intent.putExtra("exhibit",listBean.getExhibit());
-                        intent.putExtra("exhibit_type",listBean.getExhibit_type());
-                        context.startActivity(intent);
+        }else if (position < 11) {
+            if (shop_goods.getDatas().get(position).getList().size() > 0) {
+                if (getItemViewType(position) == 1) {
+                    String default_photo_url = shop_goods.getDatas().get(position).getList().get(0).getDefault_photo_url();
+                    if (default_photo_url != null) {
+                        Glide.with(context)
+                                .load(default_photo_url)
+                                .into(iv);
                     }
-                });
-                return iv;
+                    //条目点击事件
+                    iv.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Shop_Goods.DatasBean.ListBean listBean = shop_goods.getDatas().get(position).getList().get(0);
+                            intent.setClass(context, Shop_GridView_Activity.class);
+                            intent.putExtra("exhibit", listBean.getExhibit());
+                            intent.putExtra("exhibit_type", listBean.getExhibit_type());
+                            context.startActivity(intent);
+                        }
+                    });
+                    return iv;
 
+                } else {
+                    GridView inflate = (GridView) LayoutInflater.from(context).inflate(R.layout.shop_listview_gridviewitem, null);
+                    final List<Shop_Goods.DatasBean.ListBean> list = shop_goods.getDatas().get(position).getList();
+                    inflate.setAdapter(new Shop_Goods_GridView_Adapter(context, list));
+                    //GridView条目点击事件
+                    inflate.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int positions, long id) {
+                            intent.setClass(context, Shop_Details_Activity.class);
+                            context.startActivity(intent);
+                        }
+                    });
+                    return inflate;
+                }
             } else {
-                GridView inflate = (GridView) LayoutInflater.from(context).inflate(R.layout.shop_listview_gridviewitem, null);
-                final List<Shop_Goods.DatasBean.ListBean> list = shop_goods.getDatas().get(position).getList();
-                inflate.setAdapter(new Shop_Goods_GridView_Adapter(context, list));
-                //GridView条目点击事件
-                inflate.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int positions, long id) {
-                        intent.setClass(context, Shop_Details_Activity.class);
-                        context.startActivity(intent);
-                    }
-                });
-                return inflate;
+                ViewGroup.LayoutParams layoutParams = iv.getLayoutParams();
+                layoutParams.height = 0;
+                iv.setLayoutParams(layoutParams);
+                return iv;
             }
 
         } else {
@@ -140,10 +147,10 @@ public class Shop_Goods_Adapter extends BaseAdapter {
                     iv.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             Shop_Goods.DatasBean.ListBean listBean = shop_goods.getDatas().get(position).getList().get(0);
-                            if((position==(shop_goods.getDatas().size() -4 )) || (position ==shop_goods.getDatas().size()-1)){
+                            if ((position == (shop_goods.getDatas().size() - 3)) || (position == shop_goods.getDatas().size() - 1)) {
                                 intent.setClass(context, Shop_GridView_Activity.class);
-                                intent.putExtra("exhibit",listBean.getExhibit());
-                                intent.putExtra("exhibit_type",listBean.getExhibit_type());
+                                intent.putExtra("exhibit", listBean.getExhibit());
+                                intent.putExtra("exhibit_type", listBean.getExhibit_type());
                                 context.startActivity(intent);
                             }
                         }
@@ -166,7 +173,7 @@ public class Shop_Goods_Adapter extends BaseAdapter {
 
     @Override
     public int getViewTypeCount() {
-        return shop_goods.getDatas().size();
+        return 3;
     }
 
 }
