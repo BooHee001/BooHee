@@ -1,5 +1,7 @@
 package com.boohee.boohee.presenter.Shop_Presenter;
 
+import android.util.Log;
+
 import com.boohee.boohee.Bean.Shop_Bean.Shop_Goods_Item;
 import com.boohee.boohee.View.Shop_View.V_Shop_Item;
 import com.boohee.boohee.model.Shop_Model.M_Shop_Item_Impl;
