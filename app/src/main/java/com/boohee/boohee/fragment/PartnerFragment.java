@@ -9,10 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
+import com.boohee.boohee.View.Partner_View.V_Partner_sift;
 import com.boohee.boohee.fragment.PartnerFragments.PartnerAdapter.Partner_Fragment_Adapter;
-import com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes.PartmentFragment_fragment_friends;
+import com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes.PartnerFragment_fragment_friends;
 import com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes.PartnerFragment_fragment_sift;
 import com.boohee.boohee.R;
+import com.boohee.boohee.model.Partner_Model.Partner_Model_impl;
+import com.boohee.boohee.presenter.Partner_Presenter.P_Partner_Impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +64,7 @@ public class PartnerFragment extends Fragment {
         Partnerfragmenttitle.add("好友圈");
 
         Partnerfragmentlist.add(PartnerFragment_fragment_sift.getInstance(1));
-        Partnerfragmentlist.add(PartmentFragment_fragment_friends.getInstance(2));
+        Partnerfragmentlist.add(PartnerFragment_fragment_friends.getInstance(2));
 
         adapter = new Partner_Fragment_Adapter(getActivity().getSupportFragmentManager(),Partnerfragmentlist,Partnerfragmenttitle);
         partner_viewpager.setAdapter(adapter);

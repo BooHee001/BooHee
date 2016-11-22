@@ -12,14 +12,14 @@ import android.widget.TextView;
  * Created by PF on 2016/11/18.
  */
 
-public class PartmentFragment_fragment_friends extends Fragment{
+public class PartnerFragment_fragment_friends extends Fragment{
 
-    public PartmentFragment_fragment_friends(){}
+    public PartnerFragment_fragment_friends(){}
 
     private int index;
 
-    public static PartmentFragment_fragment_friends getInstance(int index){
-        PartmentFragment_fragment_friends fragment_friends = new PartmentFragment_fragment_friends();
+    public static PartnerFragment_fragment_friends getInstance(int index){
+        PartnerFragment_fragment_friends fragment_friends = new PartnerFragment_fragment_friends();
 
         Bundle bundle = new Bundle();
         bundle.putInt("index",index);
