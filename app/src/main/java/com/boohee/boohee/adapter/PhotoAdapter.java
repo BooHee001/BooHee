@@ -125,5 +125,10 @@ public class PhotoAdapter extends PagerAdapter {
         ObjectAnimator animator = ObjectAnimator.ofFloat(home_photo, "translationY", 0, -hight);
         animator.setDuration(duration);
         animator.start();
+        View decorView = activity.getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//内容布局填满屏幕
+        );
     }
 }
