@@ -58,11 +58,7 @@ public class LoseWeightFragment extends Fragment {
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (i>0) {
-                        i-=1;
                         setAnim(300);
-
-                    }
                 }
             });
             home_showPhoto= (ViewPager) getActivity().findViewById(R.id.home_showPhoto);
@@ -83,7 +79,7 @@ public class LoseWeightFragment extends Fragment {
 
 
 
-       animator.addListener(new Animator.AnimatorListener() {
+        animator.addListener(new Animator.AnimatorListener() {
            @Override
            public void onAnimationStart(Animator animation) {
 
