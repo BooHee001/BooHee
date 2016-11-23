@@ -85,6 +85,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//内容布局填满屏幕
+        );
         setContentView(R.layout.activity_main);
         hight = getWindowManager().getDefaultDisplay().getHeight();
         losFragment=new LoseWeightFragment();
@@ -240,5 +245,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ObjectAnimator animator = ObjectAnimator.ofFloat(home_showPhoto, "translationY", 0, -hight);
         animator.setDuration(duration);
         animator.start();
+
     }
 }
