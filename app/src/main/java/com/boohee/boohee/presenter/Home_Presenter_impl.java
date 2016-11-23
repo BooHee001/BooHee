@@ -1,5 +1,6 @@
 package com.boohee.boohee.presenter;
 
+import com.boohee.boohee.PhotoBean.PhotoBean;
 import com.boohee.boohee.View.HomePhoto;
 import com.boohee.boohee.model.Home_Model;
 import com.boohee.boohee.model.Home_Model_impl;
@@ -23,7 +24,7 @@ public class Home_Presenter_impl implements Home_Persenter {
     }
 
     @Override
-    public void setData() {
-        view.loadData();
+    public void setData(PhotoBean data) {
+        view.loadData(data);
     }
 }

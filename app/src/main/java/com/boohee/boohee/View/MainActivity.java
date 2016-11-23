@@ -8,19 +8,20 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.boohee.boohee.PhotoBean.PhotoBean;
 import com.boohee.boohee.R;
 import com.boohee.boohee.adapter.PhotoAdapter;
 import com.boohee.boohee.fragment.LoseWeightFragment;
 import com.boohee.boohee.fragment.MeFragment;
 import com.boohee.boohee.fragment.PartnerFragment;
 import com.boohee.boohee.fragment.ShopFragment;
+import com.boohee.boohee.presenter.Home_Persenter;
+import com.boohee.boohee.presenter.Home_Presenter_impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,16 +79,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ViewPager home_showPhoto;
     private PhotoAdapter adapter = null;
     private int hight = 0;
-    private List<View> photoList = null;
-    private float lastY = 0;
-    private float lastX = 0;
-    private static boolean isUp = false;
+    private List<String> photoList = null;
+    private LoseWeightFragment losFragment=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         hight = getWindowManager().getDefaultDisplay().getHeight();
+        losFragment=new LoseWeightFragment();
         ButterKnife.bind(this);
         initView();
 
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         transaction = manager.beginTransaction();
 
         fragmentList = new ArrayList<>();
-        fragmentList.add(new LoseWeightFragment());
+        fragmentList.add(losFragment);
         fragmentList.add(new PartnerFragment());
         fragmentList.add(new ShopFragment());
         fragmentList.add(new MeFragment());
@@ -153,70 +153,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textViewList.add(partnerText);
         textViewList.add(shopText);
         textViewList.add(meText);
-
         photoList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            ImageView iv = new ImageView(this);
-            iv.setImageResource(R.drawable.a3d);
-            iv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                    setAnim();
-                }
-            });
-            iv.setOnTouchListener(new View.OnTouchListener() {
-                float oldX = 0;
-                float oldY = 0;
-
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    final int action = event.getAction();
-                    float x = event.getX();
-                    float y = event.getY();
-//                    LogUtils.out("ListView滑动","滑动"+event.getY());
-                    switch (action) {
-                        case MotionEvent.ACTION_DOWN:
-                            Log.d("测试","手指按下"+isUp);
-                            lastY = y;
-                            lastX = x;
-                            return false;
-                        case MotionEvent.ACTION_MOVE:
-                            float dY = Math.abs(y - lastY);
-                            float dX = Math.abs(x - lastX);
-                            //Y大于lastY说明当前Y值大于按下时的Y值，即向下滑动的动作
-                            boolean down = y > lastY ? true : false;
-                            lastY = y;
-                            lastX = x;
-                            if((dX < 5 && dY >5)&&!down){
-                                isUp=true;
-                                Log.d("测试","手指滑动向上"+isUp);
-                            }
-                            if((dX < 5 && dY >5)&&down){
-                                isUp=false;
-                                Log.d("测试","手指滑动向下"+isUp);
-                            }
-
-
-//                            if (isUp) {
-//                                setAnim();
-//                            }
-                            break;
-                        case MotionEvent.ACTION_UP:
-                            Log.d("测试23","手指抬起"+isUp);
-                            if (isUp) {
-                                setAnim(300);
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-                    return true;
-                }
-            });
-            photoList.add(iv);
-        }
-        adapter = new PhotoAdapter(photoList, this);
+        adapter = new PhotoAdapter(photoList, MainActivity.this);
         home_showPhoto.setAdapter(adapter);
+        Home_Persenter persenter=new Home_Presenter_impl(this);
+        persenter.getData();
         setAnim(1);
 
     }
@@ -283,9 +224,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     @Override
-    public void loadData() {
+    public void loadData(PhotoBean data) {
 //        photoList.addAll();
+        List<PhotoBean.WelcomeImgBean.WeekImagesBean> week_images = data.getWelcome_img().getWeek_images();
+        for (PhotoBean.WelcomeImgBean.WeekImagesBean week_image : week_images) {
+            photoList.add(week_image.getBack_img());
+        }
+        losFragment.setWelcomeImgs(data.getWelcome_img().getBack_img_small());
         adapter.notifyDataSetChanged();
+        home_showPhoto.setCurrentItem(photoList.size()-1);
     }
 
 
