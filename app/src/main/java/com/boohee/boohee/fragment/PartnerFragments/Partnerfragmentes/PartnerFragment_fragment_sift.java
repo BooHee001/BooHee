@@ -1,7 +1,6 @@
 package com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
 import com.boohee.boohee.R;
@@ -25,6 +22,7 @@ import com.boohee.boohee.presenter.Partner_Presenter.P_Partner_Impl;
 public class PartnerFragment_fragment_sift extends Fragment{
 
     public PartnerFragment_fragment_sift(){}
+
 
     private int index;
 
