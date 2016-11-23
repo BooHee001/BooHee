@@ -37,8 +37,10 @@
             android:layout_marginTop="9dp"
             android:layout_toRightOf="@id/shop_Details_Back"
             android:ellipsize="end"
-            android:maxLength="4"
+            android:maxEms ="4"
+            android:singleLine="true"
             android:text="薄荷"
+            android:lines="1"
             android:textColor="#000"
             android:textSize="18dp" />
 
