@@ -88,7 +88,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//内容布局填满屏幕
+                          | View.SYSTEM_UI_FLAG_VISIBLE
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION//隐藏状态栏的布局
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//内容布局填满屏幕
         );
         setContentView(R.layout.activity_main);
         hight = getWindowManager().getDefaultDisplay().getHeight();
