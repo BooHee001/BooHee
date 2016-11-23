@@ -92,7 +92,7 @@ public class PhotoAdapter extends PagerAdapter {
                         boolean down = y > lastY ? true : false;
                         lastY = y;
                         lastX = x;
-                        if((dX < 5 && dY >5)&&!down){
+                        if((dX < 5 && dY >30)&&!down){
                             isUp=true;
                             Log.d("测试","手指滑动向上"+isUp);
                         }
