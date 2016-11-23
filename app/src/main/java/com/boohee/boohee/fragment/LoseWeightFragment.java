@@ -42,6 +42,7 @@ public class LoseWeightFragment extends Fragment {
 
     private RelativeLayout home_welcome_imgs;
     private Bitmap bitmap=null;
+    private View decorView;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Nullable
@@ -52,13 +53,22 @@ public class LoseWeightFragment extends Fragment {
             progress= (ArcProgress) view.findViewById(R.id.weight_progress);
             home_welcome_imgs= (RelativeLayout) view.findViewById(R.id.home_welcome_imgs);
             textView= (TextView) view.findViewById(R.id.textView);
-
+            decorView = getActivity().getWindow().getDecorView();
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (i>0) {
                         i-=1;
                         setAnim(300);
+
+                        decorView.setSystemUiVisibility(
+                                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION//隐藏状态栏的布局
+                                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//内容布局填满屏幕
+                                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION//隐藏状态栏
+                                        | View.SYSTEM_UI_FLAG_FULLSCREEN//内容全屏展示
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE
+                        );
                     }
                 }
             });
@@ -77,7 +87,12 @@ public class LoseWeightFragment extends Fragment {
     private void setAnim(int duration) {
         ObjectAnimator animator=ObjectAnimator.ofFloat(home_showPhoto,"translationY",-hight,0);
         animator.setDuration(duration);
+
         animator.start();
+
+
+
+
     }
     public void setWelcomeImgs(final String url){
             new Thread(){
