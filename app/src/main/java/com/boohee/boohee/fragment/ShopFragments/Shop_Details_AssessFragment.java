@@ -17,7 +17,10 @@ public class Shop_Details_AssessFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         TextView tv = new TextView(getContext());
-        tv.setText("评价");
+        Bundle bundle = getArguments();
+        int id = bundle.getInt("id");
+
+        tv.setText("评价"+id);
         return tv;
     }
 }

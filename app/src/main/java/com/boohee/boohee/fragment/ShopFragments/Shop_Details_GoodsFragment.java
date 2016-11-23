@@ -17,7 +17,10 @@ public class Shop_Details_GoodsFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         TextView tv = new TextView(getContext());
-        tv.setText("商品");
+        Bundle bundle = getArguments();
+        int id = bundle.getInt("id");
+
+        tv.setText("商品"+id);
         return tv;
     }
 }
