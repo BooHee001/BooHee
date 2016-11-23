@@ -21,7 +21,7 @@ import com.boohee.boohee.presenter.Partner_Presenter.P_Partner_Impl;
 
 public class PartnerFragment_fragment_sift extends Fragment{
 
-    public PartnerFragment_fragment_sift(){}
+    public PartnerFragment_fragment_sift(){ }
 
 
     private int index;
