@@ -39,13 +39,15 @@ public class Shop_GridView_Activity extends AppCompatActivity {
         try {
             P_Shop_Item_Impl p_shop_item_Impl = new P_Shop_Item_Impl(new V_Shop_Item() {
                 @Override
-                public void setData(Shop_Goods_Item shop_goods_item) {
+                public void setData(final Shop_Goods_Item shop_goods_item) {
                     gridView_Title.setText(shop_goods_item.getName());
                     g_GridView.setAdapter(new Shop_GridView_Adapter(Shop_GridView_Activity.this,shop_goods_item));
                     g_GridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Intent intent = new Intent();
+                            intent.putExtra("id",shop_goods_item.getGoods().get(position).getId());
+                            intent.putExtra("title",shop_goods_item.getGoods().get(position).getTitle());
                             intent.setClass(Shop_GridView_Activity.this, Shop_Details_Activity.class);
                             startActivity(intent);
                         }

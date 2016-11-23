@@ -64,6 +64,12 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
         initView();
         details_ViewPager.setAdapter(new Shop_Details_ViewPagerAdapter(getSupportFragmentManager(),fragmentList));
         setListener();
+
+        //获取id并将id传递给fragment
+        Bundle bundle =new Bundle();
+        bundle.putInt("id",getIntent().getIntExtra("id",-1));
+        fragmentList.get(0).setArguments(bundle);
+        fragmentList.get(1).setArguments(bundle);
     }
 
     //事件监听
@@ -110,6 +116,9 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
         viewList = new ArrayList<>();
         viewList.add(details_GoodsView);
         viewList.add(details_AssessView);
+
+        //获取传来的数据并进行显示
+        shop_Details_Title.setText(getIntent().getStringExtra("title"));
     }
 
     //返回键的点击事件
