@@ -2,13 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    
+    android:orientation="vertical"
+    android:background="#e5e4e6">
+
     <LinearLayout
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="#ffffff"
         >
 
         <LinearLayout
@@ -70,12 +72,19 @@
 
             />
 
-        <GridLayout
+        <GridView
             android:id="@+id/partner_sift_photo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="5dp"
+            android:horizontalSpacing="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
 
-        </GridLayout>
+        </GridView>
 
         <View
             android:layout_width="match_parent"
@@ -176,7 +185,6 @@
 
 
     </LinearLayout>
-
 
 
 </LinearLayout>
