@@ -1,6 +1,7 @@
 package com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,10 +12,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_ViewPager;
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
 import com.boohee.boohee.R;
+import com.boohee.boohee.View.Partner_View.Sift_loseweight_WebView_Activity;
 import com.boohee.boohee.View.Partner_View.V_Partner_ViewPager;
 import com.boohee.boohee.View.Partner_View.V_Partner_sift;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ListView_Adapter;
@@ -35,8 +38,10 @@ public class PartnerFragment_fragment_sift extends Fragment{
     public PartnerFragment_fragment_sift(){ }
 
     private LinearLayout sift_loseweight,sift_succeed,sift_reduce,sift_hottopic = null;
-    private ProgressBar sift_Fragment_Loading = null;
+    private View.OnClickListener sift_loseweight_listener = null;
 
+
+    private ProgressBar sift_Fragment_Loading = null;
 
     private ViewPager partner_sift_item_headVP = null;
 
@@ -59,15 +64,16 @@ public class PartnerFragment_fragment_sift extends Fragment{
         View view = inflater.inflate(R.layout.partner_sift_list,container,false);
 
 
-        sift_loseweight = (LinearLayout) view.findViewById(R.id.sift_loseweight);
-        sift_succeed = (LinearLayout) view.findViewById(R.id.sift_succeed);
-        sift_reduce = (LinearLayout) view.findViewById(R.id.sift_reduce);
-        sift_hottopic = (LinearLayout) view.findViewById(R.id.sift_hottopic);
+
         Partner_sift_list = (ListView) view.findViewById(R.id.Partner_sift_list);
         sift_Fragment_Loading = (ProgressBar) view.findViewById(R.id.sift_Fragment_Loading);
 
         View titleitem = inflater.inflate(R.layout.partner_sift_item_head,null);
         partner_sift_item_headVP = (ViewPager) titleitem.findViewById(R.id.partner_sift_item_headVP);
+        sift_loseweight = (LinearLayout) titleitem.findViewById(R.id.sift_loseweight);
+        sift_succeed = (LinearLayout) titleitem.findViewById(R.id.sift_succeed);
+        sift_reduce = (LinearLayout) titleitem.findViewById(R.id.sift_reduce);
+        sift_hottopic = (LinearLayout) titleitem.findViewById(R.id.sift_hottopic);
 
 
 
@@ -109,31 +115,32 @@ public class PartnerFragment_fragment_sift extends Fragment{
         p_sift_partner_impl.initPartnerData();
 
 
-//        sift_loseweight.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//
-//        sift_succeed.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//        sift_reduce.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//        sift_hottopic.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+
+        sift_loseweight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),Sift_loseweight_WebView_Activity.class));
+            }
+        });
+
+        sift_succeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        sift_reduce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        sift_hottopic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
         return view;

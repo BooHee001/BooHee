@@ -31,7 +31,7 @@ public class Partner_sift_Model_impl implements Partner_sift_Model {
                 //让RXJava支持Gson
                 .addConverterFactory(GsonConverterFactory.create())
                 //加载url的域名
-                .baseUrl("http://180.153.222.195")
+                .baseUrl("http://139.196.2.133")
                 .build();
 //        slug=hot_posts&token=b6LUSVkfgNK9sWjX2SMV&user_key=6a50362e-ab24-4240-b630-581de4dc240c
         //拼接URL
