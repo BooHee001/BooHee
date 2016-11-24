@@ -1,6 +1,7 @@
 package com.boohee.boohee.adapter.Partner_Adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
 import com.boohee.boohee.R;
 import com.bumptech.glide.Glide;
+
+import org.xutils.x;
 
 import java.util.List;
 
@@ -65,7 +68,7 @@ public class Partnrt_sift_GridView_Adapter extends BaseAdapter{
             Glide.with(context)
                     .load(getSmallpic)
                     .into(partner_gridView_holder.partner_sift_GridviewPic);
-
+//            x.image().bind(partner_gridView_holder.partner_sift_GridviewPic,getSmallpic);
 
         }
 

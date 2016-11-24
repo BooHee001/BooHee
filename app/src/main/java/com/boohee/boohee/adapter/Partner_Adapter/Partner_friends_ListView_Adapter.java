@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ public class Partner_friends_ListView_Adapter extends BaseAdapter{
     private Context context;
     private Partner_friends partner_friends;
 
-    public Partner_friends_ListView_Adapter(Context context, Partner_friends partner_friends) {
+    public Partner_friends_ListView_Adapter(Partner_friends partner_friends ,Context context) {
         this.context = context;
         this.partner_friends = partner_friends;
     }
@@ -58,6 +59,9 @@ public class Partner_friends_ListView_Adapter extends BaseAdapter{
             friendsPartnerHolder.partner_friends_support_size = (TextView) convertView.findViewById(R.id.partner_friends_support_size);
             friendsPartnerHolder.partner_friends_comment_size = (TextView) convertView.findViewById(R.id.partner_friends_comment_size);
             friendsPartnerHolder.partner_friends_photo = (GridView) convertView.findViewById(R.id.partner_friends_photo);
+//            friendsPartnerHolder.partner_friends_photo = (GridLayout) convertView.findViewById(R.id.partner_friends_photo);
+
+            convertView.setTag(friendsPartnerHolder);
         }else {
             friendsPartnerHolder = (FriendsPartnerHolder) convertView.getTag();
         }
@@ -70,7 +74,10 @@ public class Partner_friends_ListView_Adapter extends BaseAdapter{
         String body = partner_friends.getPosts().get(position).getBody();
         int envious_count = partner_friends.getPosts().get(position).getEnvious_count();
         int comment_count = partner_friends.getPosts().get(position).getComment_count();
+
+        if (partner_priends_photo_list !=null)
         friendsPartnerHolder.partner_friends_photo.setAdapter(new Partner_friends_GridView_Adapter(context,partner_priends_photo_list));
+
 
 
         if (avatar_url!=null){
@@ -113,6 +120,8 @@ public class Partner_friends_ListView_Adapter extends BaseAdapter{
                 partner_friends_support_size,
                 partner_friends_comment_size;
         GridView partner_friends_photo;
+
+//        GridLayout partner_friends_photo;
 
 
     }

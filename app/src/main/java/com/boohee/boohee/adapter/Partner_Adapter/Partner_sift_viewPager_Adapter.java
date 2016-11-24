@@ -6,7 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_ViewPager;
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -17,19 +19,18 @@ import java.util.List;
 public class Partner_sift_viewPager_Adapter extends PagerAdapter{
 
     private Context context;
-    //    private List<Partner_sift.ChannelBean> Partner_sift_pagerlist;
-    private List<ImageView> partner_list;
+    private List< Partner_ViewPager.SlidersBean> SlidersBean;
 
 
-    public Partner_sift_viewPager_Adapter(Context context, List<ImageView> partner_list) {
+    public Partner_sift_viewPager_Adapter(Context context, List< Partner_ViewPager.SlidersBean> SlidersBean) {
         this.context = context;
-        this.partner_list = partner_list;
+        this.SlidersBean = SlidersBean;
     }
 
 
     @Override
     public int getCount() {
-        return partner_list.size();
+        return SlidersBean.size();
     }
 
     @Override
@@ -39,12 +40,15 @@ public class Partner_sift_viewPager_Adapter extends PagerAdapter{
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        container.addView(partner_list.get(position));
-        return partner_list.get(position);
+        ImageView vpiv = new ImageView(context);
+        Glide.with(context).load(SlidersBean.get(position)).into(vpiv);
+        vpiv.setScaleType(ImageView.ScaleType.FIT_XY);
+        container.addView(vpiv);
+        return vpiv;
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView(partner_list.get(position));
+        container.removeView((View) object);
     }
 }

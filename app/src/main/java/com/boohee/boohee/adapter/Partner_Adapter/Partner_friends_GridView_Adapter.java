@@ -5,12 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_friends;
 import com.boohee.boohee.R;
 import com.bumptech.glide.Glide;
+
+import org.xutils.x;
 
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class Partner_friends_GridView_Adapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         Partner_GridView_Holder partner_gridView_holder;
         if (convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.partner_sift_gridview_item,parent,false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.partner_friends_gridview_item,parent,false);
             partner_gridView_holder = new Partner_GridView_Holder();
             partner_gridView_holder.partner_priends_GridviewPic = (ImageView) convertView.findViewById(R.id.partner_priends_GridviewPic);
 
@@ -58,11 +59,14 @@ public class Partner_friends_GridView_Adapter extends BaseAdapter{
         }
         Partner_friends.PostsBean.PhotosBean friendsphotosBean = partner_priends_photo_list.get(position);
         String small_url = friendsphotosBean.getSmall_url();
+        String hahaurl = "http://imgsrc.baidu.com/forum/w%3D580/sign=fec60054e4dde711e7d243fe97eecef4/93566690f603738d82d3bc73b21bb051f919ec99.jpg";
 
         if (small_url!=null){
             Glide.with(context)
                     .load(small_url)
+                    .error(R.drawable.fuckyou)
                     .into(partner_gridView_holder.partner_priends_GridviewPic);
+//            x.image().bind(partner_gridView_holder.partner_priends_GridviewPic,small_url);
         }
 
 

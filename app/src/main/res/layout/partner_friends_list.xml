@@ -19,7 +19,14 @@
         </ListView>
 
 
+
+
     </android.support.v4.widget.SwipeRefreshLayout>
 
-
+    <ProgressBar
+        android:id="@+id/friends_Fragment_Loading"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        />
 </RelativeLayout>

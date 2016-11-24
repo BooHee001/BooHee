@@ -5,8 +5,8 @@
 
     <ImageView
         android:id="@+id/partner_priends_GridviewPic"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:scaleType="fitXY"
         android:background="@drawable/ac5"/>
 
