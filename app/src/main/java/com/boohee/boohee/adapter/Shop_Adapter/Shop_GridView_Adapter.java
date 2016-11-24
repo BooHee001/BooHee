@@ -58,7 +58,7 @@ public class Shop_GridView_Adapter extends BaseAdapter{
         }
         Shop_Goods_Item.GoodsBean goodsBean = shop_goods_item.getGoods().get(position);
         String big_photo_url = goodsBean.getBig_photo_url();
-        String Base_Price =goodsBean.getBase_price();
+        String Base_Price =goodsBean.getMarket_price();
         String title = goodsBean.getTitle();
 
         if(big_photo_url !=null){
