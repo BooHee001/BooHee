@@ -5,4 +5,5 @@ package com.boohee.boohee.model.Shop_Model;
  */
 
 public interface M_Shop_GoodsInfo {
+    void initData(int id);
 }
