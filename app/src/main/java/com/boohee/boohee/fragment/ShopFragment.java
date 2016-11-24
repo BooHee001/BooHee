@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ import butterknife.ButterKnife;
  */
 
 public class ShopFragment extends Fragment {
+    @BindView(R.id.Shop_Fragment_Loading)
+    ProgressBar Shop_Fragment_Loading;
     View view;
     @BindView(R.id.Shop_Search)
     RelativeLayout shop_Search;
@@ -41,6 +44,7 @@ public class ShopFragment extends Fragment {
         if(view ==null) {
             view = inflater.inflate(R.layout.shop_fragment, container, false);
             ButterKnife.bind(this,view);
+            Shop_Fragment_Loading.setVisibility(View.VISIBLE);
             //给listviewS设置头部
             View headerView = getActivity().getLayoutInflater().inflate(R.layout.shop_listview_header, null);
             shop_ListView.addHeaderView(headerView);
@@ -54,6 +58,7 @@ public class ShopFragment extends Fragment {
             @Override
             public void setShopData(Shop_Goods shop_goods) {
                 shop_ListView.setAdapter(new Shop_Goods_Adapter(shop_goods,getContext()));
+                Shop_Fragment_Loading.setVisibility(View.GONE);
             }
         });
         p_Shop.initData();
