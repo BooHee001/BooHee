@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.boohee.boohee.R;
-import com.bumptech.glide.Glide;
+
+import org.xutils.image.ImageOptions;
+import org.xutils.x;
 
 import java.util.List;
 
@@ -53,8 +55,12 @@ public class PhotoAdapter extends PagerAdapter {
         ImageView iv = new ImageView(activity);
         iv.setAdjustViewBounds(true);
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        Glide.with(activity).load(list.get(position)).into(iv);
-//        x.image().bind(iv,"http://up.boohee.cn/house/u/one/wallpaper/104_small_v2.jpg");
+//        Glide.with(activity).load(list.get(position)).into(iv);
+        ImageOptions options=new ImageOptions.Builder()
+                .setFailureDrawableId(R.drawable.ac6)
+                .setUseMemCache(true)
+                .build();
+        x.image().bind(iv,list.get(position),options);
 //        iv.setLayoutParams(new ViewPager.LayoutParams());
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +83,7 @@ public class PhotoAdapter extends PagerAdapter {
                         Log.d("测试","手指按下"+isUp);
                         lastY = y;
                         lastX = x;
+                        isUp=false;
                         return false;
                     case MotionEvent.ACTION_MOVE:
                         float dY = Math.abs(y - lastY);
@@ -85,7 +92,7 @@ public class PhotoAdapter extends PagerAdapter {
                         boolean down = y > lastY ? true : false;
                         lastY = y;
                         lastX = x;
-                        if((dX < 5 && dY >5)&&!down){
+                        if((dX < 5 && dY >30)&&!down){
                             isUp=true;
                             Log.d("测试","手指滑动向上"+isUp);
                         }
@@ -125,5 +132,10 @@ public class PhotoAdapter extends PagerAdapter {
         ObjectAnimator animator = ObjectAnimator.ofFloat(home_photo, "translationY", 0, -hight);
         animator.setDuration(duration);
         animator.start();
+        View decorView = activity.getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//内容布局填满屏幕
+        );
     }
 }
