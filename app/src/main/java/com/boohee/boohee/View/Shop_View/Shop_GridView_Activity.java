@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,8 @@ import butterknife.OnClick;
 
 public class Shop_GridView_Activity extends AppCompatActivity {
 
+    @BindView(R.id.Shop_GridView_Loading)
+    ProgressBar Shop_GridView_Loading;
     @BindView(R.id.GridView_Back)
     View gridView_Back;
     @BindView(R.id.GridView_Title)
@@ -33,6 +36,7 @@ public class Shop_GridView_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop__grid_view_);
         ButterKnife.bind(this);
+        Shop_GridView_Loading.setVisibility(View.VISIBLE);
         Intent intent = getIntent();
         String exhibit = intent.getStringExtra("exhibit");
         String exhibit_type = intent.getStringExtra("exhibit_type");
@@ -52,6 +56,7 @@ public class Shop_GridView_Activity extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
+                    Shop_GridView_Loading.setVisibility(View.GONE);
                 }
             });
             p_shop_item_Impl.getData(exhibit, exhibit_type);

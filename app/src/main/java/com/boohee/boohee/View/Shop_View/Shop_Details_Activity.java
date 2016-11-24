@@ -56,6 +56,7 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
     private List<View> viewList;
 
     private int lastPosition =0;
+    private int goodsNum =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +71,9 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
         bundle.putInt("id",getIntent().getIntExtra("id",-1));
         fragmentList.get(0).setArguments(bundle);
         fragmentList.get(1).setArguments(bundle);
+        if(goodsNum ==0){
+            Details_Badge.hide();
+        }
     }
 
     //事件监听
@@ -135,6 +139,13 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
     //添加购物车的点击事件
     @OnClick(R.id.Add_ShoppingCar)
     public void add(View v){
+        goodsNum++;
+        if(goodsNum ==0){
+            Details_Badge.hide();
+        }else {
+            Details_Badge.setVisibility(View.VISIBLE);
+            Details_Badge.setText(goodsNum+"");
+        }
 
     }
    //viewpager中的点击事件
