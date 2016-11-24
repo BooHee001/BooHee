@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -16,7 +16,9 @@ import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
 import com.boohee.boohee.R;
 import com.boohee.boohee.View.Partner_View.V_Partner_sift;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ListView_Adapter;
-import com.boohee.boohee.presenter.Partner_Presenter.P_Partner_Impl;
+import com.boohee.boohee.presenter.Partner_Presenter.P_sift_Partner_Impl;
+
+import java.util.List;
 
 /**
  * Created by PF on 2016/11/18.
@@ -30,6 +32,9 @@ public class PartnerFragment_fragment_sift extends Fragment{
 
 
     private ViewPager partner_sift_item_headVP = null;
+    private List<ImageView> partner_list;
+    private ImageView partner_imageitem;
+    private int[] imgs = null;
 
     private ListView Partner_sift_list = null;
 
@@ -57,12 +62,13 @@ public class PartnerFragment_fragment_sift extends Fragment{
 
         Partner_sift_list = (ListView) view.findViewById(R.id.Partner_sift_list);
 
-        P_Partner_Impl p_partner_impl =new P_Partner_Impl(new V_Partner_sift() {
+        P_sift_Partner_Impl p_sift_partner_impl =new P_sift_Partner_Impl(new V_Partner_sift() {
             @Override
             public void setPartnerBean(Partner_sift partner_sift) {
 
                 View titleitem = inflater.inflate(R.layout.partner_sift_item_head,null);
                 partner_sift_item_headVP = (ViewPager) titleitem.findViewById(R.id.partner_sift_item_headVP);
+
 
 
 
@@ -74,34 +80,34 @@ public class PartnerFragment_fragment_sift extends Fragment{
             }
         });
 
-        p_partner_impl.initPartnerData();
+        p_sift_partner_impl.initPartnerData();
 
 
-        sift_loseweight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        sift_succeed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        sift_reduce.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        sift_hottopic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//        sift_loseweight.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+//
+//        sift_succeed.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+//        sift_reduce.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+//        sift_hottopic.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
 
         return view;

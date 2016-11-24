@@ -1,14 +1,11 @@
 package com.boohee.boohee.model.Partner_Model;
 
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
-import com.boohee.boohee.presenter.Partner_Presenter.P_Partner;
-import com.bumptech.glide.load.model.GenericLoaderFactory;
-import com.google.gson.Gson;
+import com.boohee.boohee.presenter.Partner_Presenter.P_sift_Partner;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -17,12 +14,12 @@ import rx.schedulers.Schedulers;
  * Created by Huochai on 2016/11/22.
  */
 
-public class Partner_Model_impl implements Partner_Model {
+public class Partner_sift_Model_impl implements Partner_sift_Model {
 
 
-    private P_Partner p_partner;
+    private P_sift_Partner p_partner;
 
-    public Partner_Model_impl(P_Partner p_partner) {
+    public Partner_sift_Model_impl(P_sift_Partner p_partner) {
         this.p_partner = p_partner;
     }
 
@@ -38,9 +35,9 @@ public class Partner_Model_impl implements Partner_Model {
                 .build();
 //        slug=hot_posts&token=b6LUSVkfgNK9sWjX2SMV&user_key=6a50362e-ab24-4240-b630-581de4dc240c
         //拼接URL
-        Partner_ApiService partner_apiService = retrofit.create(Partner_ApiService.class);
+        Partner_sift_ApiService partner_sift_apiService = retrofit.create(Partner_sift_ApiService.class);
 
-        partner_apiService.getPartner("hot_posts", "b6LUSVkfgNK9sWjX2SMV", "6a50362e-ab24-4240-b630-581de4dc240c")
+        partner_sift_apiService.getPartner("hot_posts", "b6LUSVkfgNK9sWjX2SMV", "6a50362e-ab24-4240-b630-581de4dc240c")
                 .observeOn(AndroidSchedulers.mainThread())//定义被观察者在哪个线程中
                 .subscribeOn(Schedulers.newThread())//定义观察者在哪个线程中
                 //将观察者和被观察者联系起来(括号内为观察者)
