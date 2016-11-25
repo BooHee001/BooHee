@@ -5,5 +5,5 @@ package com.boohee.boohee.model.Shop_Model;
  */
 
 public interface M_Shop_item {
-    void getData(String exhibit_type,String exhibit);
+    void getData(String exhibit_type,String exhibit,int page);
 }
