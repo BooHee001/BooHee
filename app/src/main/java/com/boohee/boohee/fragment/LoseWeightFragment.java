@@ -3,6 +3,7 @@ package com.boohee.boohee.fragment;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,7 +25,17 @@ import com.boohee.boohee.R;
 import com.bumptech.glide.Glide;
 import com.github.lzyzsd.circleprogress.ArcProgress;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
+
+import lecho.lib.hellocharts.model.Axis;
+import lecho.lib.hellocharts.model.AxisValue;
+import lecho.lib.hellocharts.model.Column;
+import lecho.lib.hellocharts.model.ColumnChartData;
+import lecho.lib.hellocharts.model.SubcolumnValue;
+import lecho.lib.hellocharts.util.ChartUtils;
+import lecho.lib.hellocharts.view.ColumnChartView;
 
 /**
  * Created by Dizner on 2016/11/18.
@@ -44,7 +55,11 @@ public class LoseWeightFragment extends Fragment {
     private RelativeLayout home_welcome_imgs;
     private Bitmap bitmap=null;
     private View decorView;
+    private final static String[] months = new String[] { "早", "午", "晚",
+            "加", "运动"};
 
+    private ColumnChartView columnChart;
+    private ColumnChartData columnData;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Nullable
     @Override
@@ -52,6 +67,7 @@ public class LoseWeightFragment extends Fragment {
         if (view == null) {
             view = inflater.inflate(R.layout.loseweight_fragment, container, false);
             progress= (ArcProgress) view.findViewById(R.id.weight_progress);
+            columnChart= (ColumnChartView) view.findViewById(R.id.home_tab);
             home_welcome_imgs= (RelativeLayout) view.findViewById(R.id.home_welcome_imgs);
             textView= (TextView) view.findViewById(R.id.textView);
             decorView = getActivity().getWindow().getDecorView();
@@ -65,10 +81,10 @@ public class LoseWeightFragment extends Fragment {
             width=getActivity(). getWindowManager().getDefaultDisplay().getWidth();
             hight=getActivity(). getWindowManager().getDefaultDisplay().getHeight();
 //            home_showPhoto.setLayoutParams(new CoordinatorLayout.LayoutParams(width,hight));
-            progress.setMax(60);;
+            progress.setMax(60);
             home_cardgroup= (NestedScrollView) view.findViewById(R.id.home_cardgroup);
 //            setAnim();
-
+            dataInit();
         }
 
         return view;
@@ -140,4 +156,31 @@ public class LoseWeightFragment extends Fragment {
             home_welcome_imgs.setBackground(new BitmapDrawable(bitmap));
         }
     };
+
+    private void dataInit() {
+        columnChart.setZoomEnabled(false);
+        int numSubcolumns = 1;
+        int numColumns = months.length;
+
+        List<AxisValue> axisValues = new ArrayList<>();
+        List<Column> columns = new ArrayList<>();
+        List<SubcolumnValue> values;
+        for (int i = 0; i <months.length; ++i) {
+
+            values = new ArrayList<>();
+            //设置数据
+            for (int j = 0; j < 1; ++j) {
+                values.add(new SubcolumnValue((float) Math.random() * 50f + 5,
+                        ChartUtils.pickColor()));
+            }
+// 点击柱状图就展示数据量
+            axisValues.add(new AxisValue(i).setLabel(months[i]));
+            columns.add(new Column(values).setHasLabels(false).setHasLabelsOnlyForSelected(false));
+        }
+
+        columnData = new ColumnChartData(columns);
+        columnData.setAxisXBottom(new Axis(axisValues).setTextSize(8).setLineColor(Color.WHITE));
+        columnData.setAxisYLeft(null);
+        columnChart.setColumnChartData(columnData);
+    }
 }
