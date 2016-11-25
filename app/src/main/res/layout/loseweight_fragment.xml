@@ -101,6 +101,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@id/tb_zs1"
                         android:layout_centerVertical="true"
+                        android:textColor="#000"
                         android:text="钻石打卡" />
                         <TextView
                             android:layout_width="wrap_content"
@@ -129,32 +130,71 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     >
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/tb_zs2"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        app:civ_border_overlay="true"
-                        android:src="@drawable/a4m"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/tb_zs2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            app:civ_border_overlay="true"
+                            android:src="@drawable/a4m"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@id/tb_zs2"
+                            android:layout_centerVertical="true"
+                            android:textColor="#000"
+                            android:text="@string/home_txt2" />
+                    </LinearLayout>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_toRightOf="@id/tb_zs2"
+                        android:text="还可以吃"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="40dp"
                         android:layout_centerVertical="true"
-                        android:text="钻石打卡" />
+                        android:id="@+id/textView2" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="1731"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:textSize="18sp"
+                        android:textColor="#000"
+                        android:id="@+id/textView3"
+                        android:layout_below="@+id/textView2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="千卡"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignTop="@+id/textView3"
+                        android:layout_toEndOf="@+id/textView3" />
+
+                    <lecho.lib.hellocharts.view.ColumnChartView
+                        android:id="@+id/home_tab"
+                        android:layout_width="100dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="34dp"
                         android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:text="打卡"/>
+                        android:layout_alignParentEnd="true" />
+
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="8dp"
@@ -168,29 +208,52 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     >
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/tb_zs4"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        app:civ_border_overlay="true"
-                        android:src="@drawable/a4s"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/tb_zs4"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            app:civ_border_overlay="true"
+                            android:src="@drawable/a4s"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@id/tb_zs4"
+                            android:layout_centerVertical="true"
+                            android:textColor="#000"
+                            android:text="体重记录" />
+
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/weught_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="65.0"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="30dp"
+                        android:textSize="18sp"
+                        android:textColor="#000"/>
+
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_toRightOf="@id/tb_zs4"
-                        android:layout_centerVertical="true"
-                        android:text="钻石打卡" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:text="打卡"/>
+                        android:layout_alignTop="@id/weught_count"
+                        android:layout_toRightOf="@id/weught_count"
+                        android:layout_marginLeft="5dp"
+                        android:text="公斤"
+                        android:textSize="12sp"/>
+
+
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="8dp"
@@ -216,13 +279,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@id/tb_zs"
                         android:layout_centerVertical="true"
-                        android:text="钻石打卡" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:text="打卡"/>
+                        android:textColor="#000"
+                        android:text="围度记录" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
