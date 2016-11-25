@@ -1,4 +1,1 @@
-include ':app', ':hellocharts-library'
-include ':app', ':pullToRefreshlibrary'
-include ':app'
-include ':pullToRefreshlibrary'
+include ':app', ':hellocharts-library',':pullToRefreshlibrary'
