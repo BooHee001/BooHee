@@ -22,6 +22,7 @@
         <activity android:name=".View.Shop_View.Shop_GridView_Activity" />
         <activity android:name=".View.Shop_View.GoodsCar_Activity"/>
         <activity android:name=".View.Shop_View.DingDan_Activity"/>
+        <activity android:name=".View.Partner_View.Sift_loseweight_WebView_Activity"/>
     </application>
 
 </manifest>
