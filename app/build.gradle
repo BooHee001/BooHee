@@ -41,4 +41,5 @@ dependencies {
     compile 'org.xutils:xutils:3.3.38'
     compile project(':hellocharts-library')
 
+    compile project(':pullToRefreshlibrary')
 }
