@@ -100,14 +100,9 @@ public class PhotoAdapter extends PagerAdapter {
                             isUp=false;
                             Log.d("测试","手指滑动向下"+isUp);
                         }
-
-
-//                            if (isUp) {
-//                                setAnim();
-//                            }
                         break;
                     case MotionEvent.ACTION_UP:
-                        Log.d("测试23","手指抬起"+isUp);
+                        Log.d("测试23","手指抬起"+true);
                         if (isUp) {
                             setAnim(300);
                         }
@@ -134,7 +129,8 @@ public class PhotoAdapter extends PagerAdapter {
         animator.start();
         View decorView = activity.getWindow().getDecorView();
         decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                View.VISIBLE
 //                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//内容布局填满屏幕
         );
     }

@@ -1,2 +1,4 @@
+include ':app', ':hellocharts-library'
+include ':app', ':pullToRefreshlibrary'
 include ':app'
 include ':pullToRefreshlibrary'
