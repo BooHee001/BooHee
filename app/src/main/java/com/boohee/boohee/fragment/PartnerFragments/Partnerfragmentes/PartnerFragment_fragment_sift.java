@@ -1,7 +1,6 @@
 package com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,19 +11,15 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_ViewPager;
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
 import com.boohee.boohee.R;
-import com.boohee.boohee.View.Partner_View.Sift_loseweight_WebView_Activity;
 import com.boohee.boohee.View.Partner_View.V_Partner_ViewPager;
 import com.boohee.boohee.View.Partner_View.V_Partner_sift;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ListView_Adapter;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_viewPager_Adapter;
-import com.boohee.boohee.presenter.Partner_Presenter.P_ViewPager_Partner;
 import com.boohee.boohee.presenter.Partner_Presenter.P_ViewPager_Partner_Impl;
-import com.boohee.boohee.presenter.Partner_Presenter.P_friends_Partner_Impl;
 import com.boohee.boohee.presenter.Partner_Presenter.P_sift_Partner_Impl;
 
 import java.util.List;
@@ -119,7 +114,7 @@ public class PartnerFragment_fragment_sift extends Fragment{
         sift_loseweight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),Sift_loseweight_WebView_Activity.class));
+//                startActivity(new Intent(getActivity(),Sift_loseweight_WebView_Activity.class));
             }
         });
 

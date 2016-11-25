@@ -11,8 +11,6 @@ import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_friends;
 import com.boohee.boohee.R;
 import com.bumptech.glide.Glide;
 
-import org.xutils.x;
-
 import java.util.List;
 
 /**
@@ -64,7 +62,7 @@ public class Partner_friends_GridView_Adapter extends BaseAdapter{
         if (small_url!=null){
             Glide.with(context)
                     .load(small_url)
-                    .error(R.drawable.fuckyou)
+                    .error(R.drawable.a3d)
                     .into(partner_gridView_holder.partner_priends_GridviewPic);
 //            x.image().bind(partner_gridView_holder.partner_priends_GridviewPic,small_url);
         }
