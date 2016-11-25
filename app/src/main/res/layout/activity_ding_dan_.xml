@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ding_dan_"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.boohee.boohee.View.Shop_View.DingDan_Activity">
+
+    <RelativeLayout
+        android:id="@+id/Dingdan_Back"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <RelativeLayout
+            android:id="@+id/GridView_Back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_arrow_back_black" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/GridView_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="9dp"
+            android:layout_toRightOf="@id/GridView_Back"
+            android:text="我的订单"
+            android:textColor="#000"
+            android:textSize="18dp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/Img"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="138dp"
+            android:src="@mipmap/a5q" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Img"
+            android:layout_centerHorizontal="true"
+            android:text="订单信息是空龘"
+            android:layout_marginTop="10dp"
+            android:textSize="17sp"
+            />
+        <android.support.v7.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/text"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="20dp">
+
+            <Button
+                android:id="@+id/GoodsCar_JiSuan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#1AC837"
+                android:text="去逛逛"
+                android:textColor="#fff" />
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

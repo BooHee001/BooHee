@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <RelativeLayout
         android:id="@+id/Shop_TooBar"
         android:layout_width="match_parent"
@@ -79,7 +78,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/Shop_TooBar"
         >
-        <ListView
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
             android:id="@+id/Shop_ListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
