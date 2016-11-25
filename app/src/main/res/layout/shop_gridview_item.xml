@@ -18,6 +18,7 @@
             <ImageView
                 android:id="@+id/shop_Grid_Img"
                 android:layout_width="match_parent"
+                android:layout_marginLeft="5dp"
                 android:layout_height="160dp"
                 android:src="@mipmap/aa3" />
 

@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tabFragment(0);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
                     imageViewList.get(0).setImageResource(R.mipmap.a83);
-                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
+                    textViewList.get(lastChecked).setTextColor(Color.rgb(153, 153, 153));
                     textViewList.get(0).setTextColor(Color.rgb(41, 165, 82));
                     lastChecked = 0;
                 }
@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tabFragment(1);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
                     imageViewList.get(1).setImageResource(R.mipmap.a81);
-                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
+                    textViewList.get(lastChecked).setTextColor(Color.rgb(153, 153, 153));
                     textViewList.get(1).setTextColor(Color.rgb(41, 165, 82));
                     lastChecked = 1;
                 }
@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tabFragment(2);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
                     imageViewList.get(2).setImageResource(R.mipmap.a87);
-                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
+                    textViewList.get(lastChecked).setTextColor(Color.rgb(153, 153, 153));
                     textViewList.get(2).setTextColor(Color.rgb(41, 165, 82));
 
                     lastChecked = 2;
@@ -217,9 +217,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tabFragment(3);
                     imageViewList.get(lastChecked).setImageResource(imageList.get(lastChecked));
                     imageViewList.get(3).setImageResource(R.mipmap.a85);
-                    textViewList.get(lastChecked).setTextColor(Color.rgb(9, 9, 9));
+                    textViewList.get(lastChecked).setTextColor(Color.rgb(153, 153, 153));
                     textViewList.get(3).setTextColor(Color.rgb(41, 165, 82));
-
                     lastChecked = 3;
                 }
                 break;

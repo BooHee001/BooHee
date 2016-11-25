@@ -8,8 +8,7 @@
         android:id="@+id/my_dynamic"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_weight="1"
-        android:onClick="onclick">
+        android:layout_weight="1">
 
         <ImageView
             android:layout_width="25dp"
@@ -38,8 +37,7 @@
         android:id="@+id/look_friends"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_weight="1"
-        android:onClick="onclick">
+        android:layout_weight="1">
 
         <ImageView
             android:layout_width="25dp"

@@ -21,21 +21,21 @@ import java.util.List;
 
 public class Shop_GridView_Adapter extends BaseAdapter{
     private Context context;
-    private Shop_Goods_Item shop_goods_item;
+    private List<Shop_Goods_Item.GoodsBean> GoodsList;
 
-    public Shop_GridView_Adapter(Context context, Shop_Goods_Item shop_goods_item) {
+    public Shop_GridView_Adapter(Context context, List<Shop_Goods_Item.GoodsBean> GoodsList) {
         this.context = context;
-        this.shop_goods_item = shop_goods_item;
+        this.GoodsList = GoodsList;
     }
 
     @Override
     public int getCount() {
-        return shop_goods_item.getGoods().size();
+        return GoodsList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return shop_goods_item.getGoods().get(position);
+        return GoodsList.get(position);
     }
 
     @Override
@@ -56,9 +56,9 @@ public class Shop_GridView_Adapter extends BaseAdapter{
         }else {
             holder = (MyGridViewHolder) convertView.getTag();
         }
-        Shop_Goods_Item.GoodsBean goodsBean = shop_goods_item.getGoods().get(position);
+        Shop_Goods_Item.GoodsBean goodsBean = GoodsList.get(position);
         String big_photo_url = goodsBean.getBig_photo_url();
-        String Base_Price =goodsBean.getBase_price();
+        String Base_Price =goodsBean.getMarket_price();
         String title = goodsBean.getTitle();
 
         if(big_photo_url !=null){

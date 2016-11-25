@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <RelativeLayout
         android:id="@+id/Shop_TooBar"
         android:layout_width="match_parent"
@@ -74,10 +73,22 @@
 
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/Shop_ListView"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/Shop_TooBar" />
+        android:layout_below="@id/Shop_TooBar"
+        >
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/Shop_ListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           />
+        <ProgressBar
+            android:id="@+id/Shop_Fragment_Loading"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
 
 </RelativeLayout>
