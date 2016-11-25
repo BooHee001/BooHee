@@ -1,6 +1,7 @@
 package com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -17,13 +19,17 @@ import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_ViewPager;
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
 import com.boohee.boohee.R;
 import com.boohee.boohee.View.Partner_View.Sift_loseweight_WebView_Activity;
+import com.boohee.boohee.View.Partner_View.Sift_reduce_WebView_Activity;
 import com.boohee.boohee.View.Partner_View.V_Partner_ViewPager;
 import com.boohee.boohee.View.Partner_View.V_Partner_sift;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ListView_Adapter;
+import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ViewPager_Adapter2;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_viewPager_Adapter;
 import com.boohee.boohee.presenter.Partner_Presenter.P_ViewPager_Partner_Impl;
 import com.boohee.boohee.presenter.Partner_Presenter.P_sift_Partner_Impl;
+import com.viewpagerindicator.CirclePageIndicator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,6 +47,10 @@ public class PartnerFragment_fragment_sift extends Fragment{
     private ProgressBar sift_Fragment_Loading = null;
 
     private ViewPager partner_sift_item_headVP = null;
+    private List<ImageView> imageviewlist = null;
+    private int[] imgs = new int[] {R.mipmap.banner,R.mipmap.cosp};
+
+    private CirclePageIndicator siftInfo = null;
 
     private ListView Partner_sift_list = null;
 
@@ -60,39 +70,57 @@ public class PartnerFragment_fragment_sift extends Fragment{
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.partner_sift_list,container,false);
 
+        View titleitem = inflater.inflate(R.layout.partner_sift_item_head,null);
 
+        initView(view,titleitem);
+        //头条目viewpager
+        setImageViewlist(titleitem);
+        //主listview
+        setListViewData();
+
+        setOnclicks();
+
+        return view;
+    }
+
+    public void initView(View view,View titleitem){
 
         Partner_sift_list = (ListView) view.findViewById(R.id.Partner_sift_list);
         sift_Fragment_Loading = (ProgressBar) view.findViewById(R.id.sift_Fragment_Loading);
 
-        View titleitem = inflater.inflate(R.layout.partner_sift_item_head,null);
+
         partner_sift_item_headVP = (ViewPager) titleitem.findViewById(R.id.partner_sift_item_headVP);
         sift_loseweight = (LinearLayout) titleitem.findViewById(R.id.sift_loseweight);
         sift_succeed = (LinearLayout) titleitem.findViewById(R.id.sift_succeed);
         sift_reduce = (LinearLayout) titleitem.findViewById(R.id.sift_reduce);
         sift_hottopic = (LinearLayout) titleitem.findViewById(R.id.sift_hottopic);
+        siftInfo = (CirclePageIndicator) titleitem.findViewById(R.id.siftInfo);
+
+    }
 
 
+    public void setImageViewlist(View titleitem){
 
+//        setImageViewlist(view,titleitem);
+        imageviewlist = new ArrayList<ImageView>();
+        for (int i = 0; i < imgs.length; i++) {
+            ImageView iv = new ImageView(getContext());
 
-        P_ViewPager_Partner_Impl p_viewPager_partner_impl = new P_ViewPager_Partner_Impl(new V_Partner_ViewPager(){
+            iv.setImageResource(imgs[i]);
+            imageviewlist.add(iv);
 
-            private List<Partner_ViewPager.SlidersBean> viewpager;
-
-            @Override
-            public void setViewPagerPartnerBean(Partner_ViewPager Partner_ViewPager) {
-
-
-
-                partner_sift_item_headVP.setAdapter(new Partner_sift_viewPager_Adapter(getContext(),Partner_ViewPager.getSliders()  ));
-
-            }
-        });
-
-        p_viewPager_partner_impl.initViewPagerPartner();
+        }
+        Partner_sift_ViewPager_Adapter2 pageradapter2 = new Partner_sift_ViewPager_Adapter2(getContext(),imageviewlist);
+        partner_sift_item_headVP.setOffscreenPageLimit(2);
+        partner_sift_item_headVP.setAdapter(pageradapter2);
+        siftInfo.setViewPager(partner_sift_item_headVP);
 
 
         Partner_sift_list.addHeaderView(titleitem);
+
+    }
+
+    public void setListViewData(){
 
         P_sift_Partner_Impl p_sift_partner_impl =new P_sift_Partner_Impl(new V_Partner_sift() {
             @Override
@@ -110,8 +138,9 @@ public class PartnerFragment_fragment_sift extends Fragment{
         });
 
         p_sift_partner_impl.initPartnerData();
+    }
 
-
+    public void setOnclicks(){
 
         sift_loseweight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,7 +148,6 @@ public class PartnerFragment_fragment_sift extends Fragment{
                 startActivity(new Intent(getActivity(),Sift_loseweight_WebView_Activity.class));
             }
         });
-
         sift_succeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,7 +157,7 @@ public class PartnerFragment_fragment_sift extends Fragment{
         sift_reduce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getActivity(),Sift_reduce_WebView_Activity.class));
             }
         });
         sift_hottopic.setOnClickListener(new View.OnClickListener() {
@@ -139,7 +167,6 @@ public class PartnerFragment_fragment_sift extends Fragment{
             }
         });
 
-
-        return view;
     }
+
 }

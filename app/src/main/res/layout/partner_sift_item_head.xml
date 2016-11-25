@@ -2,17 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#ffffff">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/partner_sift_item_headVP"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="130dp"
 
             >
-
         </android.support.v4.view.ViewPager>
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/siftInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:fillColor="#29A552"
+            app:pageColor="#fff"
+            android:layout_marginBottom="5dp"
+            app:radius="3dp" />
+
+
+    </RelativeLayout>
+
+
 
     <View
         android:layout_width="match_parent"

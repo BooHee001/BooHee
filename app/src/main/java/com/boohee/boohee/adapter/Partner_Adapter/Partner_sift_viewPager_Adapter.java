@@ -44,6 +44,9 @@ public class Partner_sift_viewPager_Adapter extends PagerAdapter{
         Glide.with(context).load(SlidersBean.get(position)).into(vpiv);
         vpiv.setScaleType(ImageView.ScaleType.FIT_XY);
         container.addView(vpiv);
+
+        
+
         return vpiv;
     }
 
