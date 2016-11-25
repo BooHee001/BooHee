@@ -50,11 +50,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/view"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         >
-        <GridView
+        <com.handmark.pulltorefresh.library.PullToRefreshGridView
             android:id="@+id/G_GridView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:ptrMode="both"
             android:numColumns="2" />
         <ProgressBar
             android:id="@+id/Shop_GridView_Loading"

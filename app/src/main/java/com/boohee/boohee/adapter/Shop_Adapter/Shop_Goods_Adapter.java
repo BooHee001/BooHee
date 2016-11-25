@@ -158,6 +158,12 @@ public class Shop_Goods_Adapter extends BaseAdapter {
                                 intent.putExtra("exhibit_type", listBean.getExhibit_type());
                                 context.startActivity(intent);
                             }
+                            if((position == (shop_goods.getDatas().size() - 4))){
+                                Toast.makeText(context, "NICe", Toast.LENGTH_SHORT).show();
+                            }
+                            if((position == (shop_goods.getDatas().size() - 5))){
+                                Toast.makeText(context, "专家服务", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
                 }

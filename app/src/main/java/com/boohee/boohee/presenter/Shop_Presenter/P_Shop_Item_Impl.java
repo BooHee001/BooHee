@@ -24,7 +24,7 @@ public class P_Shop_Item_Impl implements P_Shop_Item {
         v_shop_item.setData(shop_goods_item);
     }
 
-    public void getData(String exhibit_type,String exhibit){
-        m_shop_item.getData(exhibit_type,exhibit);
+    public void getData(String exhibit_type,String exhibit,int page){
+        m_shop_item.getData(exhibit_type,exhibit,page);
     }
 }

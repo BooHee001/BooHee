@@ -5,11 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".View.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".View.MyApplication"
         android:theme="@style/AppTheme">
         <activity android:name=".View.MainActivity">
             <intent-filter>
@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".View.Shop_View.Shop_Details_Activity" />
-        <activity android:name=".View.Shop_View.Shop_GridView_Activity"></activity>
+        <activity android:name=".View.Shop_View.Shop_GridView_Activity" />
     </application>
 
 </manifest>
