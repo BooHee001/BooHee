@@ -1,33 +1,29 @@
 package com.boohee.boohee.model.Partner_Model;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
-import com.boohee.boohee.presenter.Partner_Presenter.P_Partner;
-import com.bumptech.glide.load.model.GenericLoaderFactory;
-import com.google.gson.Gson;
+import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_friends;
+import com.boohee.boohee.presenter.Partner_Presenter.P_friends_Partner;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by Huochai on 2016/11/22.
+ * Created by Huochai on 2016/11/24.
  */
 
-public class Partner_Model_impl implements Partner_Model {
+public class Partner_friends_Model_impl implements Partner_friends_Model{
 
+    private P_friends_Partner p_friends_partner;
 
-    private P_Partner p_partner;
-
-    public Partner_Model_impl(P_Partner p_partner) {
-        this.p_partner = p_partner;
+    public Partner_friends_Model_impl(P_friends_Partner p_friends_partner) {
+        this.p_friends_partner = p_friends_partner;
     }
 
     @Override
-    public void initPartnerData() {
+    public void initFriendsPartner() {
         Retrofit.Builder builder = new Retrofit.Builder();
         //让RE支持RXJava
         Retrofit retrofit = builder.addCallAdapterFactory(RxJavaCallAdapterFactory.create())
@@ -36,15 +32,15 @@ public class Partner_Model_impl implements Partner_Model {
                 //加载url的域名
                 .baseUrl("http://180.153.222.195")
                 .build();
-//        slug=hot_posts&token=b6LUSVkfgNK9sWjX2SMV&user_key=6a50362e-ab24-4240-b630-581de4dc240c
+//       status_api_version=1.1&token=w9eSJ5JcC3sySFicgim2&user_key=eabcb76b-eb40-4aa1-b3e8-6529106d6214
         //拼接URL
-        Partner_ApiService partner_apiService = retrofit.create(Partner_ApiService.class);
+        Partner_friends_ApiService partner_friends_ApiService = retrofit.create(Partner_friends_ApiService.class);
 
-        partner_apiService.getPartner("hot_posts", "b6LUSVkfgNK9sWjX2SMV", "6a50362e-ab24-4240-b630-581de4dc240c")
+        partner_friends_ApiService.getPartnerf("1.1", "w9eSJ5JcC3sySFicgim2", "eabcb76b-eb40-4aa1-b3e8-6529106d6214")
                 .observeOn(AndroidSchedulers.mainThread())//定义被观察者在哪个线程中
                 .subscribeOn(Schedulers.newThread())//定义观察者在哪个线程中
                 //将观察者和被观察者联系起来(括号内为观察者)
-                .subscribe(new Subscriber<Partner_sift>() {
+                .subscribe(new Subscriber<Partner_friends>() {
                     @Override
                     //这是个标记
                     public void onCompleted() {
@@ -59,8 +55,8 @@ public class Partner_Model_impl implements Partner_Model {
 
                     @Override
                     //只有持有上面的标记才会执行这个
-                    public void onNext(Partner_sift partner_sift) {
-                        p_partner.setPartnerBean(partner_sift);
+                    public void onNext(Partner_friends partner_friends) {
+                        p_friends_partner.setfriendsPartnerBean(partner_friends);
                     }
                 });
 

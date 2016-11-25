@@ -9,14 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
-import com.boohee.boohee.View.Partner_View.V_Partner_sift;
 import com.boohee.boohee.fragment.PartnerFragments.PartnerAdapter.Partner_Fragment_Adapter;
 import com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes.PartnerFragment_fragment_friends;
 import com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes.PartnerFragment_fragment_sift;
 import com.boohee.boohee.R;
-import com.boohee.boohee.model.Partner_Model.Partner_Model_impl;
-import com.boohee.boohee.presenter.Partner_Presenter.P_Partner_Impl;
 
 import java.util.ArrayList;
 import java.util.List;

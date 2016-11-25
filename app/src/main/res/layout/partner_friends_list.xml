@@ -5,13 +5,13 @@
     android:background="#d7d7d7">
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/Partner_sift_Refush"
+        android:id="@+id/Partner_friends_Refush"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
         <ListView
-            android:id="@+id/Partner_sift_list"
+            android:id="@+id/Partner_friends_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ffffff">
@@ -19,13 +19,14 @@
         </ListView>
 
 
+
+
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <ProgressBar
-        android:id="@+id/sift_Fragment_Loading"
+        android:id="@+id/friends_Fragment_Loading"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         />
-
 </RelativeLayout>

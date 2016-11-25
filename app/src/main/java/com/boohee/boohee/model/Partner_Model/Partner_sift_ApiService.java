@@ -10,7 +10,7 @@ import rx.Observable;
  * Created by Huochai on 2016/11/22.
  */
 
-public interface Partner_ApiService {
+public interface Partner_sift_ApiService {
     @GET("api/v1/channels/posts")
 
     Observable<Partner_sift> getPartner(@Query("slug") String slug,@Query("token") String token,@Query("user_key") String user_key);
