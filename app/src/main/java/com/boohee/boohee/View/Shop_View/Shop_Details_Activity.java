@@ -1,5 +1,6 @@
 package com.boohee.boohee.View.Shop_View;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Build;
@@ -11,12 +12,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boohee.boohee.R;
 import com.boohee.boohee.Utils.Shop_Utils.BadgeView;
 import com.boohee.boohee.adapter.Shop_Adapter.Shop_Details_ViewPagerAdapter;
 import com.boohee.boohee.fragment.ShopFragments.Shop_Details_AssessFragment;
 import com.boohee.boohee.fragment.ShopFragments.Shop_Details_GoodsFragment;
+import com.boohee.boohee.presenter.Shop_Presenter.P_AddGoodsCar;
+import com.boohee.boohee.presenter.Shop_Presenter.P_AddGoodsCar_Impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -139,13 +143,26 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
     //添加购物车的点击事件
     @OnClick(R.id.Add_ShoppingCar)
     public void add(View v){
+        P_AddGoodsCar_Impl p_addGoodsCar = new P_AddGoodsCar_Impl(new V_AddGoodsCar() {
+            @Override
+            public void getResult(String result) {
+                if("success".equals(result)){
+                    Toast.makeText(Shop_Details_Activity.this, "添加成功", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(Shop_Details_Activity.this, "添加失败", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        Intent intent = getIntent();
+        String goodsname = intent.getStringExtra("goodsname");
+        String goodsimg = intent.getStringExtra("goodsimg");
+        String  goodspic= intent.getStringExtra("goodspic");
+        double aLong = Double.parseDouble(goodspic);
         goodsNum++;
-        if(goodsNum ==0){
-            Details_Badge.hide();
-        }else {
-            Details_Badge.setVisibility(View.VISIBLE);
-            Details_Badge.setText(goodsNum+"");
-        }
+
+//        Toast.makeText(this, ""+goodsname+goodsimg+"----------------"+goodspic, Toast.LENGTH_SHORT).show();
+        p_addGoodsCar.initData(3321,goodsname,goodsimg,(int)aLong,goodsNum);
 
     }
    //viewpager中的点击事件

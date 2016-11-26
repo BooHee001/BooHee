@@ -54,6 +54,9 @@ public class Shop_GridView_Activity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.putExtra("id", goodsBean.get(1).getId());
                 intent.putExtra("title", goodsBean.get(position).getTitle());
+                intent.putExtra("goodsname", goodsBean.get(position).getTitle());
+                intent.putExtra("goodsimg", goodsBean.get(position).getBig_photo_url());
+                intent.putExtra("goodspic", goodsBean.get(position).getBase_price());
                 intent.setClass(Shop_GridView_Activity.this, Shop_Details_Activity.class);
                 startActivity(intent);
 
