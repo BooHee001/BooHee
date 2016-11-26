@@ -4,19 +4,20 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ import android.widget.TextView;
 import com.boohee.boohee.Bean.Shop_Bean.FoodLog;
 import com.boohee.boohee.Bean.Shop_Bean.WeightLog;
 import com.boohee.boohee.R;
-import com.bumptech.glide.Glide;
+import com.boohee.boohee.View.MainActivity;
 import com.github.lzyzsd.circleprogress.ArcProgress;
 
 import org.xutils.DbManager;
@@ -34,7 +35,6 @@ import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.AxisValue;
@@ -59,14 +59,16 @@ public class LoseWeightFragment extends Fragment {
     private View view;
     private NestedScrollView home_cardgroup;
     private ArcProgress progress;
-    private TextView textView;
+    private TextView textView,textView5;
     private ViewPager home_showPhoto;
     private int width;
     private int hight;
-    private RelativeLayout home_welcome_imgs;
+    private ImageView home_welcome_imgs;
     private Bitmap bitmap=null;
     private View decorView;
     private DbManager db;
+    private RelativeLayout home_r1;
+    private LinearLayout home_r2;
     private ColumnChartView columnChart;
     private LineChartView lineChartView;
     private LineChartData lineChartData;
@@ -75,13 +77,11 @@ public class LoseWeightFragment extends Fragment {
     //步数进度条
     private ProgressBar setp_progressBar;
     private ColumnChartData columnData;
-    private Handler handler=new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            home_welcome_imgs.setBackground(new BitmapDrawable(bitmap));
-        }
-    };
+    private LinearLayout card_layout;
+    private boolean isUp=false;
+    private boolean isDown=false;
+    private float lastY=0;
+    private float lastX=0;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Nullable
@@ -94,6 +94,7 @@ public class LoseWeightFragment extends Fragment {
             decorView = getActivity().getWindow().getDecorView();
             width=getActivity(). getWindowManager().getDefaultDisplay().getWidth();
             hight=getActivity(). getWindowManager().getDefaultDisplay().getHeight();
+            initPage();
             //数据库初始化
             db=x.getDb(new DbManager.DaoConfig().setDbName("foodLog"));
             //临时写入数据的方法
@@ -139,24 +140,105 @@ public class LoseWeightFragment extends Fragment {
         return view;
     }
 
+    private void initPage() {
+
+        home_cardgroup.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                home_r1.setLayoutParams(new RelativeLayout.LayoutParams(width,(home_r1.getHeight() +scrollY/3-oldScrollY/3)));
+            }
+        });
+
+
+        home_cardgroup.setOnTouchListener(new View.OnTouchListener() {
+            public float dX=0;
+            public float dY=0;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int action = event.getAction();
+                float x = event.getX();
+                float y = event.getY();
+//                    LogUtils.out("ListView滑动","滑动"+event.getY());
+                switch (action) {
+                    case MotionEvent.ACTION_DOWN:
+                        Log.d("测试,主页滑动","手指按下"+isUp);
+                        lastY = y;
+                        lastX = x;
+                        isUp=false;
+//                        return false;
+                    case MotionEvent.ACTION_MOVE:
+                        dY = Math.abs(y - lastY);
+                        dX = Math.abs(x - lastX);
+                        //Y大于lastY说明当前Y值大于按下时的Y值，即向下滑动的动作
+                        boolean down = y > lastY ? true : false;
+                        lastY = y;
+                        lastX = x;
+                        if((dX < 5 && dY >2)&&!down){
+                            isUp=true;
+//                            home_r1.setLayoutParams(new RelativeLayout.LayoutParams(width, (int) (home_r1.getHeight() - y + lastY)));
+                            Log.d("测试,主页滑动","手指滑动向上"+isUp);
+//                            home_r1.setLayoutParams(new RelativeLayout.LayoutParams(width, (int) (home_r1.getHeight()+dY)));
+//                            setMarginTop((int) -home_r1.getHeight());
+                        }
+                        if((dX < 5 && dY >2)&&down){
+                            isUp=false;
+
+//                            home_welcome_imgs.setLayoutParams(new RelativeLayout.LayoutParams(width, (int) (home_r1.getHeight() +dY)));
+//                            home_r2.setLayoutParams(new RelativeLayout.LayoutParams(width, (int) (home_r2.getHeight() +dY)));
+                            textView5.setVisibility(View.VISIBLE);
+                            textView5.setTextSize(dY/4);
+                            if (dY>8) {
+                                setAnim(300);
+                            }
+
+                            Log.d("测试,主页滑动","手指滑动向下"+isUp);
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        Log.d("测试,主页滑动","手指抬起"+true);
+                        textView5.setVisibility(View.INVISIBLE);
+                        textView5.setTextSize(20);
+//                        if (isUp) {
+//                            setAnim(300);
+//                        }
+//                        home_welcome_imgs.setLayoutParams(new RelativeLayout.LayoutParams(width, (int) (home_r1.getHeight()-dY)));
+
+                        break;
+                    default:
+                        break;
+                }
+                return false;
+            }
+        });
+
+
+
+
+    }
+
     private void initView() {
         progress= (ArcProgress) view.findViewById(R.id.weight_progress);
         columnChart= (ColumnChartView) view.findViewById(R.id.home_tab);
         lineChartView= (LineChartView) view.findViewById(R.id.home_tab2);
+        home_r1= (RelativeLayout) view.findViewById(R.id.home_r1);
+        home_r2= (LinearLayout) view.findViewById(R.id.home_r2);
         setp_progressBar= (ProgressBar) view.findViewById(R.id.setp_progressBar);
         setp_count= (TextView) view.findViewById(R.id.setp_count);
         weught_count= (TextView) view.findViewById(R.id.weught_count);
         food_count= (TextView) view.findViewById(R.id.food_count);
-        home_welcome_imgs= (RelativeLayout) view.findViewById(R.id.home_welcome_imgs);
+        card_layout= (LinearLayout) view.findViewById(R.id.card_layout);
+        home_welcome_imgs= (ImageView) view.findViewById(R.id.home_welcome_imgs);
         textView= (TextView) view.findViewById(R.id.textView);
+        textView5= (TextView) view.findViewById(R.id.textView5);
         progress.setMax(60);
         home_cardgroup= (NestedScrollView) view.findViewById(R.id.home_cardgroup);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setAnim(300);
-            }
-        });
+//        textView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                setAnim(300);
+//            }
+//        });
         home_showPhoto= (ViewPager) getActivity().findViewById(R.id.home_showPhoto);
     }
 
@@ -195,31 +277,11 @@ public class LoseWeightFragment extends Fragment {
            }
        });
         animator.start();
-
+        MainActivity.isShow=true;
     }
 
     public void setWelcomeImgs(final String url){
-            new Thread(){
-                @Override
-                public void run() {
-
-                    try {
-                        bitmap= Glide.with(LoseWeightFragment.this)
-                                .load(url)
-                                .asBitmap()
-                                .centerCrop()
-                                .into(width, home_welcome_imgs.getHeight())
-                                .get();
-                        handler.sendEmptyMessage(1);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }.start();
-
-
+       x.image().bind(home_welcome_imgs,url);
     }
 
     private void dataInit() throws DbException {
@@ -290,5 +352,13 @@ public class LoseWeightFragment extends Fragment {
         lineChartData.setAxisYLeft(null);
         lineChartData.setBaseValue(Float.NaN);
         lineChartView.setLineChartData(lineChartData);
+    }
+
+
+    public void setMarginTop(int page){
+        LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT);
+        layoutParam.setMargins(0, page, 0, 0);
+        home_r2.setLayoutParams(layoutParam);
+        home_r2.invalidate();
     }
 }
