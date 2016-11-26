@@ -129,6 +129,9 @@ public class Shop_Goods_Adapter extends BaseAdapter {
                             intent.setClass(context, Shop_Details_Activity.class);
                             intent.putExtra("id",list.get(positions).getId());
                             intent.putExtra("title",list.get(positions).getTitle());
+                            intent.putExtra("goodsname", list.get(position).getTitle());
+                            intent.putExtra("goodsimg", list.get(position).getBig_photo_url());
+                            intent.putExtra("goodspic", list.get(position).getBase_price());
                             context.startActivity(intent);
                         }
                     });
