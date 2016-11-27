@@ -88,6 +88,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static boolean isShow=false;
     private boolean isExit=false;
 
+    /**
+     * 测试
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
