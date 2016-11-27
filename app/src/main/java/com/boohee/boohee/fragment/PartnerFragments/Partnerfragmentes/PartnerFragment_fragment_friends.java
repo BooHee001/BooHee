@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_friends;
 import com.boohee.boohee.R;
@@ -92,7 +93,7 @@ public class PartnerFragment_fragment_friends extends Fragment{
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-
+                Toast.makeText(getActivity(), "哎呀，木有更多了~", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -42,7 +42,6 @@
             android:id="@+id/message"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:onClick="onclick"
             android:layout_alignParentRight="true"
             >
 

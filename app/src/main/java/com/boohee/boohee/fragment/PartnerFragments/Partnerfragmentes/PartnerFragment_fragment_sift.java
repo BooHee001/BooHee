@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_ViewPager;
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
@@ -22,6 +23,7 @@ import com.boohee.boohee.View.Partner_View.Sift_loseweight_WebView_Activity;
 import com.boohee.boohee.View.Partner_View.Sift_reduce_WebView_Activity;
 import com.boohee.boohee.View.Partner_View.V_Partner_ViewPager;
 import com.boohee.boohee.View.Partner_View.V_Partner_sift;
+import com.boohee.boohee.View.WebView_Activity;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ListView_Adapter;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ViewPager_Adapter2;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_viewPager_Adapter;
@@ -138,6 +140,8 @@ public class PartnerFragment_fragment_sift extends Fragment{
                 Partner_sift_ListView_Adapter siftAdapter = new Partner_sift_ListView_Adapter(partner_sift,getContext());
                 Partner_sift_list.setAdapter(siftAdapter);
 
+
+
                 sift_Fragment_Loading.setVisibility(View.GONE);
 
                 Partner_sift_list.onRefreshComplete();
@@ -159,6 +163,12 @@ public class PartnerFragment_fragment_sift extends Fragment{
             @Override
             public void onClick(View v) {
 
+                Intent WebView_Intent = new Intent();
+                WebView_Intent.putExtra("weburl","http://m.boohee.com/");
+                WebView_Intent.putExtra("webtxt","Hots");
+                WebView_Intent.setClass(getActivity(), WebView_Activity.class);
+                startActivity(WebView_Intent);
+
             }
         });
         sift_reduce.setOnClickListener(new View.OnClickListener() {
@@ -170,7 +180,11 @@ public class PartnerFragment_fragment_sift extends Fragment{
         sift_hottopic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent WebView_Intent = new Intent();
+                WebView_Intent.putExtra("weburl","http://m.boohee.com/knowledges");
+                WebView_Intent.putExtra("webtxt","薄荷");
+                WebView_Intent.setClass(getActivity(), WebView_Activity.class);
+                startActivity(WebView_Intent);
             }
         });
 
@@ -181,13 +195,12 @@ public class PartnerFragment_fragment_sift extends Fragment{
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
                 setListViewData();
-
-
             }
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
 
+                Toast.makeText(getActivity(), "哎呀，木有更多了~", Toast.LENGTH_SHORT).show();
             }
         });
 

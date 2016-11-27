@@ -11,7 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.boohee.boohee.R;
+import com.boohee.boohee.View.Message_Classifcamation;
 import com.boohee.boohee.View.Partner_View.Sift_reduce_WebView_Activity;
+import com.boohee.boohee.View.Seek_Activity;
 
 
 /**
@@ -74,7 +76,18 @@ public class MeFragment extends Fragment {
                 startActivity(new Intent(getActivity(),Sift_reduce_WebView_Activity.class));
             }
         });
-
+        message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), Message_Classifcamation.class));
+            }
+        });
+        seek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), Seek_Activity.class));
+            }
+        });
 
     }
 

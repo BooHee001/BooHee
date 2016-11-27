@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/partner_sift_loseweight__webview"
+    android:id="@+id/activity_seek"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f3f3f2"
     android:orientation="vertical"
-    tools:context="com.boohee.boohee.View.Partner_View.Sift_loseweight_WebView_Activity">
+    tools:context="com.boohee.boohee.View.Seek_Activity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="#ffffff"
         android:orientation="horizontal">
 
 
@@ -17,13 +20,14 @@
             android:layout_height="50dp"
             android:layout_marginLeft="60dp">
 
-            <TextView
+            <EditText
                 android:id="@+id/load_txt"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="bohe"
+                android:text=""
                 android:textSize="20sp"
                 android:textColor="#000000"
+                android:hint="输入查找的食物"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 />
@@ -33,7 +37,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/message_classification_Allread"
+            android:id="@+id/Seek_Search"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
@@ -42,11 +46,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="查找"
                 android:textSize="15sp"
                 android:textColor="#000000"
                 android:layout_marginRight="10dp"
                 android:layout_centerVertical="true"
+                android:visibility="invisible"
                 />
 
 
@@ -72,10 +77,33 @@
 
     </RelativeLayout>
 
-    <WebView
-        android:id="@+id/loseweight_webview"
+
+    <TextView
+        android:id="@+id/seek_istext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  大家都在搜"
+        android:textColor="#7d7d7d"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/>
+
+    <GridView
+        android:id="@+id/seek_gridview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:visibility="gone"
+        />
+
+    <ListView
+        android:id="@+id/Seek_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:visibility="visible"/>
+
+
+
 
 
 </LinearLayout>
