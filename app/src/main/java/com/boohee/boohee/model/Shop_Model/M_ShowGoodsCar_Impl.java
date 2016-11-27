@@ -1,5 +1,8 @@
 package com.boohee.boohee.model.Shop_Model;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
 import com.boohee.boohee.presenter.Shop_Presenter.P_ShowGoodsCar;
 
@@ -31,9 +34,10 @@ public class M_ShowGoodsCar_Impl implements M_ShowGoodsCar {
         this.p_showGoodsCar = p_showGoodsCar;
     }
     @Override
-    public void getData(final int userno) {
+    public void getData(final int userno, final Context context) {
 
-        RequestParams entiey = new RequestParams("http://192.168.31.188:8080/MyAndroidDemo/MySerVlet?type=4&userno="+userno);
+        RequestParams entiey = new RequestParams("http://172.18.188.5:8080/MyAndroidDemo/MySerVlet?type=4&userno="+userno);
+        entiey.setConnectTimeout(60000);
         x.http().post(entiey, new Callback.CacheCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -59,11 +63,13 @@ public class M_ShowGoodsCar_Impl implements M_ShowGoodsCar {
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
+                Toast.makeText(context, "连接超时", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onCancelled(CancelledException cex) {
+                Toast.makeText(context, "连接超时", Toast.LENGTH_SHORT).show();
 
             }
 

@@ -43,4 +43,5 @@ dependencies {
     compile project(':hellocharts-library')
     compile project(':pullToRefreshlibrary')
     compile 'com.daimajia.swipelayout:library:1.2.0'
+    compile files('libs/alipaySdk-20161009.jar')
 }

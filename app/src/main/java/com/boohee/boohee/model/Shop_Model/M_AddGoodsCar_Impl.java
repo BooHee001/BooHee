@@ -24,11 +24,11 @@ public class M_AddGoodsCar_Impl implements M_AddGoodsCar {
     @Override
     public void initData(int userno, String goodsname, String goodsimg, int goodspic, int goodsnum) {
         Retrofit.Builder builder = new Retrofit.Builder();
-        Retrofit retrofit = builder.baseUrl("http://192.168.31.188:8080")
+        Retrofit retrofit = builder.baseUrl("http://172.18.188.5:8080")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create()).build();
         Shop_ApiSerVice apiService = retrofit.create(Shop_ApiSerVice.class);
-        apiService.addGoodsCar(userno,goodsname,goodsimg,goodspic,goodsnum)
+        apiService.addGoodsCar(userno, goodsname, goodsimg, goodspic, goodsnum)
                 .observeOn(AndroidSchedulers.mainThread())//定义被观察者在哪个线程中
                 .subscribeOn(Schedulers.newThread())//定义观察者在哪个线程中
                 .subscribe(new Subscriber<String>() {

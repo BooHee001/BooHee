@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.boohee.boohee.R;
+
 /**
  * Created by as on 2016/11/21.
  */
@@ -16,11 +18,7 @@ public class Shop_Details_AssessFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TextView tv = new TextView(getContext());
-        Bundle bundle = getArguments();
-        int id = bundle.getInt("id");
-
-        tv.setText("评价"+id);
-        return tv;
+     View v =LayoutInflater.from(getContext()).inflate(R.layout.activity_pinglun,null);
+        return v;
     }
 }
