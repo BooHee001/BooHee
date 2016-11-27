@@ -1,7 +1,6 @@
 package com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,17 +14,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_ViewPager;
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_sift;
 import com.boohee.boohee.R;
 import com.boohee.boohee.View.Partner_View.Sift_loseweight_WebView_Activity;
 import com.boohee.boohee.View.Partner_View.Sift_reduce_WebView_Activity;
-import com.boohee.boohee.View.Partner_View.V_Partner_ViewPager;
 import com.boohee.boohee.View.Partner_View.V_Partner_sift;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ListView_Adapter;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ViewPager_Adapter2;
-import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_viewPager_Adapter;
-import com.boohee.boohee.presenter.Partner_Presenter.P_ViewPager_Partner_Impl;
 import com.boohee.boohee.presenter.Partner_Presenter.P_sift_Partner_Impl;
 import com.viewpagerindicator.CirclePageIndicator;
 
