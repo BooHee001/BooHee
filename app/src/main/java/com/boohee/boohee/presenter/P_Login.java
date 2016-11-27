@@ -5,4 +5,5 @@ package com.boohee.boohee.presenter;
  */
 
 public interface P_Login {
+    void getResult(String result);
 }

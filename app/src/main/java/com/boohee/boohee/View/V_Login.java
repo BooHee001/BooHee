@@ -5,4 +5,5 @@ package com.boohee.boohee.View;
  */
 
 public interface V_Login {
+    void getResult(String result);
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
@@ -11,11 +11,12 @@
         android:layout_height="50dp">
 
         <RelativeLayout
-            android:id="@+id/GridView_Back"
+            android:id="@+id/Login_Back"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:onClick="back">
 
             <ImageView
                 android:layout_width="20dp"
@@ -32,7 +33,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="9dp"
-            android:layout_toRightOf="@id/GridView_Back"
+            android:layout_toRightOf="@id/Login_Back"
             android:text="薄荷登陆"
             android:textColor="#000"
             android:textSize="18dp" />
@@ -40,15 +41,19 @@
     </RelativeLayout>
 
     <ImageView
+        android:id="@+id/iv"
         android:layout_width="95dp"
         android:layout_height="95dp"
+        android:layout_below="@id/detailsll"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:layout_gravity="center_horizontal"
-        android:src="@mipmap/icon"
-        />
+        android:src="@mipmap/icon" />
+
     <android.support.design.widget.TextInputLayout
-        android:layout_width="fill_parent"
+        android:id="@+id/tl1"
+        android:layout_width="match_parent"
         android:layout_height="50.0dip"
+        android:layout_below="@id/iv"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="10dp"
@@ -58,7 +63,7 @@
 
         <EditText
             android:id="@+id/userName"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="56dp"
             android:gravity="center"
             android:hint="请输入用户名"
@@ -67,8 +72,10 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width="fill_parent"
+        android:id="@+id/tl2"
+        android:layout_width="match_parent"
         android:layout_height="50.0dip"
+        android:layout_below="@id/tl1"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="10dp"
@@ -77,7 +84,8 @@
         android:textSize="16.0sp">
 
         <EditText
-            android:layout_width="fill_parent"
+            android:id="@+id/userpwd"
+            android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="#00000000"
             android:gravity="center"
@@ -86,47 +94,86 @@
             android:textSize="16.0sp" />
     </android.support.design.widget.TextInputLayout>
 
-    <LinearLayout
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_below="@id/tl2"
         android:layout_marginTop="10dp"
         android:background="#fff"
         android:orientation="horizontal">
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="45dp"
-            android:background="#fff"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
 
-            <Button
+            <android.support.v7.widget.CardView
+                android:id="@+id/Users_ZhuCe"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="#7CC790"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="注册" />
+                android:clickable="true">
 
-        </android.support.v7.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#7CC790"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="ZhuCe"
+                    android:text="注册" />
 
-        <android.support.v7.widget.CardView
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="45dp"
-            android:background="#fff"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
 
-            <Button
+            <android.support.v7.widget.CardView
+                android:id="@+id/Users_Login"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:background="#7CC790"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="登陆" />
+                android:clickable="true">
 
-        </android.support.v7.widget.CardView>
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#7CC790"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="Login"
+                    android:text="登陆" />
+            </android.support.v7.widget.CardView>
 
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/Loig_Loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="正在登陆..." />
+    </LinearLayout>
+
+</RelativeLayout>
