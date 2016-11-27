@@ -107,7 +107,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         losFragment=new LoseWeightFragment();
         ButterKnife.bind(this);
         initView();
-
         setListener();
         transaction.add(R.id.Main_View, fragmentList.get(0));
         transaction.commit();
@@ -292,7 +291,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else{
                 Toast.makeText(MainActivity.this,"你还想退出？再按一次试试看",Toast.LENGTH_SHORT).show();
                 isExit=true;
-                handler.sendEmptyMessageDelayed(1,1000);
+                handler.sendEmptyMessageDelayed(1,500);
             }
 
 
