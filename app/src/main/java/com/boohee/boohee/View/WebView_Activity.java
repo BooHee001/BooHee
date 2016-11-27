@@ -44,65 +44,65 @@ public class WebView_Activity extends AppCompatActivity {
         Intent WebView_Intent = getIntent();
         WebView_Url = WebView_Intent.getStringExtra("weburl");
         WebView_txts = WebView_Intent.getStringExtra("webtxt");
-        WebView_txt.setText(WebView_txts);
+//        WebView_txt.setText(WebView_txts);
     }
 
     private void initData() {
-        WebSettings webSettings = Webview_this.getSettings();
-        webSettings.setBuiltInZoomControls(true);
-        webSettings.setSupportZoom(true);
-        webSettings.setUseWideViewPort(true);
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setLoadWithOverviewMode(true);
-        MyChromClient chromClient = new MyChromClient();
-        MyWebViewClient client = new MyWebViewClient();
-        client.setClientListener(new MyWebViewClient.ClientCallback() {
-            @Override
-            public void onStart(String url) {
-
-            }
-
-            @Override
-            public void onFinish(String url) {
-
-            }
-        });
-
-        chromClient.setChromListener(new MyChromClient.ChromCallback() {
-
-            @Override
-            public void onProgressChanged(int progress) {
-
-            }
-
-            @Override
-            public void onReceivedTitle(String title) {
-                if (!TextUtils.isEmpty(title)){
-                    setTitle(title);
-                    WebView_txt.setText(title);
-                }
-
-            }
-        });
-
-        Webview_this.setWebViewClient(new WebViewClient() {
-            // 重写此方法表明点击网页里面的链接还是在当前的webview里跳转，不跳到浏览器那边
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-            // 重写此方法可以让webview处理https请求
+//        WebSettings webSettings = Webview_this.getSettings();
+//        webSettings.setBuiltInZoomControls(true);
+//        webSettings.setSupportZoom(true);
+//        webSettings.setUseWideViewPort(true);
+//        Webview_this.getSettings().setJavaScriptEnabled(true);
+//        webSettings.setLoadWithOverviewMode(true);
+//        MyChromClient chromClient = new MyChromClient();
+//        MyWebViewClient client = new MyWebViewClient();
+//        client.setClientListener(new MyWebViewClient.ClientCallback() {
 //            @Override
-//            public void onReceivedSslError(WebView view, SslErrorHandler handler, android.net.http.SslError error) {
-//                handler.proceed();
+//            public void onStart(String url) {
+//
 //            }
-        });
-
-        Webview_this.setWebChromeClient(chromClient);
+//
+//            @Override
+//            public void onFinish(String url) {
+//
+//            }
+//        });
+//
+//        chromClient.setChromListener(new MyChromClient.ChromCallback() {
+//
+//            @Override
+//            public void onProgressChanged(int progress) {
+//
+//            }
+//
+//            @Override
+//            public void onReceivedTitle(String title) {
+//                if (!TextUtils.isEmpty(title)){
+//                    setTitle(title);
+//                    WebView_txt.setText(title);
+//                }
+//
+//            }
+//        });
+//
+//        Webview_this.setWebViewClient(new WebViewClient() {
+//            // 重写此方法表明点击网页里面的链接还是在当前的webview里跳转，不跳到浏览器那边
+//            @Override
+//            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//                view.loadUrl(url);
+//                return true;
+//            }
+//            // 重写此方法可以让webview处理https请求
+////            @Override
+////            public void onReceivedSslError(WebView view, SslErrorHandler handler, android.net.http.SslError error) {
+////                handler.proceed();
+////            }
+//        });
+//
+//        Webview_this.setWebChromeClient(chromClient);
 
 //        Webview_this.loadUrl(WebView_Url);
-        Webview_this.loadUrl("http://m.boohee.com/");
+        Webview_this.loadUrl(WebView_Url);
     }
 
     public void onclick(View v){

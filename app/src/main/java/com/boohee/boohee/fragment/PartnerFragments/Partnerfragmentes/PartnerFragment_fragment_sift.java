@@ -19,8 +19,10 @@ import android.widget.Toast;
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_ViewPager;
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
 import com.boohee.boohee.R;
+import com.boohee.boohee.View.Partner_View.Sift_WebView_hot_Activity;
 import com.boohee.boohee.View.Partner_View.Sift_loseweight_WebView_Activity;
 import com.boohee.boohee.View.Partner_View.Sift_reduce_WebView_Activity;
+import com.boohee.boohee.View.Partner_View.Sift_succeed_WebView_Activity;
 import com.boohee.boohee.View.Partner_View.V_Partner_ViewPager;
 import com.boohee.boohee.View.Partner_View.V_Partner_sift;
 import com.boohee.boohee.View.WebView_Activity;
@@ -163,11 +165,7 @@ public class PartnerFragment_fragment_sift extends Fragment{
             @Override
             public void onClick(View v) {
 
-                Intent WebView_Intent = new Intent();
-                WebView_Intent.putExtra("weburl","http://m.boohee.com/");
-                WebView_Intent.putExtra("webtxt","Hots");
-                WebView_Intent.setClass(getActivity(), WebView_Activity.class);
-                startActivity(WebView_Intent);
+               startActivity(new Intent(getActivity(), Sift_succeed_WebView_Activity.class));
 
             }
         });
@@ -180,11 +178,7 @@ public class PartnerFragment_fragment_sift extends Fragment{
         sift_hottopic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent WebView_Intent = new Intent();
-                WebView_Intent.putExtra("weburl","http://m.boohee.com/knowledges");
-                WebView_Intent.putExtra("webtxt","薄荷");
-                WebView_Intent.setClass(getActivity(), WebView_Activity.class);
-                startActivity(WebView_Intent);
+                startActivity(new Intent(getActivity(),Sift_WebView_hot_Activity.class));
             }
         });
 
