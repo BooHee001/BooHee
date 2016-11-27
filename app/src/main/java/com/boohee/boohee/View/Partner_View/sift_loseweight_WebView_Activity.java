@@ -83,10 +83,10 @@ public class Sift_loseweight_WebView_Activity extends AppCompatActivity {
                 return true;
             }
             // 重写此方法可以让webview处理https请求
-            @Override
-            public void onReceivedSslError(WebView view, SslErrorHandler handler, android.net.http.SslError error) {
-                handler.proceed();
-            }
+//            @Override
+//            public void onReceivedSslError(WebView view, SslErrorHandler handler, android.net.http.SslError error) {
+//                handler.proceed();
+//            }
         });
 
         loseweight_webview.setWebChromeClient(chromClient);

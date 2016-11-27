@@ -27,6 +27,8 @@ import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ViewPager_Adapter2
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_viewPager_Adapter;
 import com.boohee.boohee.presenter.Partner_Presenter.P_ViewPager_Partner_Impl;
 import com.boohee.boohee.presenter.Partner_Presenter.P_sift_Partner_Impl;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ public class PartnerFragment_fragment_sift extends Fragment{
 
     private CirclePageIndicator siftInfo = null;
 
-    private ListView Partner_sift_list = null;
+    private PullToRefreshListView Partner_sift_list = null;
 
     public static PartnerFragment_fragment_sift getInstance(int index){
         PartnerFragment_fragment_sift fragment_sift = new PartnerFragment_fragment_sift();
@@ -73,10 +75,16 @@ public class PartnerFragment_fragment_sift extends Fragment{
         View titleitem = inflater.inflate(R.layout.partner_sift_item_head,null);
 
         initView(view,titleitem);
+
+        ListView siftlistview = Partner_sift_list.getRefreshableView();
         //头条目viewpager
         setImageViewlist(titleitem);
+
+        siftlistview.addHeaderView(titleitem);
         //主listview
         setListViewData();
+        //刷新事件
+        setListener();
 
         setOnclicks();
 
@@ -85,9 +93,8 @@ public class PartnerFragment_fragment_sift extends Fragment{
 
     public void initView(View view,View titleitem){
 
-        Partner_sift_list = (ListView) view.findViewById(R.id.Partner_sift_list);
+        Partner_sift_list = (PullToRefreshListView) view.findViewById(R.id.Partner_sift_list);
         sift_Fragment_Loading = (ProgressBar) view.findViewById(R.id.sift_Fragment_Loading);
-
 
         partner_sift_item_headVP = (ViewPager) titleitem.findViewById(R.id.partner_sift_item_headVP);
         sift_loseweight = (LinearLayout) titleitem.findViewById(R.id.sift_loseweight);
@@ -116,7 +123,7 @@ public class PartnerFragment_fragment_sift extends Fragment{
         siftInfo.setViewPager(partner_sift_item_headVP);
 
 
-        Partner_sift_list.addHeaderView(titleitem);
+
 
     }
 
@@ -128,12 +135,12 @@ public class PartnerFragment_fragment_sift extends Fragment{
 
                 sift_Fragment_Loading.setVisibility(View.VISIBLE);
 
-
-
                 Partner_sift_ListView_Adapter siftAdapter = new Partner_sift_ListView_Adapter(partner_sift,getContext());
                 Partner_sift_list.setAdapter(siftAdapter);
 
                 sift_Fragment_Loading.setVisibility(View.GONE);
+
+                Partner_sift_list.onRefreshComplete();
             }
         });
 
@@ -166,6 +173,24 @@ public class PartnerFragment_fragment_sift extends Fragment{
 
             }
         });
+
+    }
+
+    private void setListener() {
+        Partner_sift_list.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+                setListViewData();
+
+
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+
+            }
+        });
+
 
     }
 

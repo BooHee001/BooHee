@@ -9,8 +9,10 @@ import android.widget.ImageView;
 
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_friends;
 import com.boohee.boohee.R;
+import com.boohee.boohee.adapter.Partner_Adapter.partner_listener.OnClickGoPhoto;
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,6 +46,13 @@ public class Partner_friends_GridView_Adapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
+        Partner_friends.PostsBean.PhotosBean photosBeanx = partner_priends_photo_list.get(position);
+        List<String> beanuels = new ArrayList<>();
+        for (int i = 0; i < partner_priends_photo_list.size(); i++) {
+            beanuels.add(partner_priends_photo_list.get(i).getBig_url());
+        }
+
         Partner_GridView_Holder partner_gridView_holder;
         if (convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.partner_friends_gridview_item,parent,false);
@@ -67,7 +76,9 @@ public class Partner_friends_GridView_Adapter extends BaseAdapter{
 //            x.image().bind(partner_gridView_holder.partner_priends_GridviewPic,small_url);
         }
 
-
+        for (int j = 0; j < beanuels.size(); j++) {
+            partner_gridView_holder.partner_priends_GridviewPic.setOnClickListener(new OnClickGoPhoto(context,(ArrayList<String>)beanuels,position ));
+        }
         return convertView;
     }
 

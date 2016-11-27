@@ -14,8 +14,10 @@ import android.widget.TextView;
 
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
 import com.boohee.boohee.R;
+import com.boohee.boohee.adapter.Partner_Adapter.partner_listener.OnClickGoPhoto;
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +25,9 @@ import java.util.List;
  */
 
 public class Partner_sift_ListView_Adapter extends BaseAdapter{
+
+
+
 
     int whatif = 1;
 
@@ -54,6 +59,7 @@ public class Partner_sift_ListView_Adapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
 
 
         if (convertView == null) {
@@ -115,8 +121,12 @@ public class Partner_sift_ListView_Adapter extends BaseAdapter{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //position是当前点击条目位置
+
             }
+
         });
+
+
 
 
 
