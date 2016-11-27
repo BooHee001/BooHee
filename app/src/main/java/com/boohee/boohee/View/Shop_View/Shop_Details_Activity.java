@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -58,13 +59,13 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
     @BindView(R.id.shop_Details_Title)
     TextView shop_Details_Title;
     @BindView(R.id.Details_ShoppingCar)
-    View Details_ShoppingCar;
+    CardView Details_ShoppingCar;
     @BindView(R.id.Details_KeFu)
-    View Details_KeFu;
+    CardView Details_KeFu;
     @BindView(R.id.Details_By)
-    TextView Details_By;
+    CardView Details_By;
     @BindView(R.id.Add_ShoppingCar)
-    TextView add_ShoppingCar;
+    CardView add_ShoppingCar;
     @BindView(R.id.Details_Badge)
     BadgeView Details_Badge;
     private List<Fragment> fragmentList;
@@ -235,6 +236,10 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
         }
         Toast.makeText(Shop_Details_Activity.this, "添加成功", Toast.LENGTH_SHORT).show();
         goodsNum++;
+        if (goodsNum > 0) {
+            Details_Badge.setVisibility(View.VISIBLE);
+            Details_Badge.setText(goodsNum + "");
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
