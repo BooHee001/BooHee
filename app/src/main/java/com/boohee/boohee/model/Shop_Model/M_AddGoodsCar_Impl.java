@@ -1,5 +1,6 @@
 package com.boohee.boohee.model.Shop_Model;
 
+import com.boohee.boohee.View.MyApplication;
 import com.boohee.boohee.model.ApiService;
 import com.boohee.boohee.presenter.Shop_Presenter.P_AddGoodsCar;
 
@@ -24,7 +25,7 @@ public class M_AddGoodsCar_Impl implements M_AddGoodsCar {
     @Override
     public void initData(int userno, String goodsname, String goodsimg, int goodspic, int goodsnum) {
         Retrofit.Builder builder = new Retrofit.Builder();
-        Retrofit retrofit = builder.baseUrl("http://172.18.188.5:8080")
+        Retrofit retrofit = builder.baseUrl("http://"+ MyApplication.MyIp+":8080")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create()).build();
         Shop_ApiSerVice apiService = retrofit.create(Shop_ApiSerVice.class);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
+import com.boohee.boohee.View.MyApplication;
 import com.boohee.boohee.presenter.Shop_Presenter.P_ShowGoodsCar;
 
 import org.json.JSONArray;
@@ -36,7 +37,7 @@ public class M_ShowGoodsCar_Impl implements M_ShowGoodsCar {
     @Override
     public void getData(final int userno, final Context context) {
 
-        RequestParams entiey = new RequestParams("http://172.18.188.5:8080/MyAndroidDemo/MySerVlet?type=4&userno="+userno);
+        RequestParams entiey = new RequestParams("http://"+ MyApplication.MyIp+":8080/MyAndroidDemo/MySerVlet?type=4&userno="+userno);
         entiey.setConnectTimeout(60000);
         x.http().post(entiey, new Callback.CacheCallback<String>() {
             @Override
