@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.boohee.boohee.R;
+import com.boohee.boohee.View.MainActivity;
 
 import org.xutils.image.ImageOptions;
 import org.xutils.x;
@@ -107,12 +108,27 @@ public class PhotoAdapter extends PagerAdapter {
                             setAnim(300);
                         }
                         break;
+//                    case MotionEvent.BUTTON_BACK:
+//                        setAnim(300);
+//                        break;
                     default:
                         break;
                 }
                 return true;
             }
         });
+//        iv.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//                switch (keyCode) {
+//                    case KeyEvent.KEYCODE_BACK:
+//                        setAnim(300);
+//
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
         container.addView(iv);
         return iv;
     }
@@ -127,11 +143,10 @@ public class PhotoAdapter extends PagerAdapter {
         ObjectAnimator animator = ObjectAnimator.ofFloat(home_photo, "translationY", 0, -hight);
         animator.setDuration(duration);
         animator.start();
+        MainActivity.isShow=false;
         View decorView = activity.getWindow().getDecorView();
         decorView.setSystemUiVisibility(
-//                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 View.VISIBLE
-//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//内容布局填满屏幕
         );
     }
 }

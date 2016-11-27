@@ -27,8 +27,6 @@ public class DingDan_Activity extends AppCompatActivity {
     }
     @OnClick(R.id.GoodsCar_JiSuan)
     public void ToGoods(View v){
-        Intent intent =new Intent(this, Shop_GridView_Activity.class);
-        startActivity(intent);
-
+        finish();
     }
 }

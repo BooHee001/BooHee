@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="75dp"
     android:orientation="horizontal"
     android:paddingBottom="5dp">
-
+    <RelativeLayout
+        android:layout_width="95dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="#ff0000"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="删除" />
+    </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/GoodCar_Img"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:src="@mipmap/aa3" />
@@ -100,15 +112,4 @@
             android:background="#e5e4c9" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/delete"
-        android:layout_width="120dp"
-        android:layout_height="match_parent"
-        android:background="#FFFF0000"
-        android:gravity="center"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="删除"
-        android:textColor="@android:color/white" />
-
-</LinearLayout>
+</com.daimajia.swipe.SwipeLayout>
