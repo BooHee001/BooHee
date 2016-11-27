@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
+import com.boohee.boohee.View.MyApplication;
 import com.boohee.boohee.presenter.Shop_Presenter.P_ShowGoodsCarForImg;
 
 import org.json.JSONArray;
@@ -26,7 +27,7 @@ public class M_ShowGoodsCarForImg_Impl implements M_ShowGoodsCarForImg {
 
     @Override
     public void getData(int userno, String goodsimg, final Context context) {
-        RequestParams entiey = new RequestParams("http://172.18.188.5:8080/MyAndroidDemo/MySerVlet?type=5&userno=" + userno + "&goodsimg=" + goodsimg);
+        RequestParams entiey = new RequestParams("http://"+ MyApplication.MyIp+":8080/MyAndroidDemo/MySerVlet?type=5&userno=" + userno + "&goodsimg=" + goodsimg);
         entiey.setConnectTimeout(60000);
         x.http().get(entiey, new Callback.CacheCallback<String>() {
             @Override

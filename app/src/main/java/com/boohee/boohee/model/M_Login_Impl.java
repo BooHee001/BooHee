@@ -1,30 +1,31 @@
-package com.boohee.boohee.model.Shop_Model;
+package com.boohee.boohee.model;
 
 import com.boohee.boohee.View.MyApplication;
-import com.boohee.boohee.presenter.Shop_Presenter.P_RemoveGoodsCar;
+import com.boohee.boohee.presenter.P_Login;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
 /**
- * Created by as on 2016/11/26.
+ * Created by as on 2016/11/28.
  */
 
-public class M_RemoverGoodsCar_Impl implements M_RemoveGoodsCar {
-    private P_RemoveGoodsCar p_RemoveGoodsCar;
+public class M_Login_Impl implements M_Login {
+    private P_Login p_login;
 
-    public M_RemoverGoodsCar_Impl(P_RemoveGoodsCar p_RemoveGoodsCar) {
-        this.p_RemoveGoodsCar = p_RemoveGoodsCar;
+    public M_Login_Impl(P_Login p_login) {
+        this.p_login = p_login;
     }
 
     @Override
-    public void removeData(int userno, String goodsimg) {
-        RequestParams entiey = new RequestParams("http://"+ MyApplication.MyIp+":8080/MyAndroidDemo/MySerVlet?type=6&userno="+userno+"&goodsimg="+goodsimg);
+    public void getResult(int userno, String pwd) {
+        RequestParams entiey = new RequestParams("http://"+ MyApplication.MyIp+":8080/MyAndroidDemo/MySerVlet?type=1&userno="+userno+"&pwd="+pwd);
         x.http().get(entiey, new Callback.CacheCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                p_RemoveGoodsCar.getResult(result);
+                p_login.getResult(result);
+
             }
 
             @Override
