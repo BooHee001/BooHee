@@ -14,6 +14,7 @@ import com.boohee.boohee.Bean.Shop_Bean.OrderEntity;
 import com.boohee.boohee.R;
 import com.boohee.boohee.Utils.Shop_Utils.PayResult;
 import com.boohee.boohee.Utils.Shop_Utils.SideslipListView;
+import com.boohee.boohee.View.MyApplication;
 import com.boohee.boohee.adapter.Shop_Adapter.GoodsCar_Adapter;
 import com.boohee.boohee.presenter.Shop_Presenter.AliPayPersenter;
 import com.boohee.boohee.presenter.Shop_Presenter.AliPayPersenterImpl;
@@ -45,7 +46,6 @@ public class GoodsCar_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_goods_car_);
         ButterKnife.bind(this);
-        GoodsCar_Loading.setVisibility(View.VISIBLE);
         P_ShowGoodsCar_Impl p_showGoodsCar = new P_ShowGoodsCar_Impl(new V_ShowGoodsCar() {
             @Override
             public void getData(List<GoodsCarBean> goodsCarBeanList) {
@@ -57,11 +57,15 @@ public class GoodsCar_Activity extends AppCompatActivity {
                 GoodsCar_Loading.setVisibility(View.GONE);
             }
         });
-        p_showGoodsCar.setData(3321,this);
-
-
-
+        p_showGoodsCar.setData(MyApplication.userno,this);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        GoodsCar_Loading.setVisibility(View.VISIBLE);
+    }
+
     @OnClick(R.id.GoodsCar_Back)
     public void back(View v){
         finish();

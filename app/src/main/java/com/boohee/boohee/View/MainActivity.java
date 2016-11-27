@@ -88,10 +88,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static boolean isShow=false;
     private boolean isExit=false;
 
-    /**
-     * 测试
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         losFragment=new LoseWeightFragment();
         ButterKnife.bind(this);
         initView();
+
         setListener();
         transaction.add(R.id.Main_View, fragmentList.get(0));
         transaction.commit();
@@ -291,7 +288,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else{
                 Toast.makeText(MainActivity.this,"你还想退出？再按一次试试看",Toast.LENGTH_SHORT).show();
                 isExit=true;
-                handler.sendEmptyMessageDelayed(1,500);
+                handler.sendEmptyMessageDelayed(1,1000);
             }
 
 
