@@ -4,9 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
@@ -21,6 +24,7 @@ import java.util.List;
 
 public class Partner_sift_ListView_Adapter extends BaseAdapter{
 
+    int whatif = 1;
 
     private Partner_sift partner_sift;
     private Context context;
@@ -29,7 +33,10 @@ public class Partner_sift_ListView_Adapter extends BaseAdapter{
         this.partner_sift = partner_sift;
         this.context = context;
     }
-
+    PartnerHolder partnerHolder;
+    int envious_count;
+    int comment_count;
+    int support_size_no;
     @Override
     public int getCount() {
         return partner_sift.getPosts().size();
@@ -47,7 +54,7 @@ public class Partner_sift_ListView_Adapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        PartnerHolder partnerHolder;
+
 
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.partner_sift_item,parent,false);
@@ -59,6 +66,11 @@ public class Partner_sift_ListView_Adapter extends BaseAdapter{
             partnerHolder.partner_sift_support_size = (TextView) convertView.findViewById(R.id.partner_sift_support_size);
             partnerHolder.partner_sift_comment_size = (TextView) convertView.findViewById(R.id.partner_sift_comment_size);
             partnerHolder.partner_sift_photo = (GridView) convertView.findViewById(R.id.partner_sift_photo);
+
+            partnerHolder.item_goto_personal = (LinearLayout) convertView.findViewById(R.id.item_goto_personal);
+            partnerHolder.item_jewel = (RelativeLayout) convertView.findViewById(R.id.item_jewel);
+            partnerHolder.partner_sift_support_no = (ImageView) convertView.findViewById(R.id.partner_sift_support_no);
+            partnerHolder.partner_sift_support_yes = (ImageView) convertView.findViewById(R.id.partner_sift_support_yes);
             convertView.setTag(partnerHolder);
         }else {
             partnerHolder = (PartnerHolder) convertView.getTag();
@@ -71,8 +83,8 @@ public class Partner_sift_ListView_Adapter extends BaseAdapter{
         String nickname = partner_sift.getPosts().get(position).getUser().getNickname();
         String created_at = partner_sift.getPosts().get(position).getCreated_at();
         String body = partner_sift.getPosts().get(position).getBody();
-        int envious_count = partner_sift.getPosts().get(position).getEnvious_count();
-        int comment_count = partner_sift.getPosts().get(position).getComment_count();
+        envious_count = partner_sift.getPosts().get(position).getEnvious_count();
+        comment_count = partner_sift.getPosts().get(position).getComment_count();
         partnerHolder.partner_sift_photo.setAdapter(new Partnrt_sift_GridView_Adapter(context,partner_photo_list));
         if (avatar_url!=null){
             Glide.with(context)
@@ -99,13 +111,52 @@ public class Partner_sift_ListView_Adapter extends BaseAdapter{
             String comment_counts = comment_count + "";
             partnerHolder.partner_sift_comment_size.setText(comment_counts);
         }
+        partnerHolder.partner_sift_photo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //position是当前点击条目位置
+            }
+        });
+
+
+
+        partnerHolder.item_goto_personal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //填写跳转个人中心
+            }
+        });
+
+        partnerHolder.item_jewel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (whatif == 1){
+                    partnerHolder.partner_sift_support_no.setVisibility(View.GONE);
+                    partnerHolder.partner_sift_support_yes.setVisibility(View.VISIBLE);
+                    support_size_no = envious_count+1;
+                    String support_size_txt_no = support_size_no + "";
+                    partnerHolder.partner_sift_support_size.setText(support_size_txt_no);
+                    whatif = 0;
+                }else {
+                    partnerHolder.partner_sift_support_no.setVisibility(View.VISIBLE);
+                    partnerHolder.partner_sift_support_yes.setVisibility(View.GONE);
+                    String support_size_txt_yes = envious_count + "";
+                    partnerHolder.partner_sift_support_size.setText(support_size_txt_yes);
+                    whatif = 1;
+                }
+            }
+        });
+
 
 
         return convertView;
     }
 
     class PartnerHolder{
-        ImageView partner_sift_userphoto;
+        ImageView partner_sift_userphoto,
+                partner_sift_support_no,
+                partner_sift_support_yes;
         TextView partner_sift_username,
                 partner_sift_time,
                 partner_sift_maintext,
@@ -113,6 +164,9 @@ public class Partner_sift_ListView_Adapter extends BaseAdapter{
                 partner_sift_comment_size;
         GridView partner_sift_photo;
 
+        LinearLayout item_goto_personal;
+
+        RelativeLayout item_jewel;
     }
 
 }

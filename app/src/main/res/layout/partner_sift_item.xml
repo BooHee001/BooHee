@@ -14,6 +14,7 @@
         >
 
         <LinearLayout
+            android:id="@+id/item_goto_personal"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:orientation="horizontal">
@@ -107,13 +108,24 @@
                 android:onClick="onclick">
 
                 <ImageView
-                    android:id="@+id/partner_sift_support"
+                    android:id="@+id/partner_sift_support_no"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:background="@drawable/a3o"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="40dp"
+                    android:visibility="visible"
+                    />
+                <ImageView
+                    android:id="@+id/partner_sift_support_yes"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/a3p"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="40dp"
+                    android:visibility="gone"
                     />
 
                 <TextView

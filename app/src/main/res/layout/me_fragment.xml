@@ -61,7 +61,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:background="@drawable/sq"
-                android:visibility="gone"/>
+                android:visibility="visible"/>
 
         </RelativeLayout>
 
@@ -94,8 +94,7 @@
                 <RelativeLayout
                     android:id="@+id/me_personaldata"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:onClick="onclick">
+                    android:layout_height="120dp">
 
                     <ImageView
                         android:id="@+id/me_headPhoto"
@@ -184,7 +183,6 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:layout_weight="1"
-                        android:onClick="onclick"
                         >
 
                         <TextView
@@ -219,7 +217,6 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:layout_weight="1"
-                        android:onClick="onclick"
                         >
 
                         <TextView
@@ -280,8 +277,7 @@
                         android:id="@+id/me_MyPlan"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="onclick">
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="25dp"
@@ -305,8 +301,7 @@
                         android:id="@+id/me_DietQuotient"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="onclick">
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="25dp"
@@ -342,8 +337,7 @@
                         android:id="@+id/me_NICEService"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="onclick">
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="25dp"
@@ -378,8 +372,7 @@
                         android:id="@+id/me_Myfavs"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="onclick">
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="25dp"
@@ -404,8 +397,7 @@
                         android:id="@+id/me_MyFoods"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="onclick">
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="25dp"
@@ -430,8 +422,7 @@
                         android:id="@+id/me_smartdrvice"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="onclick">
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="25dp"
@@ -464,8 +455,7 @@
                         android:id="@+id/me_MyDiamond"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="onclick">
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="25dp"
@@ -490,8 +480,7 @@
                         android:id="@+id/me_question"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="onclick">
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="25dp"
@@ -516,8 +505,7 @@
                         android:id="@+id/me_setting"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:onClick="onclick">
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="25dp"

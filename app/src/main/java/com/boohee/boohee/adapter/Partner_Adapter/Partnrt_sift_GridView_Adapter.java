@@ -68,7 +68,8 @@ public class Partnrt_sift_GridView_Adapter extends BaseAdapter{
             Glide.with(context)
                     .load(getSmallpic)
                     .into(partner_gridView_holder.partner_sift_GridviewPic);
-//            x.image().bind(partner_gridView_holder.partner_sift_GridviewPic,getSmallpic);
+
+
 
         }
 
