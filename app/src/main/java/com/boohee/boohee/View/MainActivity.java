@@ -3,15 +3,19 @@ package com.boohee.boohee.View;
 import android.animation.ObjectAnimator;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boohee.boohee.PhotoBean.PhotoBean;
 import com.boohee.boohee.R;
@@ -81,6 +85,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int hight = 0;
     private List<String> photoList = null;
     private LoseWeightFragment losFragment=null;
+    public static boolean isShow=false;
+    private boolean isExit=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -246,6 +252,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ObjectAnimator animator = ObjectAnimator.ofFloat(home_showPhoto, "translationY", 0, -hight);
         animator.setDuration(duration);
         animator.start();
+        isShow=false;
+    }
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1://处理返回键时间
+                    isExit=false;
+                    break;
+            }
+        }
+    };
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (isShow) {
+                setAnim(300);
+            }else if (isExit) {
+                //                new AlertDialog.Builder(MainActivity.this)
+//                        .setTitle("退出")
+//                        .setMessage("确定要退出么？")
+//                        .setNegativeButton("取消",null)
+//                        .setPositiveButton("退出", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                finish();
+//                            }
+//                        })
+//                        .create()
+//                        .show();
+                finish();
+            }else{
+                Toast.makeText(MainActivity.this,"你还想退出？再按一次试试看",Toast.LENGTH_SHORT).show();
+                isExit=true;
+                handler.sendEmptyMessageDelayed(1,1000);
+            }
+
+
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
