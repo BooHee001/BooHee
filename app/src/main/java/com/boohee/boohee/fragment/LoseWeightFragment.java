@@ -2,6 +2,7 @@ package com.boohee.boohee.fragment;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Build;
@@ -11,6 +12,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -23,13 +25,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.boohee.boohee.Bean.Shop_Bean.FoodLog;
-import com.boohee.boohee.Bean.Shop_Bean.WeightLog;
+import com.boohee.boohee.Bean.shop_Bean.FoodLog;
+import com.boohee.boohee.Bean.shop_Bean.TypeBean;
+import com.boohee.boohee.Bean.shop_Bean.WeightLog;
 import com.boohee.boohee.R;
+import com.boohee.boohee.View.HotLogActivity;
 import com.boohee.boohee.View.MainActivity;
 import com.github.lzyzsd.circleprogress.ArcProgress;
 
 import org.xutils.DbManager;
+import org.xutils.common.util.KeyValue;
 import org.xutils.db.sqlite.WhereBuilder;
 import org.xutils.ex.DbException;
 import org.xutils.x;
@@ -60,11 +65,13 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
     private View view;
     private NestedScrollView home_cardgroup;
     private ArcProgress progress;
-    private TextView textView,textView5;
+    private TextView textView,textView5,home_daka;
     private ViewPager home_showPhoto;
     private int width;
     private int hight;
     private ImageView home_welcome_imgs,home_search,home_notification;
+    private CardView home_zsdaka,home_hotlog,home_weightlog,home_steplog,home_weidulog;
+    private LinearLayout home_myplan;
     private Bitmap bitmap=null;
     private View decorView;
     private DbManager db;
@@ -83,6 +90,7 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
     private boolean isDown=false;
     private float lastY=0;
     private float lastX=0;
+    private DbManager dbType=null;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Nullable
@@ -95,11 +103,13 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
             decorView = getActivity().getWindow().getDecorView();
             width=getActivity(). getWindowManager().getDefaultDisplay().getWidth();
             hight=getActivity(). getWindowManager().getDefaultDisplay().getHeight();
-            initPage();
             //数据库初始化
+            dbType=x.getDb(new DbManager.DaoConfig().setDbName("type"));
             db=x.getDb(new DbManager.DaoConfig().setDbName("foodLog"));
             //临时写入数据的方法
             try {
+                initPage();
+                //临时写入数据的方法
                 //食物记录写入
                 db.save(new FoodLog(1,1,56));
                 db.save(new FoodLog(2,2,53));
@@ -141,8 +151,17 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
         return view;
     }
 
-    private void initPage() {
-
+    private void initPage() throws DbException {
+        TypeBean typeBean = dbType.selector(TypeBean.class).where(WhereBuilder.b("name", "=", "daka")).findFirst();
+        if (typeBean!=null) {
+            if (typeBean.isTrue()) {
+                home_zsdaka.setVisibility(View.GONE);
+            }else {
+                home_zsdaka.setVisibility(View.VISIBLE);
+            }
+        }else {
+            home_zsdaka.setVisibility(View.VISIBLE);
+        }
         home_cardgroup.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
@@ -234,15 +253,25 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
         textView5= (TextView) view.findViewById(R.id.textView5);
         home_search = (ImageView) view.findViewById(R.id.home_search);
         home_notification = (ImageView) view.findViewById(R.id.home_notification);
+        home_zsdaka = (CardView) view.findViewById(R.id.home_zsdaka);
+        home_hotlog = (CardView) view.findViewById(R.id.home_hotlog);
+        home_weightlog = (CardView) view.findViewById(R.id.home_weightlog);
+        home_steplog = (CardView) view.findViewById(R.id.home_steplog);
+        home_weidulog = (CardView) view.findViewById(R.id.home_weidulog);
+        home_myplan = (LinearLayout) view.findViewById(R.id.home_myplan);
         progress.setMax(60);
         home_cardgroup= (NestedScrollView) view.findViewById(R.id.home_cardgroup);
-//        textView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                setAnim(300);
-//            }
-//        });
         home_showPhoto= (ViewPager) getActivity().findViewById(R.id.home_showPhoto);
+        home_daka = (TextView) view.findViewById(R.id.home_daka);
+        textView.setOnClickListener(this);
+        home_search.setOnClickListener(this);
+        home_notification.setOnClickListener(this);
+        home_daka.setOnClickListener(this);
+        home_hotlog.setOnClickListener(this);
+        home_weightlog.setOnClickListener(this);
+        home_steplog.setOnClickListener(this);
+        home_myplan.setOnClickListener(this);
+        home_weidulog.setOnClickListener(this);
     }
 
     private void setAnim(int duration) {
@@ -358,21 +387,57 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
     }
 
 
-    public void setMarginTop(int page){
-        LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT);
-        layoutParam.setMargins(0, page, 0, 0);
-        home_r2.setLayoutParams(layoutParam);
-        home_r2.invalidate();
-    }
-
     @Override
     public void onClick(View view) {
+        Intent intent=new Intent();
         switch (view.getId()) {
+            //搜索
             case R.id.home_search:
                 Toast.makeText(getActivity(),"搜索",Toast.LENGTH_SHORT).show();
                 break;
+            //通知消息
             case R.id.home_notification:
                 Toast.makeText(getActivity(),"暂时没有消息",Toast.LENGTH_SHORT).show();
+                break;
+            //目标完成度
+            case R.id.textView:
+                break;
+            //打卡
+            case R.id.home_daka:
+                db=x.getDb(new DbManager.DaoConfig().setDbName("type"));
+                try {
+                    db.saveOrUpdate(new TypeBean("daka",true));
+                    Toast.makeText(getActivity(),"完成打卡",Toast.LENGTH_SHORT).show();
+                    home_zsdaka.setVisibility(View.GONE);
+                } catch (DbException e) {
+                    Toast.makeText(getActivity(),"打卡失败",Toast.LENGTH_SHORT).show();
+//                    e.printStackTrace();
+                }
+                break;
+            //热量纪录
+            case R.id.home_hotlog:
+                intent.setClass(getActivity(), HotLogActivity.class) ;
+                getActivity().startActivity(intent);
+                break;
+            //体重记录
+            case R.id.home_weightlog:
+//                intent =  ;
+//                getActivity().startActivity(intent);
+                break;
+            //步数记录
+            case R.id.home_steplog:
+//                intent =  ;
+//                getActivity().startActivity(intent);
+                break;
+            //我的计划
+            case R.id.home_myplan:
+//                intent =  ;
+//                getActivity().startActivity(intent);
+                break;
+            //围度记录
+            case R.id.home_weidulog:
+//                intent =  ;
+//                getActivity().startActivity(intent);
                 break;
             default:
                 break;
