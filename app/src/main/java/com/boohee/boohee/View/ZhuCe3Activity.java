@@ -104,7 +104,7 @@ public class ZhuCe3Activity extends AppCompatActivity {
 
                 if("success".equals(resutl)){
                     ZhuCe_Loading.setVisibility(View.GONE);
-                    Intent intent = new Intent(ZhuCe3Activity.this,MainActivity.class);
+                    Intent intent = new Intent(ZhuCe3Activity.this,LoginActivity.class);
                     intent.putExtra("userno", userno);
                     startActivity(intent);
                     finish();
