@@ -4,24 +4,16 @@
     android:layout_height="match_parent"
     android:background="#d7d7d7">
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/Partner_friends_Refush"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-
-        <ListView
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
             android:id="@+id/Partner_friends_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ffffff">
 
-        </ListView>
+        </com.handmark.pulltorefresh.library.PullToRefreshListView>
 
 
-
-
-    </android.support.v4.widget.SwipeRefreshLayout>
 
     <ProgressBar
         android:id="@+id/friends_Fragment_Loading"
