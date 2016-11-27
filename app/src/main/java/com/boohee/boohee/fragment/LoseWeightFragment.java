@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boohee.boohee.Bean.Shop_Bean.FoodLog;
 import com.boohee.boohee.Bean.Shop_Bean.WeightLog;
@@ -53,7 +54,7 @@ import lecho.lib.hellocharts.view.LineChartView;
  * Created by Dizner on 2016/11/18.
  */
 
-public class LoseWeightFragment extends Fragment {
+public class LoseWeightFragment extends Fragment implements View.OnClickListener{
     private final static String[] months = new String[] { "早", "午", "晚",
             "加", "运动"};
     private View view;
@@ -63,7 +64,7 @@ public class LoseWeightFragment extends Fragment {
     private ViewPager home_showPhoto;
     private int width;
     private int hight;
-    private ImageView home_welcome_imgs;
+    private ImageView home_welcome_imgs,home_search,home_notification;
     private Bitmap bitmap=null;
     private View decorView;
     private DbManager db;
@@ -231,6 +232,8 @@ public class LoseWeightFragment extends Fragment {
         home_welcome_imgs= (ImageView) view.findViewById(R.id.home_welcome_imgs);
         textView= (TextView) view.findViewById(R.id.textView);
         textView5= (TextView) view.findViewById(R.id.textView5);
+        home_search = (ImageView) view.findViewById(R.id.home_search);
+        home_notification = (ImageView) view.findViewById(R.id.home_notification);
         progress.setMax(60);
         home_cardgroup= (NestedScrollView) view.findViewById(R.id.home_cardgroup);
 //        textView.setOnClickListener(new View.OnClickListener() {
@@ -360,5 +363,19 @@ public class LoseWeightFragment extends Fragment {
         layoutParam.setMargins(0, page, 0, 0);
         home_r2.setLayoutParams(layoutParam);
         home_r2.invalidate();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.home_search:
+                Toast.makeText(getActivity(),"搜索",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.home_notification:
+                Toast.makeText(getActivity(),"暂时没有消息",Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
     }
 }
