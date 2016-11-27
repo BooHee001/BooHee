@@ -7,13 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.boohee.boohee.Bean.Shop_Bean.Shop_Goods;
+import com.boohee.boohee.Bean.shop_Bean.Shop_Goods;
 import com.boohee.boohee.R;
 import com.boohee.boohee.Utils.Shop_Utils.BadgeView;
 import com.boohee.boohee.View.Shop_View.DingDan_Activity;
