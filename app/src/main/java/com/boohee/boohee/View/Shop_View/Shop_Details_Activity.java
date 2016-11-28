@@ -21,6 +21,7 @@ import com.boohee.boohee.Bean.Shop_Bean.Shop_GoodsInfo_Bean;
 import com.boohee.boohee.R;
 import com.boohee.boohee.Utils.Shop_Utils.BadgeView;
 import com.boohee.boohee.Utils.Shop_Utils.PayResult;
+import com.boohee.boohee.View.MyApplication;
 import com.boohee.boohee.adapter.Shop_Adapter.Shop_Details_ViewPagerAdapter;
 import com.boohee.boohee.adapter.Shop_Adapter.Shop_GoodsInfo_ViewPager_Adapter;
 import com.boohee.boohee.fragment.ShopFragments.Shop_Details_AssessFragment;
@@ -116,7 +117,7 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
                         }
                     }
                 });
-                p_showGoodsCarForImg_.getData(3321, goodsimg, Shop_Details_Activity.this);
+                p_showGoodsCarForImg_.getData(MyApplication.userno, goodsimg, Shop_Details_Activity.this);
 
             }
         }).start();
@@ -250,7 +251,7 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
                     }
                 });
 
-                p_addGoodsCar.initData(3321, goodsname, goodsimg, (int) aLong, goodsNum);
+                p_addGoodsCar.initData(MyApplication.userno, goodsname, goodsimg, (int) aLong, goodsNum);
             }
         }).start();
 
@@ -266,7 +267,7 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
                         }
                     }
                 });
-                p_showGoodsCarForImg_.getData(3321, goodsimg, Shop_Details_Activity.this);
+                p_showGoodsCarForImg_.getData(MyApplication.userno, goodsimg, Shop_Details_Activity.this);
             }
         }).start();
 

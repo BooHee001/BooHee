@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
 import com.boohee.boohee.R;
 import com.boohee.boohee.Utils.Shop_Utils.SideslipListView;
+import com.boohee.boohee.View.MyApplication;
 import com.boohee.boohee.View.Shop_View.GoodsCar_Activity;
 import com.boohee.boohee.View.Shop_View.V_RemoveGoodsCar;
 import com.boohee.boohee.View.Shop_View.V_ShowGoodsCar;
@@ -128,7 +129,7 @@ public class GoodsCar_Adapter extends BaseAdapter {
                                     Toast.makeText(context, "删除成功", Toast.LENGTH_SHORT).show();
                                 }
                             });
-                            p_removeGoodsCar_.removeData(3321, goodsCarBeanList.get(position).getGoodsimg());
+                            p_removeGoodsCar_.removeData(MyApplication.userno, goodsCarBeanList.get(position).getGoodsimg());
 
                         }
                     });

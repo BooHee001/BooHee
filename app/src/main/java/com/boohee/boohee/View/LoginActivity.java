@@ -35,7 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
     public void ZhuCe(View v){
-
+        Intent intent = new Intent(LoginActivity.this,ZhuCeActivity.class);
+        startActivity(intent);
     }
     public void Login(View v){
         Loig_Loading.setVisibility(View.VISIBLE);
