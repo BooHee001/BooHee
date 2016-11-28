@@ -9,9 +9,13 @@ import org.xutils.x;
  */
 
 public class MyApplication extends Application {
+    public static String MyIp = "192.168.100.8";
+    public static int userno =0;
+
     @Override
     public void onCreate() {
         super.onCreate();
         x.Ext.init(this);
+
     }
 }

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_zhu_ce"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.boohee.boohee.View.ZhuCeActivity">
+
+    <RelativeLayout
+        android:id="@+id/detailsll"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <RelativeLayout
+            android:id="@+id/zhuce_Back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:onClick="back">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_arrow_back_black" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/GridView_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="9dp"
+            android:layout_toRightOf="@id/zhuce_Back"
+            android:text="注册账号"
+            android:textColor="#000"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_below="@id/detailsll"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:src="@mipmap/icon" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tl1"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:layout_below="@id/iv"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/p_a"
+        android:gravity="center_vertical"
+        android:textSize="16.0sp">
+
+        <EditText
+            android:id="@+id/zhuce_userName"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:hint="请输入用户名"
+            android:inputType="number"
+            android:textSize="16.0sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tl2"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:layout_below="@id/tl1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/p_a"
+        android:gravity="center_vertical"
+        android:textSize="16.0sp">
+
+        <EditText
+            android:id="@+id/zhuce_userpwd"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#00000000"
+            android:gravity="center"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:textSize="16.0sp" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tl3"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:layout_below="@id/tl2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/p_a"
+        android:gravity="center_vertical"
+        android:textSize="16.0sp">
+
+        <EditText
+            android:id="@+id/zhuce_userpwd2"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#00000000"
+            android:gravity="center"
+            android:hint="请重新输入密码"
+            android:inputType="textPassword"
+            android:textSize="16.0sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="260dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="11dp"
+        android:gravity="center"
+        android:layout_below="@+id/tl3"
+        android:onClick="next"
+        android:layout_centerHorizontal="true">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/Users_ZhuCe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#7CC790"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#7CC790"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="next"
+                android:text="下一步" />
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</RelativeLayout>

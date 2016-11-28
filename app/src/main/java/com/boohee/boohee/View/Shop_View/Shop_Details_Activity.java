@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import com.boohee.boohee.Bean.Shop_Bean.Shop_GoodsInfo_Bean;
 import com.boohee.boohee.R;
 import com.boohee.boohee.Utils.Shop_Utils.BadgeView;
 import com.boohee.boohee.Utils.Shop_Utils.PayResult;
+import com.boohee.boohee.View.MyApplication;
 import com.boohee.boohee.adapter.Shop_Adapter.Shop_Details_ViewPagerAdapter;
 import com.boohee.boohee.adapter.Shop_Adapter.Shop_GoodsInfo_ViewPager_Adapter;
 import com.boohee.boohee.fragment.ShopFragments.Shop_Details_AssessFragment;
@@ -58,13 +60,13 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
     @BindView(R.id.shop_Details_Title)
     TextView shop_Details_Title;
     @BindView(R.id.Details_ShoppingCar)
-    View Details_ShoppingCar;
+    CardView Details_ShoppingCar;
     @BindView(R.id.Details_KeFu)
-    View Details_KeFu;
+    CardView Details_KeFu;
     @BindView(R.id.Details_By)
-    TextView Details_By;
+    CardView Details_By;
     @BindView(R.id.Add_ShoppingCar)
-    TextView add_ShoppingCar;
+    CardView add_ShoppingCar;
     @BindView(R.id.Details_Badge)
     BadgeView Details_Badge;
     private List<Fragment> fragmentList;
@@ -115,7 +117,7 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
                         }
                     }
                 });
-                p_showGoodsCarForImg_.getData(3321, goodsimg, Shop_Details_Activity.this);
+                p_showGoodsCarForImg_.getData(MyApplication.userno, goodsimg, Shop_Details_Activity.this);
 
             }
         }).start();
@@ -235,6 +237,10 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
         }
         Toast.makeText(Shop_Details_Activity.this, "添加成功", Toast.LENGTH_SHORT).show();
         goodsNum++;
+        if (goodsNum > 0) {
+            Details_Badge.setVisibility(View.VISIBLE);
+            Details_Badge.setText(goodsNum + "");
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -245,7 +251,7 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
                     }
                 });
 
-                p_addGoodsCar.initData(3321, goodsname, goodsimg, (int) aLong, goodsNum);
+                p_addGoodsCar.initData(MyApplication.userno, goodsname, goodsimg, (int) aLong, goodsNum);
             }
         }).start();
 
@@ -261,7 +267,7 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
                         }
                     }
                 });
-                p_showGoodsCarForImg_.getData(3321, goodsimg, Shop_Details_Activity.this);
+                p_showGoodsCarForImg_.getData(MyApplication.userno, goodsimg, Shop_Details_Activity.this);
             }
         }).start();
 
