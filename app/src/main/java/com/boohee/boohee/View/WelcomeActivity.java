@@ -9,7 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.boohee.boohee.Bean.shop_Bean.UserBean;
 import com.boohee.boohee.R;
+
+import org.xutils.DbManager;
+import org.xutils.ex.DbException;
+import org.xutils.x;
 
 import butterknife.BindView;
 
@@ -19,6 +24,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private SharedPreferences sp = null;
     private SharedPreferences.Editor editor = null;
     private static boolean isLogo=false;
+    private DbManager db;
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -30,6 +36,13 @@ public class WelcomeActivity extends AppCompatActivity {
                     break;
                 case 2:
                     intent.setClass(WelcomeActivity.this, LoginActivity.class);
+
+//                    db= x.getDb(new DbManager.DaoConfig().setDbName("user"));
+//                    try {
+//                        db.saveOrUpdate(new UserBean(1,"admin","admin"));
+//                    } catch (DbException e) {
+//                        e.printStackTrace();
+//                    }
                     break;
                 default:
                     break;
