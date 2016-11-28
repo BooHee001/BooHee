@@ -44,4 +44,5 @@ dependencies {
     compile project(':pullToRefreshlibrary')
     compile 'com.daimajia.swipelayout:library:1.2.0'
     compile files('libs/alipaySdk-20161009.jar')
+    compile 'com.uwetrottmann.photoview:library:1.2.4'
 }
