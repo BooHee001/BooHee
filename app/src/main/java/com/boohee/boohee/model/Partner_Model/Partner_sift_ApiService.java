@@ -1,6 +1,6 @@
 package com.boohee.boohee.model.Partner_Model;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_sift;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

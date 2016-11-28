@@ -5,25 +5,19 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.boohee.boohee.Bean.Shop_Bean.Shop_Goods;
+import com.boohee.boohee.Bean.shop_Bean.Shop_Goods;
 import com.boohee.boohee.R;
 import com.boohee.boohee.View.Shop_View.Shop_Details_Activity;
 import com.boohee.boohee.View.Shop_View.Shop_GridView_Activity;
 import com.bumptech.glide.Glide;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
-
-import butterknife.ButterKnife;
 
 /**
  * Created by as on 2016/11/20.

@@ -9,8 +9,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
-import com.boohee.boohee.Bean.Shop_Bean.OrderEntity;
+import com.boohee.boohee.Bean.shop_Bean.GoodsCarBean;
+import com.boohee.boohee.Bean.shop_Bean.OrderEntity;
 import com.boohee.boohee.R;
 import com.boohee.boohee.Utils.Shop_Utils.PayResult;
 import com.boohee.boohee.Utils.Shop_Utils.SideslipListView;

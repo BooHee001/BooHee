@@ -1,4 +1,4 @@
-package com.boohee.boohee.Bean.Shop_Bean.Partner_Bean;
+package com.boohee.boohee.Bean.shop_Bean.partner_Bean;
 
 import java.util.List;
 

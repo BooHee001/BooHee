@@ -3,7 +3,7 @@ package com.boohee.boohee.model.Shop_Model;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
+import com.boohee.boohee.Bean.shop_Bean.GoodsCarBean;
 import com.boohee.boohee.View.MyApplication;
 import com.boohee.boohee.presenter.Shop_Presenter.P_ShowGoodsCar;
 
@@ -16,13 +16,6 @@ import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by as on 2016/11/25.

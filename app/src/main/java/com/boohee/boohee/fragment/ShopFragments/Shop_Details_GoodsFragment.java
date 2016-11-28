@@ -9,9 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.boohee.boohee.Bean.Shop_Bean.Shop_GoodsInfo_Bean;
+import com.boohee.boohee.Bean.shop_Bean.Shop_GoodsInfo_Bean;
 import com.boohee.boohee.R;
 import com.boohee.boohee.View.Shop_View.V_Shop_GoodsInfo;
 import com.boohee.boohee.adapter.Shop_Adapter.Shop_GoodsInfo_ViewPager_Adapter;

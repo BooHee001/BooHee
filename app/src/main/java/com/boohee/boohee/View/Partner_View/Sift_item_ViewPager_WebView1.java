@@ -9,8 +9,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.MyChromClient;
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.MyWebViewClient;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.MyChromClient;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.MyWebViewClient;
 import com.boohee.boohee.R;
 
 public class Sift_item_ViewPager_WebView1 extends AppCompatActivity {

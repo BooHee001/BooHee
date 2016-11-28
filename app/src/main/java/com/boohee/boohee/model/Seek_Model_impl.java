@@ -1,6 +1,6 @@
 package com.boohee.boohee.model;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_friends;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_friends;
 import com.boohee.boohee.PhotoBean.Seek_Bean;
 import com.boohee.boohee.model.Partner_Model.Partner_friends_ApiService;
 import com.boohee.boohee.presenter.P_Seek;

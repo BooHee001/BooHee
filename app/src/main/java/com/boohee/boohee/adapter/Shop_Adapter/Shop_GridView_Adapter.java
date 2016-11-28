@@ -8,8 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.boohee.boohee.Bean.Shop_Bean.Shop_Goods;
-import com.boohee.boohee.Bean.Shop_Bean.Shop_Goods_Item;
+import com.boohee.boohee.Bean.shop_Bean.Shop_Goods_Item;
 import com.boohee.boohee.R;
 import com.bumptech.glide.Glide;
 

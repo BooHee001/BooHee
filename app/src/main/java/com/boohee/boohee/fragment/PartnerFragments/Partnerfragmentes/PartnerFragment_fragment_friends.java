@@ -11,14 +11,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_friends;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_friends;
 import com.boohee.boohee.R;
 import com.boohee.boohee.View.Partner_View.V_Partner_friends;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_friends_ListView_Adapter;
-import com.boohee.boohee.presenter.Partner_Presenter.P_friends_Partner;
 import com.boohee.boohee.presenter.Partner_Presenter.P_friends_Partner_Impl;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+
 
 /**
  * Created by PF on 2016/11/18.

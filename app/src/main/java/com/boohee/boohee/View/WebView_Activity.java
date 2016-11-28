@@ -10,8 +10,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.MyChromClient;
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.MyWebViewClient;
 import com.boohee.boohee.R;
 
 public class WebView_Activity extends AppCompatActivity {

@@ -3,11 +3,10 @@ package com.boohee.boohee.model.Shop_Model;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
+import com.boohee.boohee.Bean.shop_Bean.GoodsCarBean;
 import com.boohee.boohee.View.MyApplication;
 import com.boohee.boohee.presenter.Shop_Presenter.P_ShowGoodsCarForImg;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;

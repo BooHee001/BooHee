@@ -1,18 +1,18 @@
 [
     {
-        "merged": "F:\\Android_wokespoce\\BooHee\\BooHee\\pullToRefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\slide_in_from_bottom.xml",
-        "source": "F:\\Android_wokespoce\\BooHee\\BooHee\\pullToRefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_in_from_bottom.xml"
+        "merged": "/Users/Dizner/Desktop/BooHee/pullToRefreshlibrary/build/intermediates/res/merged/androidTest/debug/anim/slide_out_to_top.xml",
+        "source": "/Users/Dizner/Desktop/BooHee/pullToRefreshlibrary/build/intermediates/bundles/debug/res/anim/slide_out_to_top.xml"
     },
     {
-        "merged": "F:\\Android_wokespoce\\BooHee\\BooHee\\pullToRefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\slide_out_to_bottom.xml",
-        "source": "F:\\Android_wokespoce\\BooHee\\BooHee\\pullToRefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_out_to_bottom.xml"
+        "merged": "/Users/Dizner/Desktop/BooHee/pullToRefreshlibrary/build/intermediates/res/merged/androidTest/debug/anim/slide_out_to_bottom.xml",
+        "source": "/Users/Dizner/Desktop/BooHee/pullToRefreshlibrary/build/intermediates/bundles/debug/res/anim/slide_out_to_bottom.xml"
     },
     {
-        "merged": "F:\\Android_wokespoce\\BooHee\\BooHee\\pullToRefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\slide_in_from_top.xml",
-        "source": "F:\\Android_wokespoce\\BooHee\\BooHee\\pullToRefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_in_from_top.xml"
+        "merged": "/Users/Dizner/Desktop/BooHee/pullToRefreshlibrary/build/intermediates/res/merged/androidTest/debug/anim/slide_in_from_top.xml",
+        "source": "/Users/Dizner/Desktop/BooHee/pullToRefreshlibrary/build/intermediates/bundles/debug/res/anim/slide_in_from_top.xml"
     },
     {
-        "merged": "F:\\Android_wokespoce\\BooHee\\BooHee\\pullToRefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\slide_out_to_top.xml",
-        "source": "F:\\Android_wokespoce\\BooHee\\BooHee\\pullToRefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_out_to_top.xml"
+        "merged": "/Users/Dizner/Desktop/BooHee/pullToRefreshlibrary/build/intermediates/res/merged/androidTest/debug/anim/slide_in_from_bottom.xml",
+        "source": "/Users/Dizner/Desktop/BooHee/pullToRefreshlibrary/build/intermediates/bundles/debug/res/anim/slide_in_from_bottom.xml"
     }
 ]

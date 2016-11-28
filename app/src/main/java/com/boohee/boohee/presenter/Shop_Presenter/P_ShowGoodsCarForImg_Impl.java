@@ -2,7 +2,7 @@ package com.boohee.boohee.presenter.Shop_Presenter;
 
 import android.content.Context;
 
-import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
+import com.boohee.boohee.Bean.shop_Bean.GoodsCarBean;
 import com.boohee.boohee.View.Shop_View.V_ShowGoodsCarForImg;
 import com.boohee.boohee.model.Shop_Model.M_ShowGoodsCarForImg_Impl;
 

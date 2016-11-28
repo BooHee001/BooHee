@@ -5,12 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_friends;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_friends;
 import com.boohee.boohee.R;
 import com.bumptech.glide.Glide;
 

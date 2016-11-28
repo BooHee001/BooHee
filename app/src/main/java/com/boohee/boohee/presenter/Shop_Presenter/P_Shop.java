@@ -1,6 +1,6 @@
 package com.boohee.boohee.presenter.Shop_Presenter;
 
-import com.boohee.boohee.Bean.Shop_Bean.Shop_Goods;
+import com.boohee.boohee.Bean.shop_Bean.Shop_Goods;
 
 /**
  * Created by as on 2016/11/20.

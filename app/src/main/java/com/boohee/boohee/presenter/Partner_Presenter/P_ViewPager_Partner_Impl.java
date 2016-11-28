@@ -1,6 +1,6 @@
 package com.boohee.boohee.presenter.Partner_Presenter;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_ViewPager;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_ViewPager;
 import com.boohee.boohee.View.Partner_View.V_Partner_ViewPager;
 import com.boohee.boohee.model.Partner_Model.Partner_ViewPager_Model_impl;
 

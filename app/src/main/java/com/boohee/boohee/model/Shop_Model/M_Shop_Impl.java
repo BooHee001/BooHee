@@ -2,17 +2,13 @@ package com.boohee.boohee.model.Shop_Model;
 
 import android.util.Log;
 
-import com.boohee.boohee.Bean.Shop_Bean.Shop_Goods;
+import com.boohee.boohee.Bean.shop_Bean.Shop_Goods;
 import com.boohee.boohee.presenter.Shop_Presenter.P_Shop;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
-import rx.Scheduler;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

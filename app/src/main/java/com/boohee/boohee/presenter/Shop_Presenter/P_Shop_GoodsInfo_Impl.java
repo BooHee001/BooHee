@@ -1,6 +1,6 @@
 package com.boohee.boohee.presenter.Shop_Presenter;
 
-import com.boohee.boohee.Bean.Shop_Bean.Shop_GoodsInfo_Bean;
+import com.boohee.boohee.Bean.shop_Bean.Shop_GoodsInfo_Bean;
 import com.boohee.boohee.View.Shop_View.V_Shop_GoodsInfo;
 import com.boohee.boohee.model.Shop_Model.M_Shop_GoodsInfo;
 import com.boohee.boohee.model.Shop_Model.M_Shop_GoodsInfo_Impl;

@@ -1,6 +1,6 @@
 package com.boohee.boohee.View.Shop_View;
 
-import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
+import com.boohee.boohee.Bean.shop_Bean.GoodsCarBean;
 
 import java.util.List;
 

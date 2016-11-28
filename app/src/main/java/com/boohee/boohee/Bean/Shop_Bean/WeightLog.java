@@ -1,4 +1,4 @@
-package com.boohee.boohee.Bean.Shop_Bean;
+package com.boohee.boohee.Bean.shop_Bean;
 
 import org.xutils.db.annotation.Column;
 import org.xutils.db.annotation.Table;

@@ -29,6 +29,7 @@ import com.boohee.boohee.adapter.Partner_Adapter.partner_listener.OnClickGoPhoto
 import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
+
 public class PhotoActivity extends AppCompatActivity {
     @ViewInject(R.id.photo_content)
     private ViewPager photo_content;

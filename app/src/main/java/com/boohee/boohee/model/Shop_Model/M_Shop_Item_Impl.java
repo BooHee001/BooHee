@@ -1,9 +1,6 @@
 package com.boohee.boohee.model.Shop_Model;
 
-import android.util.Log;
-
-import com.boohee.boohee.Bean.Shop_Bean.Shop_Goods;
-import com.boohee.boohee.Bean.Shop_Bean.Shop_Goods_Item;
+import com.boohee.boohee.Bean.shop_Bean.Shop_Goods_Item;
 import com.boohee.boohee.presenter.Shop_Presenter.P_Shop_Item;
 import com.google.gson.Gson;
 

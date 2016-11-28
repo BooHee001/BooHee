@@ -14,7 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
+//import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
+import com.boohee.boohee.Bean.shop_Bean.GoodsCarBean;
 import com.boohee.boohee.R;
 import com.boohee.boohee.Utils.Shop_Utils.SideslipListView;
 import com.boohee.boohee.View.MyApplication;

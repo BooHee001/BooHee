@@ -2,7 +2,7 @@ package com.boohee.boohee.presenter.Shop_Presenter;
 
 import android.app.Activity;
 
-import com.boohee.boohee.Bean.Shop_Bean.OrderEntity;
+import com.boohee.boohee.Bean.shop_Bean.OrderEntity;
 import com.boohee.boohee.Utils.Shop_Utils.PayResult;
 import com.boohee.boohee.View.Shop_View.Alipay_view;
 import com.boohee.boohee.model.Shop_Model.AlipayService;

@@ -1,6 +1,6 @@
 package com.boohee.boohee.model.Partner_Model;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_sift;
 import com.boohee.boohee.presenter.Partner_Presenter.P_sift_Partner;
 
 import retrofit2.Retrofit;

@@ -6,8 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_ViewPager;
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_ViewPager;
 import com.bumptech.glide.Glide;
 
 import java.util.List;

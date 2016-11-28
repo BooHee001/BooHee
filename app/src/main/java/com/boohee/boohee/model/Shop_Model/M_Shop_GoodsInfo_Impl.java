@@ -1,6 +1,6 @@
 package com.boohee.boohee.model.Shop_Model;
 
-import com.boohee.boohee.Bean.Shop_Bean.Shop_GoodsInfo_Bean;
+import com.boohee.boohee.Bean.shop_Bean.Shop_GoodsInfo_Bean;
 import com.boohee.boohee.presenter.Shop_Presenter.P_Shop_GoodsInfo;
 import com.google.gson.Gson;
 

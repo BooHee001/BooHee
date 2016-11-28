@@ -13,7 +13,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.alipay.sdk.app.PayTask;
-import com.boohee.boohee.Bean.Shop_Bean.OrderEntity;
+import com.boohee.boohee.Bean.shop_Bean.OrderEntity;
 import com.boohee.boohee.Utils.Shop_Utils.PayResult;
 import com.boohee.boohee.Utils.Shop_Utils.SignUtils;
 import com.boohee.boohee.presenter.Shop_Presenter.AliPayPersenter;

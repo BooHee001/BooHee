@@ -16,8 +16,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_ViewPager;
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_sift;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_ViewPager;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_sift;
 import com.boohee.boohee.R;
 import com.boohee.boohee.View.Partner_View.Sift_WebView_hot_Activity;
 import com.boohee.boohee.View.Partner_View.Sift_loseweight_WebView_Activity;

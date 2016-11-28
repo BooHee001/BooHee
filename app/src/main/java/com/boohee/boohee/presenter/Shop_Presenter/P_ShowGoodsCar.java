@@ -1,6 +1,6 @@
 package com.boohee.boohee.presenter.Shop_Presenter;
 
-import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
+import com.boohee.boohee.Bean.shop_Bean.GoodsCarBean;
 
 import java.util.List;
 

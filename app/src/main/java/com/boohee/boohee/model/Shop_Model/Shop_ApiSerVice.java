@@ -1,12 +1,7 @@
 package com.boohee.boohee.model.Shop_Model;
 
-import com.boohee.boohee.Bean.Shop_Bean.GoodsCarBean;
-import com.boohee.boohee.Bean.Shop_Bean.Shop_Goods;
+import com.boohee.boohee.Bean.shop_Bean.Shop_Goods;
 
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;

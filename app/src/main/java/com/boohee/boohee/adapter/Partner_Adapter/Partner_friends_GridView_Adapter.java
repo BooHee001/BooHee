@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import com.boohee.boohee.Bean.Shop_Bean.Partner_Bean.Partner_friends;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_friends;
 import com.boohee.boohee.R;
 import com.boohee.boohee.adapter.Partner_Adapter.partner_listener.OnClickGoPhoto;
 import com.bumptech.glide.Glide;
