@@ -119,13 +119,13 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
 
     private void initData() {
 
-        intent = getIntent();
-        goodsname = intent.getStringExtra("goodsname");
-        goodsimg = intent.getStringExtra("goodsimg");
-        goodspic = intent.getStringExtra("goodspic");
-        if(goodspic !=null) {
-            aLong = Double.parseDouble(goodspic);
-        }
+//        intent = getIntent();
+//        goodsname = intent.getStringExtra("goodsname");
+//        goodsimg = intent.getStringExtra("goodsimg");
+//        goodspic = intent.getStringExtra("goodspic");
+//        if(goodspic !=null) {
+//            aLong = Double.parseDouble(goodspic);
+//        }
     }
 
     //事件监听
@@ -182,7 +182,7 @@ public class Shop_Details_Activity extends AppCompatActivity implements View.OnC
                 P_Shop_GoodsInfo_Impl p_shop_goodsInfo = new P_Shop_GoodsInfo_Impl(new V_Shop_GoodsInfo() {
                     @Override
                     public void setData(Shop_GoodsInfo_Bean shop_goodsInfo_bean) {
-                        goodsname = shop_goodsInfo_bean.getGoods().getCategory_name();
+                        goodsname = shop_goodsInfo_bean.getGoods().getTitle();
                         goodsimg = shop_goodsInfo_bean.getGoods().getBig_photo_url();
                         aLong = shop_goodsInfo_bean.getGoods().getMarket_price();
                     }

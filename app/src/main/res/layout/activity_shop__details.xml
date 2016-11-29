@@ -146,7 +146,7 @@
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/a7x" />
+                    android:background="@drawable/goodscar" />
 
                 <com.boohee.boohee.Utils.Shop_Utils.BadgeView
                     android:id="@+id/Details_Badge"
@@ -184,7 +184,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/a7q" />
+                   android:background="@drawable/lianxikefu" />
             </RelativeLayout>
 
         </android.support.v7.widget.CardView>
@@ -200,7 +200,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#E7CECE"
+                android:background="@drawable/goodscar_bay"
                 android:gravity="center"
                 android:text="立即购买"
                 android:textColor="#DF6A6A"
@@ -219,7 +219,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#DF6A6A"
+                android:background="@drawable/addgoodscar"
                 android:gravity="center"
                 android:text="加入购物车"
                 android:textColor="#fff"
