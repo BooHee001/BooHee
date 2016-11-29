@@ -153,7 +153,7 @@
                     android:layout_marginLeft="8dp"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     app:cardCornerRadius="5dp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
                     app:cardElevation="8dp"
                     app:contentPadding="5dp"
                     >
@@ -202,7 +202,7 @@
                     android:layout_marginLeft="8dp"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     app:cardCornerRadius="5dp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
                     app:cardElevation="8dp"
                     app:contentPadding="5dp"
                     >
@@ -353,7 +353,7 @@
                     android:layout_marginLeft="8dp"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     app:cardCornerRadius="5dp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
                     app:cardElevation="8dp"
                     app:contentPadding="5dp"
                     >
@@ -437,9 +437,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="10dp"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     app:cardCornerRadius="5dp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
                     app:cardElevation="8dp"
                     app:contentPadding="5dp"
                     >

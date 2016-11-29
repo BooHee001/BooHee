@@ -23,6 +23,7 @@ import com.boohee.boohee.R;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -63,13 +64,16 @@ public class HotLogActivity extends AppCompatActivity implements View.OnClickLis
     public LinearLayout hot_addyun;
     private AlertDialog dateDialog=null;
     private CardView date_goteday=null;
+    private CardView date_ok=null;
     private CalendarView date=null;
     private LinearLayout layout=null;
     private static String dateNow=null;
     private static int date_1=0;
     private static int date_2=0;
     private static int date_3=0;
-    private Date dat=null;
+    //全局时间戳
+    private Date time=null;
+    private SimpleDateFormat format;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +99,7 @@ public class HotLogActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onSelectedDayChange(CalendarView calendarView, int i, int i1, int i2) {
                 date_1=i;
-                date_2=i1;
+                date_2=i1+1;
                 date_3=i2;
                 hot_time.setText(date_1+"-"+date_2+"-"+date_3);
             }
@@ -114,11 +118,18 @@ public class HotLogActivity extends AppCompatActivity implements View.OnClickLis
                 .setView(layout)
                 .create();
         date_goteday = (CardView) layout.findViewById(R.id.date_goteday);
+        date_ok = (CardView) layout.findViewById(R.id.date_ok);
         date = (CalendarView) layout.findViewById(R.id.date);
         date.setDate(new Date().getTime(),true,true);
         date_goteday.setOnClickListener(this);
+        date_ok.setOnClickListener(this);
         date.setOnClickListener(this);
-        hot_time.setText(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+        format = new SimpleDateFormat("yyyy-MM-dd");
+        time = new Date();
+//        date_1 = Integer.parseInt(time.substring(0,4));
+//        date_2 = Integer.parseInt(time.substring(5,7));
+//        date_3 = Integer.parseInt(time.substring(8,10));
+        hot_time.setText(format.format(time));
         //摄入量
         hot_sheru.setText("120");
         //还可以吃/千卡
@@ -132,13 +143,12 @@ public class HotLogActivity extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()) {
             //月份显示
             case R.id.hot_time:
-                SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+
                 try {
-                    dat = format.parse(hot_time.getText().toString());
+                    date.setDate(format.parse(hot_time.getText().toString()).getTime());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                date.setDate(dat.getTime());
                 dateDialog.show();
                 Window window = dateDialog.getWindow();
                 WindowManager.LayoutParams attributes = window.getAttributes();
@@ -154,13 +164,22 @@ public class HotLogActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             //月份加
             case R.id.hot_time_jia:
-                date_3=date_3+1;
-                hot_time.setText(date_1+"-"+date_2+"-"+date_3);
+                try {
+                    long time = format.parse(hot_time.getText().toString()).getTime();
+                    hot_time.setText(format.format(new Date(time + 24 * 60 * 60 * 1000)));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 break;
             //月份减
             case R.id.hot_time_jian:
-                date_3=date_3-1;
-                hot_time.setText(date_1+"-"+date_2+"-"+date_3);
+                long time = 0;
+                try {
+                    time = format.parse(hot_time.getText().toString()).getTime();
+                    hot_time.setText(format.format(new Date(time - 24 * 60 * 60 * 1000)));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 break;
             //更多菜单
             case R.id.hot_menu:
@@ -194,6 +213,10 @@ public class HotLogActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.date_goteday:
                 date.setDate(new Date().getTime(),true,true);
                 hot_time.setText(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+                break;
+            //日历选择回到今日
+            case R.id.date_ok:
+                dateDialog.cancel();
                 break;
             default:
                 break;

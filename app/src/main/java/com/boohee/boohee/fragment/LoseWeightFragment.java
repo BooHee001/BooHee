@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,6 +32,7 @@ import com.boohee.boohee.Bean.shop_Bean.WeightLog;
 import com.boohee.boohee.R;
 import com.boohee.boohee.View.HotLogActivity;
 import com.boohee.boohee.View.MainActivity;
+import com.boohee.boohee.View.WeightActivity;
 import com.github.lzyzsd.circleprogress.ArcProgress;
 
 import org.xutils.DbManager;
@@ -88,10 +90,11 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
     private LinearLayout card_layout;
     private boolean isUp=false;
     private boolean isDown=false;
+    private static boolean isShow=false;
     private float lastY=0;
     private float lastX=0;
     private DbManager dbType=null;
-
+    private Rect rect=null;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Nullable
     @Override
@@ -124,13 +127,13 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
             //临时写入数据的方法
             try {
                 //体重记录
-                db.save(new WeightLog(1,1,56.2f));
-                db.save(new WeightLog(2,2,56.3f));
-                db.save(new WeightLog(3,3,56.4f));
-                db.save(new WeightLog(4,4,56.2f));
-                db.save(new WeightLog(5,5,56.5f));
-                db.save(new WeightLog(6,6,56.3f));
-                db.save(new WeightLog(7,7,56.5f));
+                db.save(new WeightLog(1,"1",56.2f));
+                db.save(new WeightLog(2,"2",56.3f));
+                db.save(new WeightLog(3,"3",56.4f));
+                db.save(new WeightLog(4,"4",56.2f));
+                db.save(new WeightLog(5,"5",56.5f));
+                db.save(new WeightLog(6,"6",56.3f));
+                db.save(new WeightLog(7,"7",56.5f));
             } catch (DbException e) {
                 e.printStackTrace();
             }
@@ -168,8 +171,7 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
                 home_r1.setLayoutParams(new RelativeLayout.LayoutParams(width,(home_r1.getHeight() +scrollY/3-oldScrollY/3)));
             }
         });
-
-
+        rect=new Rect(0,0,width,hight);
         home_cardgroup.setOnTouchListener(new View.OnTouchListener() {
             public float dX=0;
             public float dY=0;
@@ -208,7 +210,8 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
 //                            home_r2.setLayoutParams(new RelativeLayout.LayoutParams(width, (int) (home_r2.getHeight() +dY)));
                             textView5.setVisibility(View.VISIBLE);
                             textView5.setTextSize(dY/4);
-                            if (dY>8) {
+
+                            if (dY>8&&isShow) {
                                 setAnim(300);
                             }
 
@@ -219,6 +222,12 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
                         Log.d("测试,主页滑动","手指抬起"+true);
                         textView5.setVisibility(View.INVISIBLE);
                         textView5.setTextSize(20);
+                        boolean visibleRect = home_search.getLocalVisibleRect(rect);
+                        if (visibleRect) {
+                            isShow=true;
+                        }else {
+                            isShow=false;
+                        }
 //                        if (isUp) {
 //                            setAnim(300);
 //                        }
@@ -421,8 +430,8 @@ public class LoseWeightFragment extends Fragment implements View.OnClickListener
                 break;
             //体重记录
             case R.id.home_weightlog:
-//                intent =  ;
-//                getActivity().startActivity(intent);
+                intent.setClass(getActivity(),WeightActivity.class);
+                getActivity().startActivity(intent);
                 break;
             //步数记录
             case R.id.home_steplog:

@@ -11,9 +11,30 @@ public class WeightLog {
     @Column(name = "_id",isId = true,autoGen = true)
     private int id;
     @Column(name = "date")
-    private int date;
+    private String date;
     @Column(name = "weight")
     private float weight;
+    @Column(name = "position")
+    private int position;
+
+    public WeightLog(int id, String date, float weight, int position) {
+        this.id = id;
+        this.date = date;
+        this.weight = weight;
+        this.position = position;
+    }
+
+    public WeightLog(String date, float weight, int position) {
+        this.date = date;
+        this.weight = weight;
+        this.position = position;
+    }
+
+    public WeightLog(int id, String date, float weight) {
+        this.id = id;
+        this.date = date;
+        this.weight = weight;
+    }
 
     public int getId() {
         return id;
@@ -23,11 +44,11 @@ public class WeightLog {
         this.id = id;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -39,10 +60,12 @@ public class WeightLog {
         this.weight = weight;
     }
 
-    public WeightLog(int id, int date, float weight) {
-        this.id = id;
-        this.date = date;
-        this.weight = weight;
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public WeightLog() {
