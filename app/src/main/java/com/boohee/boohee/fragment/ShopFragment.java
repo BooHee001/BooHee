@@ -10,10 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.boohee.boohee.Bean.shop_Bean.Shop_Goods;
 import com.boohee.boohee.R;
 import com.boohee.boohee.Utils.Shop_Utils.BadgeView;
+import com.boohee.boohee.View.Message_Classifcamation;
+import com.boohee.boohee.View.Message_classification_Activity;
+import com.boohee.boohee.View.Seek_Activity;
 import com.boohee.boohee.View.Shop_View.DingDan_Activity;
 import com.boohee.boohee.View.Shop_View.GoodsCar_Activity;
 import com.boohee.boohee.View.Shop_View.V_Shop;
@@ -24,6 +28,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Dizner on 2016/11/18.
@@ -41,12 +46,15 @@ public class ShopFragment extends Fragment {
     BadgeView shop_Badge;
     @BindView(R.id.Shop_ListView)
     PullToRefreshListView shop_ListView;
+
+    Intent intent =null;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if(view ==null) {
             view = inflater.inflate(R.layout.shop_fragment, container, false);
             ButterKnife.bind(this,view);
+            intent = new Intent();
             Shop_Fragment_Loading.setVisibility(View.VISIBLE);
             ListView listView =shop_ListView.getRefreshableView();
             //给listviewS设置头部
@@ -88,6 +96,18 @@ public class ShopFragment extends Fragment {
        });
     }
 
+    @OnClick(R.id.Shop_Search)
+    public  void Shop_Search(View v){
+        intent.setClass(getActivity(), Seek_Activity.class);
+        getContext().startActivity(intent);
+    }
+    @OnClick(R.id.Shop_Message)
+    public  void Shop_Message(View v){
+        intent.setClass(getActivity(), Message_Classifcamation   .class);
+        getContext().startActivity(intent);
+//        Toast.makeText(getActivity(), "aaaaa", Toast.LENGTH_SHORT).show();
+
+    }
     private void setData() {
         P_Shop_Impl p_Shop = new P_Shop_Impl(new V_Shop() {
             @Override

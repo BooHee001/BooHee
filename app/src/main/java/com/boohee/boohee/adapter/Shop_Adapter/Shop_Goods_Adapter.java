@@ -53,46 +53,47 @@ public class Shop_Goods_Adapter extends BaseAdapter {
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
         final ImageView iv = (ImageView) LayoutInflater.from(context).inflate(R.layout.shop_listview_itemimageview, parent, false);
-            if (position ==0) {
+//            if (position ==0) {
+//            if (shop_goods.getDatas().get(position).getList().size() > 0) {
+//                Shop_Goods.DatasBean.ListBean listBean = shop_goods.getDatas().get(position).getList().get(0);
+//                String default_photo_url = listBean.getDefault_photo_url();
+//                if (default_photo_url != null) {
+//                    Glide.with(context)
+//                            .load(default_photo_url)
+//                            .into(iv);
+//
+//                    //条目点击事件
+//                    iv.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            if (position == 0) {
+//                                Shop_Goods.DatasBean.ListBean listBean = shop_goods.getDatas().get(position).getList().get(0);
+//                                intent.setClass(context, Shop_GridView_Activity.class);
+//                                intent.putExtra("exhibit", listBean.getExhibit());
+//                                intent.putExtra("exhibit_type", listBean.getExhibit_type());
+//                                context.startActivity(intent);
+//                            }
+//                            if (position == 2) {
+//                                Shop_Goods.DatasBean.ListBean listBean = shop_goods.getDatas().get(position).getList().get(0);
+//                                intent.setClass(context, Shop_GridView_Activity.class);
+//                                intent.putExtra("exhibit", listBean.getExhibit());
+//                                intent.putExtra("exhibit_type", listBean.getExhibit_type());
+//                                context.startActivity(intent);
+//                            }
+//                        }
+//                    });
+//                }
+//                }else {
+//                ViewGroup.LayoutParams layoutParams = iv.getLayoutParams();
+//                layoutParams.height = 0;
+//                iv.setLayoutParams(layoutParams);
+//
+//            }
+//            return iv;
+//        }else
+       if (position < 11) {
             if (shop_goods.getDatas().get(position).getList().size() > 0) {
-                Shop_Goods.DatasBean.ListBean listBean = shop_goods.getDatas().get(position).getList().get(0);
-                String default_photo_url = listBean.getDefault_photo_url();
-                if (default_photo_url != null) {
-                    Glide.with(context)
-                            .load(default_photo_url)
-                            .into(iv);
-
-                    //条目点击事件
-                    iv.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (position == 0) {
-                                Shop_Goods.DatasBean.ListBean listBean = shop_goods.getDatas().get(position).getList().get(0);
-                                intent.setClass(context, Shop_GridView_Activity.class);
-                                intent.putExtra("exhibit", listBean.getExhibit());
-                                intent.putExtra("exhibit_type", listBean.getExhibit_type());
-                                context.startActivity(intent);
-                            }
-                            if (position == 2) {
-                                Shop_Goods.DatasBean.ListBean listBean = shop_goods.getDatas().get(position).getList().get(0);
-                                intent.setClass(context, Shop_GridView_Activity.class);
-                                intent.putExtra("exhibit", listBean.getExhibit());
-                                intent.putExtra("exhibit_type", listBean.getExhibit_type());
-                                context.startActivity(intent);
-                            }
-                        }
-                    });
-                }
-                }else {
-                ViewGroup.LayoutParams layoutParams = iv.getLayoutParams();
-                layoutParams.height = 0;
-                iv.setLayoutParams(layoutParams);
-
-            }
-            return iv;
-        }else if (position < 11) {
-            if (shop_goods.getDatas().get(position).getList().size() > 0) {
-                if (getItemViewType(position) == 1) {
+                if (getItemViewType(position) == 0) {
                     String default_photo_url = shop_goods.getDatas().get(position).getList().get(0).getDefault_photo_url();
                     if (default_photo_url != null) {
                         Glide.with(context)
