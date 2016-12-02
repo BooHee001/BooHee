@@ -84,9 +84,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private PhotoAdapter adapter = null;
     private int hight = 0;
     private List<String> photoList = null;
-    private LoseWeightFragment losFragment=null;
-    public static boolean isShow=false;
-    private boolean isExit=false;
+    private LoseWeightFragment losFragment = null;
+    public static boolean isShow = false;
+    private boolean isExit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,19 +94,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                          | View.SYSTEM_UI_FLAG_VISIBLE
+                        | View.SYSTEM_UI_FLAG_VISIBLE
 //                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION//隐藏状态栏的布局
 //                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//内容布局填满屏幕
         );
         setContentView(R.layout.activity_main);
+        this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         hight = getWindowManager().getDefaultDisplay().getHeight();
-        losFragment=new LoseWeightFragment();
+        losFragment = new LoseWeightFragment();
         ButterKnife.bind(this);
         initView();
-
         setListener();
         transaction.add(R.id.Main_View, fragmentList.get(0));
         transaction.commit();
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     //给主页下面四个图片设置点击监听事件
@@ -169,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         photoList = new ArrayList<>();
         adapter = new PhotoAdapter(photoList, MainActivity.this);
         home_showPhoto.setAdapter(adapter);
-        Home_Persenter persenter=new Home_Presenter_impl(this);
+        Home_Persenter persenter = new Home_Presenter_impl(this);
         persenter.getData();
         setAnim(1);
 
@@ -244,7 +250,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         losFragment.setWelcomeImgs(data.getWelcome_img().getBack_img_small());
         adapter.notifyDataSetChanged();
-        home_showPhoto.setCurrentItem(photoList.size()-1);
+        home_showPhoto.setCurrentItem(photoList.size() - 1);
     }
 
 
@@ -252,26 +258,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ObjectAnimator animator = ObjectAnimator.ofFloat(home_showPhoto, "translationY", 0, -hight);
         animator.setDuration(duration);
         animator.start();
-        isShow=false;
+        isShow = false;
     }
-    private Handler handler=new Handler(){
+
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 1://处理返回键时间
-                    isExit=false;
+                    isExit = false;
                     break;
             }
         }
     };
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (isShow) {
                 setAnim(300);
-            }else if (isExit) {
+            } else if (isExit) {
                 //                new AlertDialog.Builder(MainActivity.this)
 //                        .setTitle("退出")
 //                        .setMessage("确定要退出么？")
@@ -285,10 +293,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                        .create()
 //                        .show();
                 finish();
-            }else{
-                Toast.makeText(MainActivity.this,"你还想退出？再按一次试试看",Toast.LENGTH_SHORT).show();
-                isExit=true;
-                handler.sendEmptyMessageDelayed(1,1000);
+            } else {
+                Toast.makeText(MainActivity.this, "你还想退出？再按一次试试看", Toast.LENGTH_SHORT).show();
+                isExit = true;
+                handler.sendEmptyMessageDelayed(1, 1000);
             }
 
 

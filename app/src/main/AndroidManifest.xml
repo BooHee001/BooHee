@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.MainActivity"/>
+        <activity android:name=".View.MainActivity" />
         <activity android:name=".View.Shop_View.Shop_Details_Activity" />
         <activity android:name=".View.Shop_View.Shop_GridView_Activity" />
         <activity android:name=".View.Shop_View.GoodsCar_Activity" />
@@ -20,17 +20,17 @@
         <activity android:name=".View.Partner_View.Sift_item_ViewPager_Activity" />
         <activity android:name=".View.Partner_View.Sift_item_ViewPager_WebView1" />
         <activity android:name=".View.Partner_View.PhotoActivity" />
-        <activity android:name=".View.Partner_View.Sift_reduce_WebView_Activity"/>
-        <activity android:name=".View.Message_Classifcamation"/>
-        <activity android:name=".View.WebView_Activity"/>
-        <activity android:name=".View.Seek_Activity"/>
-        <activity android:name=".View.Partner_View.Sift_succeed_WebView_Activity"/>
-        <activity android:name=".View.Partner_View.Sift_WebView_hot_Activity"/>
-        <activity android:name=".View.HotLogActivity"/>
-        <activity android:name=".View.LoginActivity"/>
-        <activity android:name=".View.ZhuCeActivity"/>
-        <activity android:name=".View.ZhuCe2Activity"/>
-        <activity android:name=".View.ZhuCe3Activity"/>
+        <activity android:name=".View.Partner_View.Sift_reduce_WebView_Activity" />
+        <activity android:name=".View.Message_Classifcamation" />
+        <activity android:name=".View.WebView_Activity" />
+        <activity android:name=".View.Seek_Activity" />
+        <activity android:name=".View.Partner_View.Sift_succeed_WebView_Activity" />
+        <activity android:name=".View.Partner_View.Sift_WebView_hot_Activity" />
+        <activity android:name=".View.HotLogActivity" />
+        <activity android:name=".View.LoginActivity" />
+        <activity android:name=".View.ZhuCeActivity" />
+        <activity android:name=".View.ZhuCe2Activity" />
+        <activity android:name=".View.ZhuCe3Activity" />
         <activity android:name=".View.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,7 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".View.WeightActivity"></activity>
     </application>
 
 </manifest>
