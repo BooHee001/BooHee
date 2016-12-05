@@ -1,6 +1,7 @@
 package com.boohee.boohee.View;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -46,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         }else {
             Toast.makeText(this, "用户名不能为空", Toast.LENGTH_SHORT).show();
         }
-        String pwd = userpwd.getText().toString();
+        final String pwd = userpwd.getText().toString();
         final int finalUserno = userno;
         P_Login_Impl p_login_ = new P_Login_Impl(new V_Login() {
             @Override
@@ -54,6 +55,12 @@ public class LoginActivity extends AppCompatActivity {
 
                 Loig_Loading.setVisibility(View.GONE);
                 if("success".equals(result)){
+                    SharedPreferences login = getSharedPreferences("Login", MODE_WORLD_READABLE + MODE_WORLD_WRITEABLE);
+                    SharedPreferences.Editor edit = login.edit();
+                    edit.putBoolean("islogin",true);
+                    edit.putInt("userno", finalUserno);
+                    edit.putString("pwd", pwd);
+                    edit.commit();
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     intent.putExtra("userno", finalUserno);
                     startActivity(intent);
