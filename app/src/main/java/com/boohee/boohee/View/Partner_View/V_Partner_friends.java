@@ -1,7 +1,8 @@
 package com.boohee.boohee.View.Partner_View;
 
+
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_friends;
-//import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_friends;
+
 
 /**
  * Created by Huochai on 2016/11/24.

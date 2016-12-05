@@ -1,7 +1,6 @@
 package com.boohee.boohee.fragment.PartnerFragments.Partnerfragmentes;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,20 +15,17 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_ViewPager;
+
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_sift;
+
 import com.boohee.boohee.R;
 import com.boohee.boohee.View.Partner_View.Sift_WebView_hot_Activity;
 import com.boohee.boohee.View.Partner_View.Sift_loseweight_WebView_Activity;
 import com.boohee.boohee.View.Partner_View.Sift_reduce_WebView_Activity;
 import com.boohee.boohee.View.Partner_View.Sift_succeed_WebView_Activity;
-import com.boohee.boohee.View.Partner_View.V_Partner_ViewPager;
 import com.boohee.boohee.View.Partner_View.V_Partner_sift;
-import com.boohee.boohee.View.WebView_Activity;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ListView_Adapter;
 import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_ViewPager_Adapter2;
-import com.boohee.boohee.adapter.Partner_Adapter.Partner_sift_viewPager_Adapter;
-import com.boohee.boohee.presenter.Partner_Presenter.P_ViewPager_Partner_Impl;
 import com.boohee.boohee.presenter.Partner_Presenter.P_sift_Partner_Impl;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -164,9 +160,7 @@ public class PartnerFragment_fragment_sift extends Fragment{
         sift_succeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                startActivity(new Intent(getActivity(), Sift_succeed_WebView_Activity.class));
-
             }
         });
         sift_reduce.setOnClickListener(new View.OnClickListener() {

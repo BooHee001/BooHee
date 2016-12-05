@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.boohee.boohee.R;
 import com.boohee.boohee.View.LoginActivity;
+import com.boohee.boohee.View.MainActivity;
 import com.boohee.boohee.View.Message_Classifcamation;
 import com.boohee.boohee.View.Partner_View.Sift_reduce_WebView_Activity;
 import com.boohee.boohee.View.Seek_Activity;
@@ -110,15 +111,28 @@ public class MeFragment extends Fragment {
                 startActivity(new Intent(getActivity(), Seek_Activity.class));
             }
         });
-//        me_personaldata.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(!isLogin){
-//                    Intent intent = new Intent(getActivity(), LoginActivity.class);
-//                    getContext().startActivity(intent);
-//                }
-//            }
-//        });
+        me_personaldata.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!isLogin){
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    getContext().startActivity(intent);
+                }
+            }
+        });
+        me_question.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences login = getContext().getSharedPreferences("Login", MODE_WORLD_READABLE + MODE_WORLD_WRITEABLE);
+                SharedPreferences.Editor edit = login.edit();
+                edit.putBoolean("islogin", false);
+                edit.commit();
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.putExtra("fragment", 3);
+               getContext().startActivity(intent);
+
+            }
+        });
 
     }
 

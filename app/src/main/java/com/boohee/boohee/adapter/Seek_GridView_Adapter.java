@@ -1,14 +1,17 @@
 package com.boohee.boohee.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boohee.boohee.PhotoBean.Seek_Bean;
 import com.boohee.boohee.R;
+import com.boohee.boohee.View.Seek_Activity;
 
 
 /**
@@ -45,7 +48,7 @@ public class Seek_GridView_Adapter extends BaseAdapter{
 
         Seek_GridView_Holder seek_gridView_holder;
 
-        if (convertView!=null){
+        if (convertView==null){
 
             convertView = LayoutInflater.from(context).inflate(R.layout.seek_item,parent,false);
             seek_gridView_holder = new Seek_GridView_Holder();
@@ -54,10 +57,13 @@ public class Seek_GridView_Adapter extends BaseAdapter{
             convertView.setTag(seek_gridView_holder);
         }else {
             seek_gridView_holder = (Seek_GridView_Holder) convertView.getTag();
+
         }
 
 
             String getSeekText = seek_item_list.getKeywords().get(position);
+
+
 
             if (getSeekText!=null){
                 seek_gridView_holder.seek_item_txt.setText(getSeekText);

@@ -4,15 +4,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
+
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.MyChromClient;
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.MyWebViewClient;
 import com.boohee.boohee.R;
+
 
 public class Sift_loseweight_WebView_Activity extends AppCompatActivity {
 

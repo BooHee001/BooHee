@@ -14,7 +14,7 @@ import rx.Observable;
 
 public interface Seek_ApiService {
     @GET("v2/ifoods/keywords")
-    Observable<Seek_Bean> getSeek(@Query("token") String token,@Query("user_key") String user_key);
+    Observable<Seek_Bean> getSeek(@Query("token") String token, @Query("user_key") String user_key);
 //    ,@Query("app_version") String app_version
 
 }

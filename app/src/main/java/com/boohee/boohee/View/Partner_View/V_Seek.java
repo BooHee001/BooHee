@@ -7,5 +7,5 @@ import com.boohee.boohee.PhotoBean.Seek_Bean;
  */
 
 public interface V_Seek {
-    void setSeek_Beans(String seek_bean);
+    void setSeek_Beans(Seek_Bean seek_bean);
 }

@@ -9,8 +9,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
+
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.MyChromClient;
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.MyWebViewClient;
+
 import com.boohee.boohee.R;
 
 public class Sift_succeed_WebView_Activity extends AppCompatActivity {
@@ -65,7 +67,7 @@ public class Sift_succeed_WebView_Activity extends AppCompatActivity {
             public void onReceivedTitle(String title) {
                 if (!TextUtils.isEmpty(title)){
                     setTitle(title);
-                    succeed_txt.setText(title);
+//                    succeed_txt.setText(title);
                 }
 
             }

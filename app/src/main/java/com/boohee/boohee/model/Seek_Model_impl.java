@@ -1,13 +1,10 @@
 package com.boohee.boohee.model;
 
-import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_friends;
-import com.boohee.boohee.PhotoBean.Seek_Bean;
-import com.boohee.boohee.model.Partner_Model.Partner_friends_ApiService;
-import com.boohee.boohee.presenter.P_Seek;
 
-import org.xutils.common.Callback;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
+import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_friends;
+
+import com.boohee.boohee.PhotoBean.Seek_Bean;
+import com.boohee.boohee.presenter.P_Seek;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -60,42 +57,42 @@ public class Seek_Model_impl implements Seek_Model{
 //        });
 
 
-//        Retrofit.Builder builder = new Retrofit.Builder();
-//        //让RE支持RXJava
-//        Retrofit retrofit = builder.addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-//                //让RXJava支持Gson
-//                .addConverterFactory(GsonConverterFactory.create())
-//                //加载url的域名
-//                .baseUrl("http://180.153.222.195")
-//                .build();
-////       status_api_version=1.1&token=w9eSJ5JcC3sySFicgim2&user_key=eabcb76b-eb40-4aa1-b3e8-6529106d6214
-//        //拼接URL
-//        Seek_ApiService seek_apiService = retrofit.create(Seek_ApiService.class);
-//
-//        seek_apiService.getSeek("w9eSJ5JcC3sySFicgim2", "eabcb76b-eb40-4aa1-b3e8-6529106d6214")
-////                , "5.6.3.1"
-//                .observeOn(AndroidSchedulers.mainThread())//定义被观察者在哪个线程中
-//                .subscribeOn(Schedulers.newThread())//定义观察者在哪个线程中
-//                //将观察者和被观察者联系起来(括号内为观察者)
-//                .subscribe(new Subscriber<Seek_Bean>() {
-//                    @Override
-//                    //这是个标记
-//                    public void onCompleted() {
-//
-//                    }
-//
-//                    @Override
-//                    //失败的时候
-//                    public void onError(Throwable e) {
-//
-//                    }
-//
-//                    @Override
-//                    //只有持有上面的标记才会执行这个
-//                    public void onNext(Seek_Bean seek_bean) {
-//                        p_seek.setSeek_Beans(seek_bean);
-//                    }
-//                });
+        Retrofit.Builder builder = new Retrofit.Builder();
+        //让RE支持RXJava
+        Retrofit retrofit = builder.addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                //让RXJava支持Gson
+                .addConverterFactory(GsonConverterFactory.create())
+                //加载url的域名
+                .baseUrl("http://180.153.222.195")
+                .build();
+//       status_api_version=1.1&token=w9eSJ5JcC3sySFicgim2&user_key=eabcb76b-eb40-4aa1-b3e8-6529106d6214
+        //拼接URL
+        Seek_ApiService seek_apiService = retrofit.create(Seek_ApiService.class);
+
+        seek_apiService.getSeek("w9eSJ5JcC3sySFicgim2", "eabcb76b-eb40-4aa1-b3e8-6529106d6214")
+//                , "5.6.3.1"
+                .observeOn(AndroidSchedulers.mainThread())//定义被观察者在哪个线程中
+                .subscribeOn(Schedulers.newThread())//定义观察者在哪个线程中
+                //将观察者和被观察者联系起来(括号内为观察者)
+                .subscribe(new Subscriber<Seek_Bean>() {
+                    @Override
+                    //这是个标记
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    //失败的时候
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    //只有持有上面的标记才会执行这个
+                    public void onNext(Seek_Bean seek_bean) {
+                        p_seek.setSeek_Beans(seek_bean);
+                    }
+                });
 
 
     }

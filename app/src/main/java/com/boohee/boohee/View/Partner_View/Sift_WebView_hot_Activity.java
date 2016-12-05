@@ -9,8 +9,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
+
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.MyChromClient;
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.MyWebViewClient;
+
 import com.boohee.boohee.R;
 
 public class Sift_WebView_hot_Activity extends AppCompatActivity {
@@ -29,8 +31,8 @@ public class Sift_WebView_hot_Activity extends AppCompatActivity {
     }
 
     private void initView() {
-        hot_webview = (WebView) findViewById(R.id.succeed_webview);
-        hot_txt = (TextView) findViewById(R.id.succeed_txt);
+        hot_webview = (WebView) findViewById(R.id.hot_webview);
+        hot_txt = (TextView) findViewById(R.id.hot_txt);
     }
 
     private void initData() {

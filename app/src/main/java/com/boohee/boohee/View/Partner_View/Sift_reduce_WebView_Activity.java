@@ -7,11 +7,12 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.MyChromClient;
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.MyWebViewClient;
+
 import com.boohee.boohee.R;
 
 public class Sift_reduce_WebView_Activity extends AppCompatActivity {

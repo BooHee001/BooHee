@@ -1,6 +1,8 @@
 package com.boohee.boohee.model.Partner_Model;
 
+
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_sift;
+
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -13,6 +15,6 @@ import rx.Observable;
 public interface Partner_sift_ApiService {
     @GET("api/v1/channels/posts")
 
-    Observable<Partner_sift> getPartner(@Query("slug") String slug,@Query("token") String token,@Query("user_key") String user_key);
+    Observable<Partner_sift> getPartner(@Query("slug") String slug, @Query("token") String token, @Query("user_key") String user_key);
 
 }

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_friends;
+
 import com.boohee.boohee.R;
 import com.bumptech.glide.Glide;
 

@@ -1,6 +1,8 @@
 package com.boohee.boohee.model.Partner_Model;
 
+
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_friends;
+
 
 
 import retrofit2.http.GET;

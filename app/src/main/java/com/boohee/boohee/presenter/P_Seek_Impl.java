@@ -18,7 +18,7 @@ public class P_Seek_Impl implements P_Seek{
     }
 
     @Override
-    public void setSeek_Beans(String seek_bean) {
+    public void setSeek_Beans(Seek_Bean seek_bean) {
         v_seek.setSeek_Beans(seek_bean);
     }
     public void initSeek(){

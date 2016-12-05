@@ -12,12 +12,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_sift;
+
 import com.boohee.boohee.R;
-import com.boohee.boohee.adapter.Partner_Adapter.partner_listener.OnClickGoPhoto;
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

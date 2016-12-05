@@ -112,11 +112,13 @@
                         android:layout_centerHorizontal="true">
 
                         <ImageView
+                            android:id="@+id/zhuce_Img"
                             android:layout_width="15dp"
                             android:layout_height="15dp"
                             android:background="@drawable/q3"
                             />
                         <TextView
+                            android:id="@+id/ZhuCe_Tex"
                             android:layout_width="wrap_content"
                             android:layout_height="20dp"
                             android:text="编辑资料"
@@ -492,7 +494,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="常见问题"
+                            android:text="退出登录"
                             android:textSize="12sp"
                             android:textColor="#000000"
                             android:layout_centerHorizontal="true"

@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+
 import com.boohee.boohee.Bean.shop_Bean.partner_Bean.Partner_friends;
+
 import com.boohee.boohee.R;
 import com.boohee.boohee.adapter.Partner_Adapter.partner_listener.OnClickGoPhoto;
 import com.bumptech.glide.Glide;
@@ -47,11 +49,7 @@ public class Partner_friends_GridView_Adapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Partner_friends.PostsBean.PhotosBean photosBeanx = partner_priends_photo_list.get(position);
-        List<String> beanuels = new ArrayList<>();
-        for (int i = 0; i < partner_priends_photo_list.size(); i++) {
-            beanuels.add(partner_priends_photo_list.get(i).getBig_url());
-        }
+
 
         Partner_GridView_Holder partner_gridView_holder;
         if (convertView == null){
@@ -74,6 +72,12 @@ public class Partner_friends_GridView_Adapter extends BaseAdapter{
                     .error(R.drawable.a3d)
                     .into(partner_gridView_holder.partner_priends_GridviewPic);
 //            x.image().bind(partner_gridView_holder.partner_priends_GridviewPic,small_url);
+        }
+
+        Partner_friends.PostsBean.PhotosBean photosBeanx = partner_priends_photo_list.get(position);
+        List<String> beanuels = new ArrayList<>();
+        for (int i = 0; i < partner_priends_photo_list.size(); i++) {
+            beanuels.add(partner_priends_photo_list.get(i).getBig_url());
         }
 
         for (int j = 0; j < beanuels.size(); j++) {
